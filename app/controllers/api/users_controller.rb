@@ -1,10 +1,11 @@
 class Api::UsersController < ApplicationController
-  before_action :require_logged_out, only: [:create]
+  # before_action :require_logged_out, only: [:create]
   wrap_parameters include: User.attribute_names + ['password']
 
   def index
     @users = User.all
-    render 'api/users/index'
+    # render 'api/users/index'
+    render json: @users
   end
 
   def show
