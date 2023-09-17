@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
   # before_action :require_logged_out, only: [:create]
-  wrap_parameters include: User.attribute_names + ['password']
+  wrap_parameters include: User.attribute_names + ['password', 'firstName', 'lastName']
 
   def index
     @users = User.all
