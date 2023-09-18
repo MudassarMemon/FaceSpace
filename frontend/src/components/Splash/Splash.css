@@ -1,24 +1,76 @@
-.splash{
+.splashContainer{
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
     height: 100%;
-    border-width: 1px;
+    padding: 72px 0 112px 0;
+    background: #f0f2f5;
+    /* border-width: 1px;
     border-style: solid;
-    border-color: red;
+    border-color: rgb(89, 0, 255); */
 }
 
-.splash > div {
+.splashContentContainer{
     display: flex;
-    flex-flow: column nowrap;
-    align-content: space-around;
-    width: 40%;
-    border-width: 1px;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    height: 75%;
+    background: #f0f2f5;
+    /* border-width: 1px;
     border-style: solid;
-    border-color: red;
+    border-color: rgb(89, 0, 255); */
+}
+
+div.right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    padding: 10px 0 24px;
+    margin-top: 40px;
+    width: 396px;
+    height: 350px;
+    /* border-width: 1px;
+    border-style: solid;
+    border-color: red; */
+}
+
+div.left{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 32px 0 0;
+    width: 580px;
+    height: 266px;
+    background: #f0f2f5;
+    /* border-width: 1px;
+    border-style: solid;
+    border-color: red; */
+}
+
+div.logoContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 140px 0 16px 0;
+    background: #f0f2f5;
 }
 
 img#fb-logo {
-    width: 25%;
+    width: 300px;
+    height: 105px;
+    margin: -28px;
+    background: #f0f2f5;
+}
+
+.left > h2 {
+    width: 500px;
+    margin: 0;
+    padding: 0 0 20px;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 32px;
+    background: #f0f2f5;
 }

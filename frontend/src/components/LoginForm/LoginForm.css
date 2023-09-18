@@ -1,36 +1,91 @@
+div.loginFormContainer {
+    display: flex;
+    align-content: flex-start;
+    height: 300px;
+}
+
 form#login{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
-    box-sizing: border-box;
-    margin: 40px 0 0;
-    padding: 20px 0 28px;
-    width: 396px;
+    justify-content: flex-start;
+    /* border: #1877f2;
+    border-style: solid; */
 }
 
-form#login > input {
-    width: 330px;
-    height: 22px;
+input {
+    width: 100%;
     line-height: 16px;
-    border-color: #dddfe2;
     border-radius: 6px;
     border-width: 1px;
+    box-sizing: border-box;
     font-size: 17px;
-    padding: 14px, 16px;
 }
 
-form#login > input[type="submit"] {
+div.inputContainer{
+    height: 130px;
+    width: 330px;
+    /* border: #1877f2;
+    border-style: solid; */
+}
+
+div.emailContainer{
+    height: 50px;
+    width: 330px;
+    padding: 6px 0;
+}
+
+div.emailContainer > input{
+    height: 100%;
+    width: 100%;
+    padding: 14px 16px;
+    border-color: rgba(221, 223, 226, 0.50);
+}
+
+div.passwordContainer{
+    height: 50px;
+    width: 330px;
+    padding: 6px 0;
+}
+
+div.passwordContainer > input{
+    height: 100%;
+    width: 100%;
+    padding: 14px 16px;
+    border-color: rgba(221, 223, 226, 0.50);
+}
+
+div.loginButtonContainer{
+    padding: 6px 0 0;
+}
+
+div.loginButtonContainer > input {
     background-color: #1877f2;;
+    width: 330px;
     border: none;
     line-height: 48px;
     font-size: 20px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: white;
     padding: 0px 16px;
     cursor: pointer;
     font-weight: bold;
     text-align: center;
     height: 48px;
+}
+
+div.demoUserContainer {
+    margin: 16px 0 0;
+}
+
+div.demoUserContainer > a {
+    color: #1877f2;
+    font-size: 12px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+div.line {
+    margin: 20px 0;
+    border-top: thin solid rgba(89, 88, 88, 0.265);
+    width: 330px;
 }

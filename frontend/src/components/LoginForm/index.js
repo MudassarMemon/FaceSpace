@@ -33,7 +33,7 @@ function LoginForm() {
   };
 
   return (
-    <div className="login">
+    <div className="loginFormContainer">
       <form id="login" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error) => (
@@ -41,23 +41,37 @@ function LoginForm() {
           ))}
         </ul>
 
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-        />
+        <div className="inputContainer">
+          <div className="emailContainer">
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              required
+            />
+          </div>
 
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          required
-        />
+          <div className="passwordContainer">
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              required
+            />
+          </div>
+        </div>
 
-        <input type="submit" value="Log In"></input>
+        <div className="loginButtonContainer">
+          <input type="submit" value="Log In"></input>
+        </div>
+
+        <div className="demoUserContainer">
+          <a>Demo User</a>
+        </div>
+
+        <div className="line"></div>
       </form>
     </div>
   );
