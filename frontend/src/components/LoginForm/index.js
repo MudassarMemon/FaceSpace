@@ -7,7 +7,7 @@ import "./LoginForm.css";
 function LoginForm() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  const [credential, setCredential] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -16,7 +16,7 @@ function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password })).catch(
+    return dispatch(sessionActions.login({ email, password })).catch(
       async (res) => {
         let data;
         try {
@@ -33,8 +33,8 @@ function LoginForm() {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className="login">
+      <form id="login" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error) => (
             <li key={error}>{error}</li>
@@ -43,8 +43,8 @@ function LoginForm() {
 
         <input
           type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           required
         />
@@ -57,9 +57,9 @@ function LoginForm() {
           required
         />
 
-        <button type="submit">Log In</button>
+        <input type="submit" value="Log In"></input>
       </form>
-    </>
+    </div>
   );
 }
 

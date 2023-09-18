@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import LoginForm from "../LoginForm";
-import SignupFormModal from "../SignupFormPage";
+import SignupFormModal from "../SignupForm/index";
 
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
