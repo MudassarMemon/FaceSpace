@@ -29,6 +29,11 @@ div.inputContainer{
     border-style: solid; */
 }
 
+form#login input:focus{
+    outline:  #1877f2 thin solid;
+    box-shadow: 0px 0px 0px 3px rgb(229, 242, 255);
+}
+
 div.emailContainer{
     height: 50px;
     width: 330px;
@@ -60,7 +65,7 @@ div.loginButtonContainer{
 }
 
 div.loginButtonContainer > input {
-    background-color: #1877f2;;
+    background-color: #1877f2;
     width: 330px;
     border: none;
     line-height: 48px;
@@ -82,6 +87,11 @@ div.demoUserContainer > a {
     color: #1877f2;
     font-size: 12px;
     font-family: Helvetica, Arial, sans-serif;
+}
+
+div.demoUserContainer > a:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 div.line {

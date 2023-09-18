@@ -77,17 +77,21 @@ function SignupFormPage() {
   return (
     <div className="signupContainer">
       <div className="signupHeaderContainer">
+        <img
+          alt="closeSignUpForm"
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yO/r/zgulV2zGm8t.png"
+        />
         <h1>Sign Up</h1>
         <h2>It's quick and easy.</h2>
       </div>
 
       <div className="signupFormContainer">
         <form id="signup" onSubmit={handleSubmit}>
-          {/* <ul>
+          <ul>
             {errors.map((error) => (
               <li key={error}>{error}</li>
             ))}
-          </ul> */}
+          </ul>
 
           <div className="nameContainer">
             <div className="firstNameContainer">

@@ -16,18 +16,33 @@ div.signupButtonContainer > button {
     padding: 0 16px;
     font-family: Helvetica, Arial, sans-serif;
     color: white;
+    cursor: pointer;
+}
+
+div.signupButtonContainer > button:hover {
+    background-color: #36a420;
 }
 
 div.signupContainer{
-    border-radius: 8px;
+    padding: 5px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
 }
 
 div.signupHeaderContainer{
+    display: relative;
     width: 432px;
-    height: 82px;
+    height: 65px;
     padding: 10px 16px;
     border-bottom: thin solid rgba(89, 88, 88, 0.265);
+}
+
+div.signupHeaderContainer > img{
+    position:absolute;
+    right: 10px;
 }
 
 div.signupHeaderContainer > h1{
@@ -35,6 +50,7 @@ div.signupHeaderContainer > h1{
     font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
     font-size: 32px;
     line-height: 38px;
+    margin-top: 0;
     margin-bottom: 2px;
 
 }
@@ -57,6 +73,14 @@ form#signup{
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-start;
+}
+
+form#signup > ul{
+    display:none;
+}
+
+form#signup input:focus{
+    outline:  none;
 }
 
 div.nameContainer {
@@ -185,4 +209,9 @@ div.signupContainer button {
     margin: 15px 0;
     font-family: Helvetica, Arial, sans-serif;
     color: white;
+    cursor: pointer;
+}
+
+div.signupContainer button:hover {
+    background-color: #5f8e53;
 }
