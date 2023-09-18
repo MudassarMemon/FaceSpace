@@ -75,156 +75,166 @@ function SignupFormPage() {
   };
 
   return (
-    <>
-      <h1>Sign Up</h1>
-      <h2>It's quick and easy.</h2>
+    <div className="signupContainer">
+      <div className="signupHeaderContainer">
+        <h1>Sign Up</h1>
+        <h2>It's quick and easy.</h2>
+      </div>
 
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error) => (
-            <li key={error}>{error}</li>
-          ))}
-        </ul>
-
-        <label>
-          First Name
-          <input
-            type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            placeholder="First name"
-            required
-          />
-        </label>
-        <label>
-          Last Name
-          <input
-            type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            placeholder="Last name"
-            required
-          />
-        </label>
-
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            required
-          />
-        </label>
-
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="New password"
-            required
-          />
-        </label>
-
-        <label>
-          Birthday
-          <select
-            value={birthMonth}
-            onChange={(e) => setBirthMonth(e.target.value)}
-          >
-            {months.map((month, i) => (
-              <option value={`${i + 1}`}>{month}</option>
+      <div className="signupFormContainer">
+        <form id="signup" onSubmit={handleSubmit}>
+          {/* <ul>
+            {errors.map((error) => (
+              <li key={error}>{error}</li>
             ))}
-          </select>
-          <select
-            value={birthDate}
-            onChange={(e) => setBirthDate(e.target.value)}
-          >
-            {days.map((day) => (
-              <option value={`${day}`}>{day}</option>
-            ))}
-          </select>
-          <select
-            value={birthYear}
-            onChange={(e) => setBirthYear(e.target.value)}
-          >
-            {years.map((year) => (
-              <option value={`${year}`}>{year}</option>
-            ))}
-          </select>
-        </label>
+          </ul> */}
 
-        <label>
-          Gender
-          <label>
-            male
-            <input
-              type="radio"
-              name="gender"
-              value="male"
-              onClick={(e) => {
-                setGender(e.target.value);
-                setShowCustomGenderForm(false);
-              }}
-              required
-            />
-          </label>
-          <label>
-            female
-            <input
-              type="radio"
-              name="gender"
-              value="female"
-              onClick={(e) => {
-                setGender(e.target.value);
-                setShowCustomGenderForm(false);
-              }}
-              required
-            />
-          </label>
-          <label>
-            custom
-            <input
-              type="radio"
-              name="gender"
-              value="custom"
-              onClick={(e) => {
-                setGender("");
-                setShowCustomGenderForm(true);
-              }}
-              required
-            />
-          </label>
-        </label>
+          <div className="nameContainer">
+            <div className="firstNameContainer">
+              <input
+                type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                placeholder="First name"
+                required
+              />
+            </div>
+            <div className="lastNameContainer">
+              <input
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                placeholder="Last name"
+                required
+              />
+            </div>
+          </div>
 
-        {showCustomGenderForm && (
-          <>
-            <select onChange={(e) => setGender(e.target.value)}>
-              <option value="" disabled selected>
-                Select your pronoun
-              </option>
-              <option value="She">She: "Wish her a happy birthday!</option>
-              <option value="He">He: "Wish him a happy birthday!</option>
-              <option value="They">They: "Wish them a happy birthday!</option>
-            </select>
-
-            <label className="custom-gender-label">
-              Your pronoun is visible to everyone.
-            </label>
+          <div className="newEmailContainer">
             <input
-              className="gender-text-box"
               type="text"
-              placeholder="Gender (optional)"
-            ></input>
-          </>
-        )}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div className="newPasswordContainer">
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="New password"
+              required
+            />
+          </div>
+          <label>Birthday</label>
+          <div className="birthdayContainer">
+            <select
+              value={birthMonth}
+              onChange={(e) => setBirthMonth(e.target.value)}
+            >
+              {months.map((month, i) => (
+                <option value={`${i + 1}`}>{month}</option>
+              ))}
+            </select>
+            <select
+              value={birthDate}
+              onChange={(e) => setBirthDate(e.target.value)}
+            >
+              {days.map((day) => (
+                <option value={`${day}`}>{day}</option>
+              ))}
+            </select>
+            <select
+              value={birthYear}
+              onChange={(e) => setBirthYear(e.target.value)}
+            >
+              {years.map((year) => (
+                <option value={`${year}`}>{year}</option>
+              ))}
+            </select>
+          </div>
 
-        <button type="submit">Sign Up</button>
-      </form>
-    </>
+          <label>Gender</label>
+          <div className="genderContainer">
+            <label>
+              Male
+              <input
+                type="radio"
+                name="gender"
+                value="male"
+                onClick={(e) => {
+                  setGender(e.target.value);
+                  setShowCustomGenderForm(false);
+                }}
+                required
+              />
+            </label>
+            <label>
+              Female
+              <input
+                type="radio"
+                name="gender"
+                value="female"
+                onClick={(e) => {
+                  setGender(e.target.value);
+                  setShowCustomGenderForm(false);
+                }}
+                required
+              />
+            </label>
+            <label>
+              Custom
+              <input
+                type="radio"
+                name="gender"
+                value="custom"
+                onClick={(e) => {
+                  setGender("");
+                  setShowCustomGenderForm(true);
+                }}
+                required
+              />
+            </label>
+            {showCustomGenderForm && (
+              <>
+                <select onChange={(e) => setGender(e.target.value)}>
+                  <option value="" disabled selected>
+                    Select your pronoun
+                  </option>
+                  <option value="She">She: "Wish her a happy birthday!</option>
+                  <option value="He">He: "Wish him a happy birthday!</option>
+                  <option value="They">
+                    They: "Wish them a happy birthday!
+                  </option>
+                </select>
+
+                <label className="custom-gender-label">
+                  Your pronoun is visible to everyone.
+                </label>
+                <input
+                  className="gender-text-box"
+                  type="text"
+                  placeholder="Gender (optional)"
+                ></input>
+              </>
+            )}
+          </div>
+
+          <p>
+            People who use our service may have uploaded your contact
+            information to Facebook. Learn more.
+          </p>
+          <p>
+            By clicking Sign Up, you agree to our Terms, Privacy Policy and
+            Cookies Policy. You may receive SMS Notifications from us and can
+            opt out any time.
+          </p>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
   );
 }
 
