@@ -25,7 +25,14 @@ function Splash() {
           </div>
         </div>
       </div>
-      <footer>Footer</footer>
+      <footer>
+        <p>Mudassar Memon</p>
+        <a href="https://www.linkedin.com/in/mudassar-memon-0a48b1125/">
+          LinkedIn
+        </a>
+        <a href="https://github.com/MudassarMemon">Github</a>
+        <a href="https://github.com/MudassarMemon/Facespace">Spacebook Repo</a>
+      </footer>
     </>
   );
 }

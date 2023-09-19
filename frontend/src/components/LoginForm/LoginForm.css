@@ -1,7 +1,7 @@
 div.loginFormContainer {
     display: flex;
     align-content: flex-start;
-    height: 300px;
+    height: 270px;
 }
 
 form#login{
@@ -9,8 +9,10 @@ form#login{
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    /* border: #1877f2;
-    border-style: solid; */
+}
+
+form#login > ul{
+    display:none;
 }
 
 input {
@@ -24,19 +26,21 @@ input {
 
 div.inputContainer{
     height: 130px;
-    width: 330px;
-    /* border: #1877f2;
-    border-style: solid; */
+    width: 100%;
+    display: relative;
 }
 
 form#login input:focus{
     outline:  #1877f2 thin solid;
     box-shadow: 0px 0px 0px 3px rgb(229, 242, 255);
 }
+form#login input:active{
+    background-color: white;
+}
 
 div.emailContainer{
     height: 50px;
-    width: 330px;
+    width: 360px;
     padding: 6px 0;
 }
 
@@ -45,11 +49,15 @@ div.emailContainer > input{
     width: 100%;
     padding: 14px 16px;
     border-color: rgba(221, 223, 226, 0.50);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    letter-spacing: normal;
+    font-weight: normal;
 }
 
 div.passwordContainer{
     height: 50px;
-    width: 330px;
+    width: 360px;
     padding: 6px 0;
 }
 
@@ -58,15 +66,19 @@ div.passwordContainer > input{
     width: 100%;
     padding: 14px 16px;
     border-color: rgba(221, 223, 226, 0.50);
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
 }
 
 div.loginButtonContainer{
+    width: 360px;
     padding: 6px 0 0;
 }
 
 div.loginButtonContainer > input {
     background-color: #1877f2;
-    width: 330px;
+    width: 100%;
     border: none;
     line-height: 48px;
     font-size: 20px;
@@ -85,7 +97,7 @@ div.demoUserContainer {
 
 div.demoUserContainer > a {
     color: #1877f2;
-    font-size: 12px;
+    font-size: 14px;
     font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -95,7 +107,7 @@ div.demoUserContainer > a:hover {
 }
 
 div.line {
-    margin: 20px 0;
+    margin: 20px 0 0px;
     border-top: thin solid rgba(89, 88, 88, 0.265);
     width: 330px;
 }

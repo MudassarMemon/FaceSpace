@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./LoginForm.css";
 
 function LoginForm() {
@@ -32,6 +34,15 @@ function LoginForm() {
     );
   };
 
+  function demoLogin() {
+    return dispatch(
+      sessionActions.login({
+        email: "mudassar-memon@test.test",
+        password: "password",
+      })
+    );
+  }
+
   return (
     <div className="loginFormContainer">
       <form id="login" onSubmit={handleSubmit}>
@@ -60,6 +71,9 @@ function LoginForm() {
               placeholder="Password"
               required
             />
+            {/* <div id="eye">
+              <FontAwesomeIcon icon={faEyeSlash} />
+            </div> */}
           </div>
         </div>
 
@@ -68,7 +82,9 @@ function LoginForm() {
         </div>
 
         <div className="demoUserContainer">
-          <a>Demo User</a>
+          <a onClick={demoLogin} href="www.google.com">
+            Demo User
+          </a>
         </div>
 
         <div className="line"></div>

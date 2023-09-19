@@ -9,10 +9,22 @@ function SignupFormModal() {
   return (
     <>
       <div className="signupButtonContainer">
-        <button onClick={() => setShowModal(true)}>Create new account</button>
+        <button
+          onClick={() => {
+            setShowModal(true);
+          }}
+        >
+          Create new account
+        </button>
       </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
+          <img
+            onClick={() => setShowModal(false)}
+            id="closeSignUpForm"
+            alt="closeSignUpForm"
+            src="https://static.xx.fbcdn.net/rsrc.php/v3/yO/r/zgulV2zGm8t.png"
+          />
           <SignupForm />
         </Modal>
       )}

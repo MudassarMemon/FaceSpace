@@ -1,12 +1,10 @@
 .splashContainer{
     display: flex;
     justify-content: center;
-    height: 100%;
+    min-height: 550px;
+    width: 100%;
     padding: 72px 0 112px 0;
     background: #f0f2f5;
-    /* border-width: 1px;
-    border-style: solid;
-    border-color: rgb(89, 0, 255); */
 }
 
 .splashContentContainer{
@@ -14,11 +12,9 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: flex-start;
-    height: 75%;
+    height: 65%;
+    width: 1050px;
     background: #f0f2f5;
-    /* border-width: 1px;
-    border-style: solid;
-    border-color: rgb(89, 0, 255); */
 }
 
 div.right{
@@ -29,11 +25,8 @@ div.right{
     box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
     padding: 10px 0 24px;
     margin-top: 40px;
-    width: 396px;
-    height: 350px;
-    /* border-width: 1px;
-    border-style: solid;
-    border-color: red; */
+    min-width: 396px;
+    height: 325px;
 }
 
 div.left{
@@ -44,9 +37,6 @@ div.left{
     width: 580px;
     height: 266px;
     background: #f0f2f5;
-    /* border-width: 1px;
-    border-style: solid;
-    border-color: red; */
 }
 
 div.logoContainer {
@@ -64,14 +54,34 @@ img#fb-logo {
     background: #f0f2f5;
 }
 
-.left > h2 {
-    width: 500px;
+.left > h2 {    
+    width: 450px;
     margin: 0;
     padding: 0 0 20px;
     font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
     font-size: 28px;
-    font-weight: normal;
+    font-weight: 100;
     line-height: 32px;
     background: #f0f2f5;
 }
 
+footer {
+    padding: 10px 300px;
+    height: 140px;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start ;
+    align-items: center;
+}
+
+footer > *{
+    margin: 0 5px;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 32px;
+}
+
+footer > a:hover{
+    text-decoration: underline;
+}

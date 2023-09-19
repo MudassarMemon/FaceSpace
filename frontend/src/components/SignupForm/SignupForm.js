@@ -77,10 +77,6 @@ function SignupFormPage() {
   return (
     <div className="signupContainer">
       <div className="signupHeaderContainer">
-        <img
-          alt="closeSignUpForm"
-          src="https://static.xx.fbcdn.net/rsrc.php/v3/yO/r/zgulV2zGm8t.png"
-        />
         <h1>Sign Up</h1>
         <h2>It's quick and easy.</h2>
       </div>
@@ -163,11 +159,11 @@ function SignupFormPage() {
           <label>Gender</label>
           <div className="genderContainer">
             <label>
-              Male
+              Female
               <input
                 type="radio"
                 name="gender"
-                value="male"
+                value="female"
                 onClick={(e) => {
                   setGender(e.target.value);
                   setShowCustomGenderForm(false);
@@ -176,11 +172,11 @@ function SignupFormPage() {
               />
             </label>
             <label>
-              Female
+              Male
               <input
                 type="radio"
                 name="gender"
-                value="female"
+                value="male"
                 onClick={(e) => {
                   setGender(e.target.value);
                   setShowCustomGenderForm(false);
@@ -201,8 +197,11 @@ function SignupFormPage() {
                 required
               />
             </label>
-            {showCustomGenderForm && (
-              <>
+          </div>
+
+          {showCustomGenderForm && (
+            <>
+              <div className="customGenderFormContainer">
                 <select onChange={(e) => setGender(e.target.value)}>
                   <option value="" disabled selected>
                     Select your pronoun
@@ -214,17 +213,17 @@ function SignupFormPage() {
                   </option>
                 </select>
 
-                <label className="custom-gender-label">
+                <label className="customGenderLabel">
                   Your pronoun is visible to everyone.
                 </label>
                 <input
-                  className="gender-text-box"
+                  className="genderTextBox"
                   type="text"
                   placeholder="Gender (optional)"
                 ></input>
-              </>
-            )}
-          </div>
+              </div>
+            </>
+          )}
 
           <p>
             People who use our service may have uploaded your contact

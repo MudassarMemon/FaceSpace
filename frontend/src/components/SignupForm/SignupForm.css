@@ -1,5 +1,4 @@
 div.signupButtonContainer{
-    padding: 6px 0 0;
     height: 50px;
     width: 100%;
     display: flex;
@@ -23,7 +22,14 @@ div.signupButtonContainer > button:hover {
     background-color: #36a420;
 }
 
+img#closeSignUpForm{
+    position:absolute;
+    right: 10px;
+    top: 10px;
+}
+
 div.signupContainer{
+    height:100%;
     padding: 5px;
     border: solid;
     border-width: 1px;
@@ -34,15 +40,10 @@ div.signupContainer{
 
 div.signupHeaderContainer{
     display: relative;
-    width: 432px;
+    width: 400px;
     height: 65px;
     padding: 10px 16px;
     border-bottom: thin solid rgba(89, 88, 88, 0.265);
-}
-
-div.signupHeaderContainer > img{
-    position:absolute;
-    right: 10px;
 }
 
 div.signupHeaderContainer > h1{
@@ -59,12 +60,13 @@ div.signupHeaderContainer > h2{
     color: #606770;
     font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
     font-size: 15px;
+    font-weight: 100;
     margin: 0;
 }
 
 div.signupFormContainer{
-    width: 432px;
-    height: 425px;
+    width: 400px;
+    height:100%;
     padding: 16px;
 }
 
@@ -73,6 +75,7 @@ form#signup{
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-start;
+    height:100%;
 }
 
 form#signup > ul{
@@ -81,6 +84,10 @@ form#signup > ul{
 
 form#signup input:focus{
     outline:  none;
+}
+
+form#signup input:active{
+    background-color: white;
 }
 
 div.nameContainer {
@@ -102,6 +109,10 @@ div.firstNameContainer > input{
     padding: 11px;
     border-radius: 5px;
     border: thin solid rgba(0, 0, 0, 0.2);
+    color: #1c1e21;
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
 }
 
 div.lastNameContainer{
@@ -115,6 +126,10 @@ div.lastNameContainer > input{
     padding: 11px;
     border-radius: 5px;
     border: thin solid rgba(0, 0, 0, 0.2);
+    color: #1c1e21;
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
 }
 
 div.newEmailContainer{
@@ -129,6 +144,10 @@ div.newEmailContainer > input{
     padding: 11px;
     border-radius: 5px;
     border: thin solid rgba(0, 0, 0, 0.2);
+    color: #1c1e21;
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
 }
 
 div.newPasswordContainer{
@@ -143,6 +162,10 @@ div.newPasswordContainer > input{
     padding: 11px;
     border-radius: 5px;
     border: thin solid rgba(0, 0, 0, 0.2);
+    color: #1c1e21;
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
 }
 
 label {
@@ -160,9 +183,13 @@ div.birthdayContainer{
 div.birthdayContainer > select{
     width: 31.5%;
     height: 100%;
-    padding: 11px;
+    padding: 10px;
     border-radius: 5px;
     border: thin solid rgba(0, 0, 0, 0.2);
+    color: #1c1e21;
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
 }
 
 div.genderContainer{
@@ -182,17 +209,25 @@ div.genderContainer > label{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #1c1e21;
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
 }
 
 div.genderContainer input{
     margin: 0;
     width: 20px;
+    color: #1c1e21;
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
 }
 
 div.signupContainer p {
     font-size: 11px;
     margin: 0;
-    margin-bottom: 10px;
+    margin: 8px 0;
     font-family: Helvetica, Arial, sans-serif;
     color: #606770;
 }
@@ -214,4 +249,44 @@ div.signupContainer button {
 
 div.signupContainer button:hover {
     background-color: #5f8e53;
+}
+
+div.customGenderFormContainer{
+    display: block;
+    flex-flow: column wrap;
+    height: 100%;
+    width: 100%;
+}
+
+div.customGenderFormContainer > select {
+    width: 100%;
+    height: 40px;
+    padding: 0 25px 0 8px;
+    margin: 4px 0;
+    border-radius: 4px;
+    color: #1c1e21;
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    border: thin solid rgba(0, 0, 0, 0.2);
+    color: #1c1e21;
+}
+
+div.customGenderFormContainer > label {
+    color: #606770;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+div.customGenderFormContainer > input {
+    width: 100%;
+    height: 40px;
+    padding: 11px;
+    border-radius: 4px;
+    color: #1c1e21;
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    border: thin solid rgba(0, 0, 0, 0.2);
+    color: #1c1e21;
 }
