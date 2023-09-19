@@ -43,15 +43,23 @@ function LoginForm() {
     );
   }
 
-  return (
-    <div className="loginFormContainer">
-      <form id="login" onSubmit={handleSubmit}>
+  const errorMessages = () => {
+    if (errors.length) {
+      return (
         <ul>
           {errors.map((error) => (
             <li key={error}>{error}</li>
           ))}
         </ul>
+      );
+    }
+    return null;
+  };
 
+  return (
+    <div className="loginFormContainer">
+      <form id="login" onSubmit={handleSubmit}>
+        {errorMessages()}
         <div className="inputContainer">
           <div className="emailContainer">
             <input

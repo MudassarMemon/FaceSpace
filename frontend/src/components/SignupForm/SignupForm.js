@@ -74,6 +74,19 @@ function SignupFormPage() {
     });
   };
 
+  const errorMessages = () => {
+    if (errors.length) {
+      return (
+        <ul>
+          {errors.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
+      );
+    }
+    return null;
+  };
+
   return (
     <div className="signupContainer">
       <div className="signupHeaderContainer">
@@ -83,11 +96,7 @@ function SignupFormPage() {
 
       <div className="signupFormContainer">
         <form id="signup" onSubmit={handleSubmit}>
-          <ul>
-            {errors.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
+          {errorMessages()}
 
           <div className="nameContainer">
             <div className="firstNameContainer">

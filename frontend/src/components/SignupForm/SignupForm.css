@@ -3,6 +3,7 @@ div.signupButtonContainer{
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 div.signupButtonContainer > button {
@@ -292,5 +293,11 @@ div.customGenderFormContainer > input {
 }
 
 form#signup > ul{
-    display:none;
+    list-style: none;
+    width: 100%;
+    color: red;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    padding-left:2px;
+    margin-top: 0;
 }
