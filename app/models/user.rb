@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates :password, length: { in: 6..255 }, allow_nil: true
   has_secure_password
   before_validation :ensure_session_token
+  validate :verify_age
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email.downcase)
@@ -18,6 +19,12 @@ class User < ApplicationRecord
   end
 
   private
+
+  def verify_age
+    if birthday.present? && (Date.today - birthday).to_i < (18 *365)
+      errors.add(:birthday, 'invalid. Must be over 18 years of age to sign up')
+    end
+  end
 
   def ensure_session_token
     self.session_token ||= generate_unique_session_token
