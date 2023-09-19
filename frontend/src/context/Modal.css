@@ -7,9 +7,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* align-items: flex-start; */
     background-color: rgba(255, 255, 255, 0.5);
-    overflow-y: scroll;
+    overflow-y: overlay;
   }
   
   #modal-background {

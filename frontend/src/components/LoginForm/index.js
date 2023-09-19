@@ -82,7 +82,7 @@ function LoginForm() {
         </div>
 
         <div className="demoUserContainer">
-          <p onClick={demoLogin}>Demo User</p>
+          <button onClick={demoLogin}>Demo User</button>
         </div>
 
         <div className="line"></div>
