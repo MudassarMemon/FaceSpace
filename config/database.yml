@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: Facespace_production
-  username: Facespace
-  password: <%= ENV["FACESPACE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
