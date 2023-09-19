@@ -78,10 +78,6 @@ form#signup{
     height:100%;
 }
 
-form#signup > ul{
-    display:none;
-}
-
 form#signup input:focus{
     outline:  none;
 }
@@ -251,6 +247,10 @@ div.signupContainer button:hover {
     background-color: #5f8e53;
 }
 
+div.signupContainer button:active {
+    transform: translateY(2px);
+}
+
 div.customGenderFormContainer{
     display: block;
     flex-flow: column wrap;
@@ -289,4 +289,8 @@ div.customGenderFormContainer > input {
     font-weight: normal;
     border: thin solid rgba(0, 0, 0, 0.2);
     color: #1c1e21;
+}
+
+form#signup > ul{
+    display:none;
 }

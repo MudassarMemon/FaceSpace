@@ -11,10 +11,6 @@ form#login{
     justify-content: flex-start;
 }
 
-form#login > ul{
-    display:none;
-}
-
 input {
     width: 100%;
     line-height: 16px;
@@ -95,19 +91,23 @@ div.demoUserContainer {
     margin: 16px 0 0;
 }
 
-div.demoUserContainer > a {
+div.demoUserContainer > p {
     color: #1877f2;
     font-size: 14px;
     font-family: Helvetica, Arial, sans-serif;
 }
 
-div.demoUserContainer > a:hover {
+div.demoUserContainer > p:hover {
     text-decoration: underline;
     cursor: pointer;
 }
 
 div.line {
-    margin: 20px 0 0px;
+    margin: 0 0 20px;
     border-top: thin solid rgba(89, 88, 88, 0.265);
     width: 330px;
+}
+
+form#login > ul{
+    display:none;
 }

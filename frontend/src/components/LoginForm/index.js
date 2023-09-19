@@ -82,9 +82,7 @@ function LoginForm() {
         </div>
 
         <div className="demoUserContainer">
-          <a onClick={demoLogin} href="www.google.com">
-            Demo User
-          </a>
+          <p onClick={demoLogin}>Demo User</p>
         </div>
 
         <div className="line"></div>

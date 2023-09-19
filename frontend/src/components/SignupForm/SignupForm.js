@@ -40,9 +40,9 @@ function SignupFormPage() {
     e.preventDefault();
     setErrors([]);
     console.log({
-      firstName,
-      lastName,
-      email,
+      firstName: firstName[0].toUpperCase() + firstName.slice(1).toLowerCase(),
+      lastName: lastName[0].toUpperCase() + lastName.slice(1).toLowerCase(),
+      email: email.toLowerCase(),
       password,
       birthday: `${birthYear}-0${birthMonth}-${
         birthDate < 10 ? 0 : ""
