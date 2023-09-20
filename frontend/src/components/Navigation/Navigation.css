@@ -1,3 +1,76 @@
-.profile-dropdown {
+div.navBarContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  height: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+  z-index: 99;
+}
+
+div.leftNavBarContainer {
+  margin-left: 10px;
+}
+
+div.leftNavBarContainer > nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+input#userSearch{
+  width: 90%;
+  height: 35px;
+  border-radius: 20px;
+  margin-left: 5px;
+  background-color: #f0f2f5;
+  border: none;
+  font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  padding: 0 0 2px 35px;
+}
+
+input#userSearch:focus{
+  outline: none;
+}
+
+img#fbLogo {
+  width: 35px;
+  height: 35px;
+}
+
+#magnify-icon{
+  color: rgb(102, 99, 99);
   position: absolute;
+  top: 17px;
+  left: 65px;
+  background:none;
+}
+
+div.centerNavBarContainer{
+  margin-right: 275px;
+}
+
+#homepage-icon {
+  width: 40px;
+  height: 40px;
+}
+
+div.rightNavBarContainer{
+  margin-right: 10px;
+  }
+
+div.rightNavBarContainer > nav{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 25%;
+}
+
+img#userLogo {
+  width: 40px;
+  height: 40px;
 }

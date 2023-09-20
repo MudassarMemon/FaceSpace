@@ -1,39 +1,57 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import ProfileButton from "./ProfileButton";
+import { NavLink } from "react-router-dom";
 import "./Navigation.css";
-import LoginForm from "../LoginForm";
-import SignupFormModal from "../SignupForm/index";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
 
-  let sessionLinks;
-  if (sessionUser) {
-    sessionLinks = <ProfileButton user={sessionUser} />;
-  } else {
-    sessionLinks = (
-      <div className="login-create-user">
-        <div>
-          <img
-            src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg"
-            alt="fblogo"
-          />
-          <h1>Connect with friends and the world around you on Facebook.</h1>
-        </div>
-
-        <div>
-          <LoginForm />
-          <SignupFormModal />
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <ul>
-      <li>{sessionLinks}</li>
-    </ul>
+    <div className="navBarContainer">
+      <div className="leftNavBarContainer">
+        <nav>
+          <NavLink to="/">
+            <img
+              id="fbLogo"
+              alt="fbLogo"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
+            ></img>
+          </NavLink>
+          <div>
+            {" "}
+            <FontAwesomeIcon id="magnify-icon" icon={faMagnifyingGlass} />
+            <input id="userSearch" placeholder="Search Facespace" type="text" />
+          </div>
+        </nav>
+      </div>
+
+      <div className="centerNavBarContainer">
+        <nav>
+          <NavLink to="/">
+            <FontAwesomeIcon
+              id="homepage-icon"
+              icon={faHouse}
+              style={{ color: "#1b74e4" }}
+            />
+          </NavLink>
+        </nav>
+      </div>
+
+      <div className="rightNavBarContainer">
+        <nav>
+          <NavLink to="/">
+            <img
+              id="userLogo"
+              alt="userLogo"
+              src="https://cdn-icons-png.flaticon.com/512/219/219970.png"
+            ></img>
+          </NavLink>
+        </nav>
+      </div>
+    </div>
   );
 }
 
