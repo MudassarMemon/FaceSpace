@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import "./ProfilePage.css";
 
 function ProfilePage() {
@@ -29,12 +29,18 @@ function ProfilePage() {
             </div>
             <div className="profile-name-container">
               <h1>Mudassar Memon</h1>
-              <h6>20 friends</h6>
+              <h6>69 friends</h6>
             </div>
           </div>
           <div className="right-profile-details">
-            <div className="profile-links">links</div>
+            <div className="edit-profile-container">Edit Profile</div>
           </div>
+        </div>
+        <div className="profile-links">
+          <NavLink to="">Posts</NavLink>
+          <NavLink to="">About</NavLink>
+          <NavLink to="">Friends</NavLink>
+          <NavLink to="">Photos</NavLink>
         </div>
       </header>
       <div className="profile-main-container"></div>

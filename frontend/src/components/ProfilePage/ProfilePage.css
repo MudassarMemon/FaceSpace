@@ -32,11 +32,12 @@
 
 .profile-details-container{
     width: 60%;
-    height: 30%;
+    height: 25%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.343);
 }
 
 .left-profile-details{
@@ -62,7 +63,7 @@
     flex-flow: column nowrap;
     justify-items: flex-end;
     margin-left: 220px;
-    padding-bottom: 20px;;
+    padding-bottom: 20px;
 }
 
 .profile-name-container > h1 {
@@ -75,5 +76,22 @@
     margin: 0px;
     font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 15px;
+    color: #656768;
+}
+
+.profile-links {
+    display: flex;
+    width: 60%;
+    flex-direction: row nowrap;
+    justify-content: flex-start;
+    margin: 15px
+}
+
+.profile-links > * {
+    text-decoration: none;
+    margin: 0 20px;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bolder;
     color: #656768;
 }

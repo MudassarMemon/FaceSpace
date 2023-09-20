@@ -5,9 +5,12 @@ import "./Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { Modal } from "../../context/Modal";
+import { useState } from "react";
 
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="navBarContainer">
@@ -42,13 +45,23 @@ function Navigation() {
 
       <div className="rightNavBarContainer">
         <nav>
-          <NavLink to="/">
-            <img
-              id="userLogo"
-              alt="userLogo"
-              src="https://cdn-icons-png.flaticon.com/512/219/219970.png"
-            ></img>
-          </NavLink>
+          <img
+            id="userLogo"
+            alt="userLogo"
+            src="https://cdn-icons-png.flaticon.com/512/219/219970.png"
+            onClick={() => {
+              setShowModal((prev) => !prev);
+            }}
+          />
+          {showModal && (
+            <Modal background={false} onClose={() => setShowModal(false)}>
+              <div className="nav-bar-dropdown">
+                <NavLink to="/"></NavLink>
+                <h1>hello</h1>
+                <button>logout</button>
+              </div>
+            </Modal>
+          )}
         </nav>
       </div>
     </div>

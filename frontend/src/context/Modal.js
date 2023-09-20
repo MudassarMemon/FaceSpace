@@ -20,13 +20,33 @@ export function ModalProvider({ children }) {
   );
 }
 
-export function Modal({ onClose, children }) {
+export function Modal({ onClose, children, background }) {
   const modalNode = useContext(ModalContext);
+  let backgroundColor;
+  if (background) {
+    backgroundColor = "rgba(255, 255, 255, .5)";
+  } else {
+    backgroundColor = "rgba(255, 255, 255, 0)";
+  }
+
+  const modalBackgroundStyle = {
+    top: 0,
+    right: 0,
+    left: 0,
+    bottom: 0,
+    backgroundColor,
+  };
+  const modalContentStyle = {};
+
   if (!modalNode) return null;
 
   return ReactDOM.createPortal(
     <div id="modal">
-      <div id="modal-background" onClick={onClose} />
+      <div
+        style={modalBackgroundStyle}
+        id="modal-background"
+        onClick={onClose}
+      />
       <div id="modal-content">{children}</div>
     </div>,
     modalNode
