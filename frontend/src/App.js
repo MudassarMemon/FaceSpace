@@ -18,7 +18,7 @@ function App() {
           <Route exact path="/">
             {/* <MainFeed /> */}
           </Route>
-          <Route exact path="/users/:id">
+          <Route path="/users/:id">
             <ProfilePage />
           </Route>
         </Switch>

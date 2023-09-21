@@ -3,6 +3,7 @@ import { useParams, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, fetchUser } from "../../store/users";
 import { getPosts, receivePosts } from "../../store/posts";
+import UserFeed from "./UserFeed";
 import "./ProfilePage.css";
 
 function ProfilePage() {
@@ -42,17 +43,17 @@ function ProfilePage() {
           </div>
         </div>
         <div className="profile-links">
-          <NavLink to="">Posts</NavLink>
-          <NavLink to="">About</NavLink>
-          <NavLink to="">Friends</NavLink>
-          <NavLink to="">Photos</NavLink>
+          <NavLink exact to={`/users/${user.id}`}>
+            Posts
+          </NavLink>
+          <NavLink to={`/users/${user.id}/about`}>About</NavLink>
+          <NavLink to={`/users/${user.id}/friends`}>Friends</NavLink>
+          <NavLink to={`/users/${user.id}/photos`}>Photos</NavLink>
         </div>
       </header>
       <div className="profile-main-container">
         <ul>
-          {userPosts.map((post) => (
-            <li>{post.body}</li>
-          ))}
+          <UserFeed posts={userPosts} />
         </ul>
       </div>
     </>
