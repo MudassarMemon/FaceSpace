@@ -16,11 +16,10 @@ function Navigation() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log(history.location.pathname);
-  }, [history.location.pathname]);
+  useEffect(() => {}, [history.location.pathname]);
 
   function Logout() {
+    history.push("/");
     return dispatch(sessionActions.logout());
   }
   return (

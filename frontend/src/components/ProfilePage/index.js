@@ -1,14 +1,21 @@
 import { useEffect, useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser, fetchUser } from "../../store/users";
 import "./ProfilePage.css";
 
 function ProfilePage() {
   const { id } = useParams();
+  const dispatch = useDispatch();
+  const user = useSelector(getUser(id));
+  const [firstName, setFirstName] = useState(user ? user.firstName : "");
 
   useEffect(() => {
     console.log("fetching user...");
     console.log(id);
-  }, [id]);
+    // debugger;
+    dispatch(fetchUser(id));
+  }, [id, dispatch]);
 
   return (
     <>
@@ -28,7 +35,7 @@ function ProfilePage() {
               ></img>
             </div>
             <div className="profile-name-container">
-              <h1>Mudassar Memon</h1>
+              <h1>{user && user.firstName}</h1>
               <h6>69 friends</h6>
             </div>
           </div>

@@ -1,0 +1,79 @@
+import csrfFetch from "./csrf.js";
+
+const RECEIVE_USERS = "users/recieveUsers";
+const RECEIVE_USER = "users/recieveUser";
+
+const recieveUsers = (users) => {
+  return {
+    type: RECEIVE_USERS,
+    users,
+  };
+};
+
+const recieveUser = (user) => {
+  return {
+    type: RECEIVE_USER,
+    user,
+  };
+};
+
+export const getUsers = (state) => {
+  if (state.users) return Object.values(state.users);
+  return [];
+};
+
+export const getUser = (id) => {
+  return (state) => {
+    if (state.users) return state.users[id];
+    return null;
+  };
+};
+
+export const fetchUsers = () => async (dispatch) => {
+  const res = await csrfFetch("/api/users");
+
+  if (res.ok) {
+    const users = await res.json();
+    dispatch(recieveUsers(users));
+  }
+};
+
+export const fetchUser = (id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/users/${id}`);
+
+  if (res.ok) {
+    const user = await res.json();
+    dispatch(recieveUser(user));
+  }
+};
+
+export const updateUser = (user) => async (dispatch) => {
+  const res = await csrfFetch(`/api/users/${user.id}`, {
+    method: "PATCH",
+    body: JSON.stringify(user),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (res.ok) {
+    const user = await res.json();
+    dispatch(recieveUser(user));
+  }
+};
+
+const usersReducer = (state = [], action) => {
+  const nextState = { ...state };
+
+  switch (action.type) {
+    case RECEIVE_USERS:
+      return { ...action.users };
+    case RECEIVE_USER:
+      nextState[action.user.id] = action.user;
+      return nextState;
+    default:
+      return state;
+  }
+};
+
+export default usersReducer;

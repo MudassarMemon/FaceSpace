@@ -8,6 +8,7 @@ import App from "./App";
 import configureStore from "./store";
 import csrfFetch from "./store/csrf";
 import * as sessionActions from "./store/session";
+import * as userActions from "./store/users.js";
 
 const store = configureStore();
 
@@ -15,13 +16,8 @@ if (process.env.NODE_ENV !== "production") {
   window.store = store;
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
+  window.userActions = userActions;
 }
-
-// const Carrot = () => (
-//   <div style={{ color: "orange", fontSize: "100px" }}>
-//     <i className="fa-solid fa-carrot"></i>
-//   </div>
-// );
 
 function Root() {
   return (

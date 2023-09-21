@@ -16,7 +16,7 @@ div.leftNavBarContainer {
   width: 33%;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -107,14 +107,14 @@ div.rightNavBarContainer{
   width: 33%;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   }
 
 div.rightNavBarContainer > nav{
   display: flex;
   flex-flow: row nowrap;
-  justify-content: end;
+  justify-content: flex-end;
   width: 100%;
 }
 
