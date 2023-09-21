@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Link, useParams, useHistory } from "react-router-dom";
 import "./Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,18 +7,22 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "../../context/Modal";
 import { useState, useEffect } from "react";
+import * as sessionActions from "../../store/session";
 
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
   const [showModal, setShowModal] = useState(false);
   const { id } = useParams();
-
   const history = useHistory();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     console.log(history.location.pathname);
   }, [history.location.pathname]);
 
+  function Logout() {
+    return dispatch(sessionActions.logout());
+  }
   return (
     <div className="navBarContainer">
       <div className="leftNavBarContainer">
@@ -85,7 +89,7 @@ function Navigation() {
                 </div>
                 <div className="logout-container">
                   <div className="logout-button"></div>
-                  <button>Log Out</button>
+                  <button onClick={Logout}>Log Out</button>
                 </div>
               </div>
             </Modal>
