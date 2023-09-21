@@ -18,7 +18,7 @@ function SignupFormModal() {
         </button>
       </div>
       {showModal && (
-        <Modal background={true}>
+        <Modal>
           <img
             onClick={() => setShowModal(false)}
             id="closeSignUpForm"

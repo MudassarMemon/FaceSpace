@@ -20,8 +20,9 @@ export function ModalProvider({ children }) {
   );
 }
 
-export function Modal({ onClose, children, background }) {
+export function Modal({ onClose, children, background = true, position }) {
   const modalNode = useContext(ModalContext);
+
   let backgroundColor;
   if (background) {
     backgroundColor = "rgba(255, 255, 255, .5)";
@@ -29,14 +30,26 @@ export function Modal({ onClose, children, background }) {
     backgroundColor = "rgba(255, 255, 255, 0)";
   }
 
+  let top;
+  let right;
+  let left;
+  let bottom;
+  if (position) {
+    top = position[0];
+    right = position[1];
+    left = position[2];
+    bottom = position[3];
+  }
+
   const modalBackgroundStyle = {
-    top: 0,
-    right: 0,
-    left: 0,
-    bottom: 0,
     backgroundColor,
   };
-  const modalContentStyle = {};
+  const modalContentStyle = {
+    top,
+    right,
+    left,
+    bottom,
+  };
 
   if (!modalNode) return null;
 
@@ -47,7 +60,9 @@ export function Modal({ onClose, children, background }) {
         id="modal-background"
         onClick={onClose}
       />
-      <div id="modal-content">{children}</div>
+      <div style={modalContentStyle} id="modal-content">
+        {children}
+      </div>
     </div>,
     modalNode
   );

@@ -1,16 +1,23 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link, useParams, useHistory } from "react-router-dom";
 import "./Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "../../context/Modal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
   const [showModal, setShowModal] = useState(false);
+  const { id } = useParams();
+
+  const history = useHistory();
+
+  useEffect(() => {
+    console.log(history.location.pathname);
+  }, [history.location.pathname]);
 
   return (
     <div className="navBarContainer">
@@ -32,15 +39,26 @@ function Navigation() {
       </div>
 
       <div className="centerNavBarContainer">
-        <nav>
-          <NavLink to="/">
+        <Link className="centerNavBarContent" to="/">
+          {history.location.pathname.length > 1 ? (
+            <>
+              <FontAwesomeIcon
+                id="inactive-homepage-icon"
+                className="fa-solid fa-house fa-2xl"
+                icon={faHouse}
+              />
+            </>
+          ) : (
             <FontAwesomeIcon
               id="homepage-icon"
               icon={faHouse}
               style={{ color: "#1b74e4" }}
             />
-          </NavLink>
-        </nav>
+          )}
+        </Link>
+        {history.location.pathname.length > 1 ? null : (
+          <div id="underline"></div>
+        )}
       </div>
 
       <div className="rightNavBarContainer">
@@ -54,11 +72,21 @@ function Navigation() {
             }}
           />
           {showModal && (
-            <Modal background={false} onClose={() => setShowModal(false)}>
+            <Modal
+              position={[48, 10, null, null]}
+              background={false}
+              onClose={() => setShowModal(false)}
+            >
               <div className="nav-bar-dropdown">
-                <NavLink to="/"></NavLink>
-                <h1>hello</h1>
-                <button>logout</button>
+                <div className="profile-link">
+                  <NavLink to="/users/:id">
+                    <h1>To User Profile</h1>
+                  </NavLink>
+                </div>
+                <div className="logout-container">
+                  <div className="logout-button"></div>
+                  <button>Log Out</button>
+                </div>
               </div>
             </Modal>
           )}
