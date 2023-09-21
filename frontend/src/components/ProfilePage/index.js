@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, NavLink } from "react-router-dom";
+import { useParams, NavLink, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, fetchUser } from "../../store/users";
 import { getPosts, receivePosts } from "../../store/posts";
@@ -43,18 +43,18 @@ function ProfilePage() {
           </div>
         </div>
         <div className="profile-links">
-          <NavLink exact to={`/users/${user.id}`}>
-            Posts
-          </NavLink>
+          <NavLink to={`/users/${user.id}`}>Posts</NavLink>
           <NavLink to={`/users/${user.id}/about`}>About</NavLink>
           <NavLink to={`/users/${user.id}/friends`}>Friends</NavLink>
           <NavLink to={`/users/${user.id}/photos`}>Photos</NavLink>
         </div>
       </header>
       <div className="profile-main-container">
-        <ul>
-          <UserFeed posts={userPosts} />
-        </ul>
+        <Route exact path={`/users/${user.id}`}>
+          <ul>
+            <UserFeed posts={userPosts} />
+          </ul>
+        </Route>
       </div>
     </>
   );
