@@ -33,8 +33,9 @@ export const fetchUsers = () => async (dispatch) => {
   const res = await csrfFetch("/api/users");
 
   if (res.ok) {
-    const users = await res.json();
-    dispatch(recieveUsers(users));
+    const data = await res.json();
+    dispatch(recieveUsers(data));
+    return data;
   }
 };
 
@@ -42,8 +43,9 @@ export const fetchUser = (id) => async (dispatch) => {
   const res = await csrfFetch(`/api/users/${id}`);
 
   if (res.ok) {
-    const user = await res.json();
-    dispatch(recieveUser(user));
+    const data = await res.json();
+    dispatch(recieveUser(data));
+    return data;
   }
 };
 
@@ -57,8 +59,9 @@ export const updateUser = (user) => async (dispatch) => {
   });
 
   if (res.ok) {
-    const user = await res.json();
-    dispatch(recieveUser(user));
+    const data = await res.json();
+    dispatch(recieveUser(data));
+    return data;
   }
 };
 

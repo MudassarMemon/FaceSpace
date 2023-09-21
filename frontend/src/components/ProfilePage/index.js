@@ -2,18 +2,17 @@ import { useEffect, useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, fetchUser } from "../../store/users";
+import { getPosts, receivePosts } from "../../store/posts";
 import "./ProfilePage.css";
 
 function ProfilePage() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const user = useSelector(getUser(id));
-  const [firstName, setFirstName] = useState(user ? user.firstName : "");
-  const [lastName, setLastName] = useState(user ? user.lastName : "");
-  // const [userPosts, setUserPosts] = useState(user ? user.posts : "");
+  const userPosts = useSelector(getPosts);
 
   useEffect(() => {
-    dispatch(fetchUser(id));
+    dispatch(fetchUser(id)).then((res) => dispatch(receivePosts(res)));
   }, [id, dispatch]);
 
   return (
@@ -49,7 +48,13 @@ function ProfilePage() {
           <NavLink to="">Photos</NavLink>
         </div>
       </header>
-      <div className="profile-main-container"></div>
+      <div className="profile-main-container">
+        <ul>
+          {userPosts.map((post) => (
+            <li>{post.body}</li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }
