@@ -9,11 +9,10 @@ function ProfilePage() {
   const dispatch = useDispatch();
   const user = useSelector(getUser(id));
   const [firstName, setFirstName] = useState(user ? user.firstName : "");
+  const [lastName, setLastName] = useState(user ? user.lastName : "");
+  // const [userPosts, setUserPosts] = useState(user ? user.posts : "");
 
   useEffect(() => {
-    console.log("fetching user...");
-    console.log(id);
-    // debugger;
     dispatch(fetchUser(id));
   }, [id, dispatch]);
 
@@ -35,7 +34,7 @@ function ProfilePage() {
               ></img>
             </div>
             <div className="profile-name-container">
-              <h1>{user && user.firstName}</h1>
+              <h1>{user && user.firstName + " " + user.lastName}</h1>
               <h6>69 friends</h6>
             </div>
           </div>

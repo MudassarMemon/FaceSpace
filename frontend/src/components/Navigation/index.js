@@ -82,8 +82,13 @@ function Navigation() {
             >
               <div className="nav-bar-dropdown">
                 <div className="profile-link">
-                  <NavLink to="/users/:id">
-                    <h1>To User Profile</h1>
+                  <NavLink
+                    style={{ textDecoration: "none" }}
+                    to={`/users/${sessionUser.id}`}
+                  >
+                    <h1>
+                      {sessionUser.firstName + " " + sessionUser.lastName}
+                    </h1>
                   </NavLink>
                 </div>
                 <div className="logout-container">
