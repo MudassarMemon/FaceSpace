@@ -11,7 +11,7 @@ ApplicationRecord.transaction do
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
-    Post.destory_all
+    Post.destroy_all
   
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
@@ -26,7 +26,8 @@ ApplicationRecord.transaction do
         last_name: "Memon",
         gender:"Male",
         birthday: "1995-05-03",
-        password: 'password'
+        password: 'password',
+        bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto iste iure aspernatur odit debitis magnam atque nisi sit nulla. Expedita, delectus harum laboriosam iusto saepe cum dolor explicabo quaerat fugit."
     )
   
     # More users
@@ -38,7 +39,7 @@ ApplicationRecord.transaction do
         last_name: last_name,
         email: Faker::Internet.email(name: "#{first_name} #{last_name}", separators: ['-'], domain: 'test'),
         gender: Faker::Gender.binary_type,
-        birthday: Faker::Date.between(from: 18.years.ago, to: Date.today),
+        birthday: Faker::Date.birthday(min_age: 13, max_age: 130),
         password: Faker::Internet.password
       }) 
     end

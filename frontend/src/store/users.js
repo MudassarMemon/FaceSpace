@@ -3,17 +3,17 @@ import csrfFetch from "./csrf.js";
 const RECEIVE_USERS = "users/recieveUsers";
 const RECEIVE_USER = "users/recieveUser";
 
-const recieveUsers = (users) => {
+const recieveUsers = (data) => {
   return {
     type: RECEIVE_USERS,
-    users,
+    data,
   };
 };
 
-const recieveUser = (user) => {
+const recieveUser = (data) => {
   return {
     type: RECEIVE_USER,
-    user,
+    data,
   };
 };
 
@@ -67,9 +67,9 @@ const usersReducer = (state = [], action) => {
 
   switch (action.type) {
     case RECEIVE_USERS:
-      return { ...action.users };
+      return { ...action.data.users };
     case RECEIVE_USER:
-      nextState[action.user.id] = action.user;
+      nextState[action.data.user.id] = action.data.user;
       return nextState;
     default:
       return state;

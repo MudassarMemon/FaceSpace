@@ -29,18 +29,18 @@ export const login =
       method: "POST",
       body: JSON.stringify({ email, password }),
     });
-    const user = await response.json();
-    storeCurrentUser(user);
-    dispatch(setCurrentUser(user));
+    const data = await response.json();
+    storeCurrentUser(data.user);
+    dispatch(setCurrentUser(data.user));
     return response;
   };
 
 export const restoreSession = () => async (dispatch) => {
   const response = await csrfFetch("/api/session");
   storeCSRFToken(response);
-  const user = await response.json();
-  storeCurrentUser(user);
-  dispatch(setCurrentUser(user));
+  const data = await response.json();
+  storeCurrentUser(data.user);
+  dispatch(setCurrentUser(data.user));
   return response;
 };
 
@@ -57,9 +57,9 @@ export const signup = (user) => async (dispatch) => {
       birthday,
     }),
   });
-  const user = await response.json();
-  storeCurrentUser(user);
-  dispatch(setCurrentUser(user));
+  const data = await response.json();
+  storeCurrentUser(data.user);
+  dispatch(setCurrentUser(data.user));
   return response;
 };
 
