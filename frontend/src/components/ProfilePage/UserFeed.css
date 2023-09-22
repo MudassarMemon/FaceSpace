@@ -2,7 +2,7 @@
     width: 100%;
     height:1000px;
     background-color: #f0f2f5;
-    border: 1px solid rgb(0, 4, 255);
+    /* border: 1px solid red; */
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -11,38 +11,45 @@
 
 .profile-left-container {
     width: 25%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: 5px;
 }
 
 .profile-right-container {
     width: 35%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: 5px;
 }
 
 .profile-bio-container {
-    border: 1px solid red;
-    margin-bottom: 10px;
+    /* border: 1px solid red; */
+    margin-bottom: 15px;
     border-radius: 8px;
     padding:10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
 }
 
 .profile-friends-container {
-    border: 1px solid red;
-    margin-bottom: 10px;
+    /* border: 1px solid red; */
+    margin-bottom: 15px;
     border-radius: 8px;
     padding:10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
 }
 
 .profile-photos-container {
-    border: 1px solid red;
-    margin-bottom: 10px;
+    /* border: 1px solid red; */
+    margin-bottom: 15px;
     border-radius: 8px;
     padding:10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+}
+
+.profile-posts-container > * {
+    margin-bottom: 15px;
 }
 
 .profile-posts-container ul{
@@ -52,11 +59,12 @@
 
 .profile-posts-container li{
     list-style: none;
-    border: 1px solid red;
-    margin: 10px 0;
+    /* border: 1px solid red; */
+    margin: 15px 0;
     border-radius: 8px;
     padding:10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
 }
 
 .create-profile-post{
@@ -65,15 +73,16 @@
     justify-content: space-around;
     border-radius: 8px;
     padding:10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
-    border: 1px solid red;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    /* border: 1px solid red; */
     height: 40px;
     background-color: #ffffff;
     
 }
 
 .create-profile-post > button{
-    border: 1px solid red;
+    border: none;
+    /* border: 1px solid red; */
     width: 90%;
     height: 100%; 
     border-radius: 20px;
