@@ -6,7 +6,6 @@ import EditProfile from "./EditProfile";
 
 function ProfileHeader({ id, user }) {
   const [showModal, setShowModal] = useState(false);
-  console.log(showModal);
   return (
     <header className="profile-header">
       <div className="cover-photo-container">
@@ -34,7 +33,6 @@ function ProfileHeader({ id, user }) {
           <div
             className="edit-profile-container"
             onClick={() => {
-              console.log("click");
               setShowModal(true);
             }}
           >
@@ -44,7 +42,7 @@ function ProfileHeader({ id, user }) {
 
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-              <EditProfile onClose={() => setShowModal(false)} />
+              <EditProfile onClose={() => setShowModal(false)} user={user} />
             </Modal>
           )}
         </div>
