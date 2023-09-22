@@ -1,18 +1,21 @@
 import "./CreatePostForm.css";
 import { useState } from "react";
-// import { receivePost } from "../../store/posts";
-// import { useDispatch } from "react-redux";
+import { receivePost } from "../../store/posts";
+import { useDispatch } from "react-redux";
 
 function CreatePostForm({ onClose, user }) {
   const [postBody, setPostBody] = useState("");
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch(receivePost({body: postBody});
+    onClose();
     console.log("submitting");
     console.log(postBody);
+    let id = Math.random() * 1000;
+    return dispatch(receivePost({ post: { id, body: postBody } }));
   };
+
   return (
     <div className="create-post-form">
       <img

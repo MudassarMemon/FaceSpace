@@ -32,10 +32,9 @@ export const getPost = (state) => {
 
 const postsReducer = (state = [], action) => {
   const nextState = { ...state };
-
   switch (action.type) {
     case RECEIVE_POSTS:
-      return { nextState, ...action.data.posts };
+      return { ...nextState, ...action.data.posts };
     case RECEIVE_POST:
       nextState[action.data.post.id] = action.data.post;
       return nextState;

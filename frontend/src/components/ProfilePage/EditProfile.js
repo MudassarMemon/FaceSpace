@@ -9,6 +9,7 @@ function EditProfileModal({ onClose, user }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    onClose();
     dispatch(updateUser({ ...user, bio }));
     console.log("submitting");
   };
