@@ -8,6 +8,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "../../context/Modal";
 import { useState, useEffect } from "react";
 import * as sessionActions from "../../store/session";
+import NavBarDropdown from "./NavBarDropdown";
 
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -41,7 +42,7 @@ function Navigation() {
       </div>
 
       <div className="centerNavBarContainer">
-        <Link className="centerNavBarContent" to="/">
+        <Link id={id} className="centerNavBarContent" to="/">
           {history.location.pathname.length > 1 ? (
             <>
               <FontAwesomeIcon
@@ -79,22 +80,7 @@ function Navigation() {
               background={false}
               onClose={() => setShowModal(false)}
             >
-              <div className="nav-bar-dropdown">
-                <div className="profile-link">
-                  <NavLink
-                    style={{ textDecoration: "none" }}
-                    to={`/users/${sessionUser.id}`}
-                  >
-                    <h1>
-                      {sessionUser.firstName + " " + sessionUser.lastName}
-                    </h1>
-                  </NavLink>
-                </div>
-                <div className="logout-container">
-                  <div className="logout-button"></div>
-                  <button onClick={Logout}>Log Out</button>
-                </div>
-              </div>
+              <NavBarDropdown sessionUser={sessionUser} Logout={Logout} />
             </Modal>
           )}
         </nav>

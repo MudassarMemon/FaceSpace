@@ -1,5 +1,4 @@
 import "./UserFeed.css";
-import Navigation from "../Navigation";
 
 function UserFeed({ posts, user }) {
   return (
