@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, NavLink, Route, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser, fetchUser } from "../../store/users";
+import usersReducer, { getUser, fetchUser } from "../../store/users";
 import { getPosts, receivePosts } from "../../store/posts";
 import UserFeed from "./UserFeed";
 import UserAbout from "./UserAbout";
@@ -76,7 +76,7 @@ function ProfilePage() {
       </header>
       <div className="profile-main-container">
         <Route exact path="/users/:id">
-          <UserFeed posts={userPosts} />
+          <UserFeed posts={userPosts} bio={user.bio} />
         </Route>
         <Route path="/users/:id/about">
           <UserAbout user={user} />

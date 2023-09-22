@@ -1,4 +1,4 @@
-div.right{
+/* div.right{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,22 +8,51 @@ div.right{
     margin-top: 40px;
     min-width: 396px;
     height: 325px;
-}
+} */
 
 .profile-main-container{
     width: 100%;
     height:1000px;
-    padding: 10px;
-    padding-left: 20%;
-    padding-right: 20%;
     background-color: #f0f2f5;
-    
+    border: 1px solid rgb(0, 4, 255);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 .profile-left-container {
-    width: 40%;
+    width: 30%;
+    border: 1px solid red;
+    padding: 5px;
 }
 
 .profile-right-container {
-    width: 60%;
+    width: 50%;
+    border: 1px solid red;
+    padding: 5px;
+}
+
+.profile-bio-container {
+    border: 1px solid red;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    padding:10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+}
+
+.profile-friends-container {
+    border: 1px solid red;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    padding:10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+}
+
+.profile-photos-container {
+    border: 1px solid red;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    padding:10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
 }
