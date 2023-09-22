@@ -76,7 +76,7 @@ function ProfilePage() {
       </header>
       <div className="profile-main-container">
         <Route exact path="/users/:id">
-          <UserFeed posts={userPosts} bio={user.bio} />
+          <UserFeed posts={userPosts} user={user} />
         </Route>
         <Route path="/users/:id/about">
           <UserAbout user={user} />
