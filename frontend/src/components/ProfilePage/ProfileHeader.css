@@ -50,6 +50,7 @@
     align-items: center;
     padding: 0 10px;
     position: relative;
+    cursor: pointer;
 }
 
 .edit-profile-container button{
@@ -60,6 +61,8 @@
     font-weight: bold;
     width: 100%;
     padding-left: 25px;
+    cursor: pointer;
+
 }
 
 .edit-profile-container:hover {

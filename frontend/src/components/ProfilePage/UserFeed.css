@@ -77,7 +77,6 @@
     /* border: 1px solid red; */
     height: 40px;
     background-color: #ffffff;
-    
 }
 
 .create-profile-post > button{
@@ -92,6 +91,7 @@
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 15px;
     color: #656768;
+    cursor: pointer;    
 }
 
 .create-profile-post > button:hover {

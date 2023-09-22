@@ -15,7 +15,7 @@ function EditProfileModal({ onClose, user }) {
   };
 
   return (
-    <>
+    <div className="edit-user-form">
       <img
         onClick={onClose}
         id="closeEditUser"
@@ -26,15 +26,16 @@ function EditProfileModal({ onClose, user }) {
         <h1>Edit Bio</h1>
         <textarea
           value={bio}
+          placeholder="Describe who you are"
           onChange={(e) => setBio(e.target.value)}
           id="edit-bio"
           name="edit-bio"
           rows="4"
           cols="50"
         />
-        <button>Update Bio</button>
+        <button>Save</button>
       </form>
-    </>
+    </div>
   );
 }
 
