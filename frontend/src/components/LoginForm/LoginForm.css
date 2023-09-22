@@ -56,6 +56,13 @@ div.passwordContainer{
     height: 50px;
     width: 360px;
     padding: 6px 0;
+    position: relative;
+}
+
+#eye{
+    position:absolute;
+    top: 12px;
+    right: 5px;
 }
 
 div.passwordContainer > input{

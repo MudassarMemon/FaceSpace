@@ -47,7 +47,11 @@ function ProfilePage() {
           </div>
         </div>
         <div className="profile-links">
-          <NavLink activeClassName="active-profile-link" to={`/users/${id}`}>
+          <NavLink
+            activeClassName="active-profile-link"
+            exact
+            to={`/users/${id}`}
+          >
             Posts
           </NavLink>
           <NavLink

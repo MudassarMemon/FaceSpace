@@ -195,10 +195,12 @@ img#userLogo:hover {
   font-weight: 500;
   border: none;
   padding-bottom: 6px;
+  cursor: pointer;
 }
 
 .logout-container:hover {
   background-color: #f2f2f2;
+  cursor: pointer;
 }
 
 .logout-container:active {
