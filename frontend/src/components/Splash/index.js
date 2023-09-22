@@ -31,7 +31,7 @@ function Splash() {
           LinkedIn
         </a>
         <a href="https://github.com/MudassarMemon">Github</a>
-        <a href="https://github.com/MudassarMemon/Facespace">Spacebook Repo</a>
+        <a href="https://github.com/MudassarMemon/Facespace">Facespace Repo</a>
       </footer>
     </>
   );
