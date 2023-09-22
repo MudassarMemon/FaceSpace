@@ -1,10 +1,10 @@
 function UserFeed({ posts }) {
   return (
-    <>
+    <ul>
       {posts.map((post) => (
-        <li>{post.body}</li>
+        <li key={post.id}>{post.body}</li>
       ))}
-    </>
+    </ul>
   );
 }
 

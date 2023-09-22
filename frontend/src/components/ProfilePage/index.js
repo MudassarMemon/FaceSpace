@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams, NavLink, Route } from "react-router-dom";
+import { useParams, NavLink, Route, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, fetchUser } from "../../store/users";
 import { getPosts, receivePosts } from "../../store/posts";
 import UserFeed from "./UserFeed";
+import UserAbout from "./UserAbout";
+
 import "./ProfilePage.css";
 
 function ProfilePage() {
@@ -35,7 +37,9 @@ function ProfilePage() {
             </div>
             <div className="profile-name-container">
               <h1>{user && user.firstName + " " + user.lastName}</h1>
-              <h6>69 friends</h6>
+              <Link id="friend-count" to={`/users/${id}/friends`}>
+                3 friends
+              </Link>
             </div>
           </div>
           <div className="right-profile-details">
@@ -43,18 +47,38 @@ function ProfilePage() {
           </div>
         </div>
         <div className="profile-links">
-          <NavLink to={`/users/${user.id}`}>Posts</NavLink>
-          <NavLink to={`/users/${user.id}/about`}>About</NavLink>
-          <NavLink to={`/users/${user.id}/friends`}>Friends</NavLink>
-          <NavLink to={`/users/${user.id}/photos`}>Photos</NavLink>
+          <NavLink activeClassName="active-profile-link" to={`/users/${id}`}>
+            Posts
+          </NavLink>
+          <NavLink
+            activeClassName="active-profile-link"
+            to={`/users/${id}/about`}
+          >
+            About
+          </NavLink>
+          <NavLink
+            activeClassName="active-profile-link"
+            to={`/users/${id}/friends`}
+          >
+            Friends
+          </NavLink>
+          <NavLink
+            activeClassName="active-profile-link"
+            to={`/users/${id}/photos`}
+          >
+            Photos
+          </NavLink>
         </div>
       </header>
       <div className="profile-main-container">
-        <Route exact path={`/users/${user.id}`}>
-          <ul>
-            <UserFeed posts={userPosts} />
-          </ul>
+        <Route exact path="/users/:id">
+          <UserFeed posts={userPosts} />
         </Route>
+        <Route path="/users/:id/about">
+          <UserAbout user={user} />
+        </Route>
+        <Route path="/users/:id/friends"></Route>
+        <Route path="/users/:id/photos"></Route>
       </div>
     </>
   );
