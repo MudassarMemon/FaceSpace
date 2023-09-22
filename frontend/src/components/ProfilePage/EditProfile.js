@@ -1,17 +1,21 @@
 import "./EditProfile.css";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { updateUser } from "../../store/users";
 import { useDispatch } from "react-redux";
 
 function EditProfileModal({ onClose, user }) {
   const [bio, setBio] = useState(user.bio ? user.bio : "");
   const dispatch = useDispatch();
+  const bioInput = useRef();
+
+  useEffect(() => {
+    bioInput.current.focus();
+  }, [bioInput]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onClose();
     dispatch(updateUser({ ...user, bio }));
-    console.log("submitting");
   };
 
   return (
@@ -25,6 +29,7 @@ function EditProfileModal({ onClose, user }) {
       <form onSubmit={handleSubmit}>
         <h1>Edit Bio</h1>
         <textarea
+          ref={bioInput}
           value={bio}
           placeholder="Describe who you are"
           onChange={(e) => setBio(e.target.value)}

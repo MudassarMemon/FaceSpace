@@ -6,6 +6,7 @@ import EditProfile from "./EditProfile";
 
 function ProfileHeader({ id, user }) {
   const [showModal, setShowModal] = useState(false);
+
   return (
     <header className="profile-header">
       <div className="cover-photo-container">

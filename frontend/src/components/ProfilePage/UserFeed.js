@@ -5,7 +5,7 @@ import CreatePostForm from "../Posts/CreatePostForm";
 
 function UserFeed({ posts, user }) {
   const [showModal, setShowModal] = useState(false);
-  console.log(posts);
+
   return (
     <>
       <div className="profile-left-container">

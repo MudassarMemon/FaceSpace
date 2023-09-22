@@ -22,11 +22,11 @@ div.create-post-form {
     justify-content: center;
     align-items: center;
     flex-flow:column wrap;
-    padding: 20px 30px 20px 20px;
+    padding: 20px;
 }
 
 textarea#create-post {
-    width: 100%;
+    width: 97%;
     border-radius: 8px;
     border-color: #ced0d4;
     background-color: #f0f2f5;
@@ -41,9 +41,10 @@ textarea#create-post:focus {
 div.create-post-form h1{
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 20px;
+    margin-top: 0;
 }
 
-div.create-post-form button {
+div.create-post-form #post-button {
     border: none;
     background-color: #0766ff;
     padding: 10px 20px;
@@ -52,6 +53,5 @@ div.create-post-form button {
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 15px;
     font-weight: bold;
-    float: right;
     margin-top: 5px;
 }
