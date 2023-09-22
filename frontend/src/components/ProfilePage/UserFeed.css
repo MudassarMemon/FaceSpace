@@ -12,13 +12,13 @@
 .profile-left-container {
     width: 25%;
     /* border: 1px solid red; */
-    padding: 5px;
+    padding: 5px 10px;
 }
 
 .profile-right-container {
     width: 35%;
     /* border: 1px solid red; */
-    padding: 5px;
+    padding: 5px 0 5px 5px;
 }
 
 .profile-bio-container {

@@ -1,7 +1,12 @@
 import { NavLink, Link } from "react-router-dom";
 import "./ProfileHeader.css";
+import { Modal } from "../../context/Modal";
+import { useState } from "react";
+import EditProfile from "./EditProfile";
 
 function ProfileHeader({ id, user }) {
+  const [showModal, setShowModal] = useState(false);
+  console.log(showModal);
   return (
     <header className="profile-header">
       <div className="cover-photo-container">
@@ -26,7 +31,22 @@ function ProfileHeader({ id, user }) {
           </div>
         </div>
         <div className="right-profile-details">
-          <div className="edit-profile-container">Edit Profile</div>
+          <div
+            className="edit-profile-container"
+            onClick={() => {
+              console.log("click");
+              setShowModal(true);
+            }}
+          >
+            <div className="edit-icon"></div>
+            <button>Edit Profile</button>
+          </div>
+
+          {showModal && (
+            <Modal onClose={() => setShowModal(false)}>
+              <EditProfile onClose={() => setShowModal(false)} />
+            </Modal>
+          )}
         </div>
       </div>
       <div className="profile-links">

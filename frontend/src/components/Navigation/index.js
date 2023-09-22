@@ -19,7 +19,7 @@ function Navigation() {
 
   useEffect(() => {}, [history.location.pathname]);
 
-  function Logout() {
+  function logout() {
     history.push("/");
     return dispatch(sessionActions.logout());
   }
@@ -80,7 +80,11 @@ function Navigation() {
               background={false}
               onClose={() => setShowModal(false)}
             >
-              <NavBarDropdown sessionUser={sessionUser} Logout={Logout} />
+              <NavBarDropdown
+                sessionUser={sessionUser}
+                logout={logout}
+                onClose={() => setShowModal(false)}
+              />
             </Modal>
           )}
         </nav>

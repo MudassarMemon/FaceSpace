@@ -22,10 +22,11 @@ export function ModalProvider({ children }) {
 
 export function Modal({ onClose, children, background = true, position }) {
   const modalNode = useContext(ModalContext);
+  if (!modalNode) return null;
 
   let backgroundColor;
   if (background) {
-    backgroundColor = "rgba(255, 255, 255, .5)";
+    backgroundColor = "rgba(255, 255, 255, .8)";
   } else {
     backgroundColor = "rgba(255, 255, 255, 0)";
   }
@@ -50,8 +51,6 @@ export function Modal({ onClose, children, background = true, position }) {
     left,
     bottom,
   };
-
-  if (!modalNode) return null;
 
   return ReactDOM.createPortal(
     <div id="modal">

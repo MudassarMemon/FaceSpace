@@ -1,0 +1,15 @@
+img#closeEditUser {
+    border-radius: 50%;
+    background-color: #f0f2f5;
+    padding: 3px;
+}
+
+img#closeEditUser:hover {
+    background-color: #e4e6e8;
+    cursor: pointer;
+  }
+
+img#closeEditUser:active {
+    background-color: #d8d9dc;
+    transform: scale(.9);
+}
