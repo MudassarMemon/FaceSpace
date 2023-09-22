@@ -1,6 +1,11 @@
 import "./UserFeed.css";
+import { Modal } from "../../context/Modal";
+import { useState } from "react";
+import CreatePostForm from "../Posts/CreatePostForm";
 
 function UserFeed({ posts, user }) {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
       <div className="profile-left-container">
@@ -24,7 +29,22 @@ function UserFeed({ posts, user }) {
               alt="userLogo"
               src="https://cdn-icons-png.flaticon.com/512/219/219970.png"
             ></img>
-            <button>What's on your mind?</button>
+            <button
+              onClick={() => {
+                setShowModal(true);
+              }}
+            >
+              What's on your mind?
+            </button>
+
+            {showModal && (
+              <Modal onClose={() => setShowModal(false)}>
+                <CreatePostForm
+                  onClose={() => setShowModal(false)}
+                  user={user}
+                />
+              </Modal>
+            )}
           </div>
           <ul>
             {posts.map((post) => (
