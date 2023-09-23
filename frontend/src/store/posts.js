@@ -27,14 +27,14 @@ export const getPost = (state) => {
 };
 
 export const createPost = (post) => async (dispatch) => {
-  const res = await csrfFetch("/api/post", {
+  const res = await csrfFetch("/api/posts", {
     method: "POST",
     body: JSON.stringify(post),
   });
 
   if (res.ok) {
     let data = await res.json();
-    dispatch(RECEIVE_POST(data));
+    dispatch(receivePost(data));
     return data;
   }
 };

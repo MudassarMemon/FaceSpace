@@ -4,10 +4,10 @@ import { createPost, receivePost } from "../../store/posts";
 import { useDispatch } from "react-redux";
 
 function CreatePostForm({ onClose, user }) {
-  const [postBody, setPostBody] = useState("");
+  const [body, setBody] = useState("");
   const dispatch = useDispatch();
   const postInput = useRef();
-  const author_id = user.id;
+  const authorId = user.id;
 
   useEffect(() => {
     postInput.current.focus();
@@ -17,10 +17,10 @@ function CreatePostForm({ onClose, user }) {
     e.preventDefault();
     onClose();
     console.log("submitting");
-    console.log(postBody);
-    let id = Math.random() * 1000;
-    return dispatch(receivePost({ post: { id, body: postBody } }));
-    return dispatch(createPost({ id: author_id, body: postBody }));
+    // console.log(body);
+    // let id = Math.random() * 1000;
+    // return dispatch(receivePost({ post: { id, body: body } }));
+    return dispatch(createPost({ authorId, body }));
   };
 
   return (
@@ -35,9 +35,9 @@ function CreatePostForm({ onClose, user }) {
         <h1>Create post</h1>
         <textarea
           ref={postInput}
-          value={postBody}
+          value={body}
           placeholder="What's on your mind?"
-          onChange={(e) => setPostBody(e.target.value)}
+          onChange={(e) => setBody(e.target.value)}
           id="create-post"
           name="create-post"
           rows="4"
