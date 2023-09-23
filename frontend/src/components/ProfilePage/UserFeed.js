@@ -2,9 +2,20 @@ import "./UserFeed.css";
 import { Modal } from "../../context/Modal";
 import { useState } from "react";
 import CreatePostForm from "../Posts/CreatePostForm";
+import { useSelector } from "react-redux";
+import { getPosts } from "../../store/posts";
 
-function UserFeed({ posts, user }) {
+function UserFeed({ user }) {
   const [showModal, setShowModal] = useState(false);
+  const posts = useSelector(getPosts);
+
+  const sortedPosts = () => {
+    let sorted = [];
+    for (let i = posts.length - 1; i >= 0; i--) {
+      sorted.push(posts[i]);
+    }
+    return sorted;
+  };
 
   return (
     <>
@@ -47,7 +58,7 @@ function UserFeed({ posts, user }) {
             )}
           </div>
           <ul>
-            {posts.map((post) => (
+            {sortedPosts().map((post) => (
               <li key={post.id}>{post.body}</li>
             ))}
           </ul>

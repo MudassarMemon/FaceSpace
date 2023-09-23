@@ -1,5 +1,5 @@
-// import csrfFetch from "./csrf";
-
+import csrfFetch from "./csrf";
+import { RECEIVE_USER } from "./users";
 const RECEIVE_POSTS = "/posts/receivePosts";
 const RECEIVE_POST = "/posts/receivePost";
 const REMOVE_POST = "/posts/receivePost";
@@ -26,9 +26,18 @@ export const getPost = (state) => {
   return null;
 };
 
-// export const createPost = (post) => async dispatch => {
-//   const res = await csrfFetch("/api/post")
-// }
+export const createPost = (post) => async (dispatch) => {
+  const res = await csrfFetch("/api/post", {
+    method: "POST",
+    body: JSON.stringify(post),
+  });
+
+  if (res.ok) {
+    let data = await res.json();
+    dispatch(RECEIVE_POST(data));
+    return data;
+  }
+};
 
 const postsReducer = (state = [], action) => {
   const nextState = { ...state };
@@ -38,6 +47,8 @@ const postsReducer = (state = [], action) => {
     case RECEIVE_POST:
       nextState[action.data.post.id] = action.data.post;
       return nextState;
+    case RECEIVE_USER:
+      return { ...nextState, ...action.data.posts };
     default:
       return state;
   }

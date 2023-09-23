@@ -1,12 +1,13 @@
 import "./CreatePostForm.css";
 import { useState, useEffect, useRef } from "react";
-import { receivePost } from "../../store/posts";
+import { createPost, receivePost } from "../../store/posts";
 import { useDispatch } from "react-redux";
 
 function CreatePostForm({ onClose, user }) {
   const [postBody, setPostBody] = useState("");
   const dispatch = useDispatch();
   const postInput = useRef();
+  const author_id = user.id;
 
   useEffect(() => {
     postInput.current.focus();
@@ -19,6 +20,7 @@ function CreatePostForm({ onClose, user }) {
     console.log(postBody);
     let id = Math.random() * 1000;
     return dispatch(receivePost({ post: { id, body: postBody } }));
+    return dispatch(createPost({ id: author_id, body: postBody }));
   };
 
   return (

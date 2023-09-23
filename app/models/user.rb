@@ -43,8 +43,7 @@ class User < ApplicationRecord
 
   def verify_age
     if ((Date.today - birthday).to_i) <= (13 * 365.242374)
-      puts("3")
-      errors.add(:birthday, message: 'invalid. Must be over 13 years of age to sign up')
+      errors.add(:birthday, message: 'invalid. Must be 13 years of age or older to sign up')
     end
   end
 
