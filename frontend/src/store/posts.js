@@ -21,14 +21,27 @@ export const getPosts = (state) => {
   return [];
 };
 
-export const getPost = (state) => {
-  if (state.post) return state.post;
+export const getPost = (postId) => (state) => {
+  if (state.posts[postId]) return state.posts[postId];
   return null;
 };
 
 export const createPost = (post) => async (dispatch) => {
   const res = await csrfFetch("/api/posts", {
     method: "POST",
+    body: JSON.stringify(post),
+  });
+
+  if (res.ok) {
+    let data = await res.json();
+    dispatch(receivePost(data));
+    return data;
+  }
+};
+
+export const updatePost = (post) => async (dispatch) => {
+  const res = await csrfFetch(`/api/posts/${post.id}`, {
+    method: "PATCH",
     body: JSON.stringify(post),
   });
 

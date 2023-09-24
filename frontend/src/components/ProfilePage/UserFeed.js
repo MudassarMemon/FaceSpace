@@ -1,12 +1,16 @@
 import "./UserFeed.css";
 import { Modal } from "../../context/Modal";
 import { useState } from "react";
-import CreatePostForm from "../Posts/CreatePostForm";
+import PostForm from "../Posts/PostForm";
 import { useSelector } from "react-redux";
 import { getPosts } from "../../store/posts";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 
 function UserFeed({ user }) {
-  const [showModal, setShowModal] = useState(false);
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [editPostId, setEditPostId] = useState("");
   const posts = useSelector(getPosts);
 
   const sortedPosts = () => {
@@ -42,16 +46,16 @@ function UserFeed({ user }) {
             ></img>
             <button
               onClick={() => {
-                setShowModal(true);
+                setShowCreateModal(true);
               }}
             >
               What's on your mind?
             </button>
 
-            {showModal && (
-              <Modal onClose={() => setShowModal(false)}>
-                <CreatePostForm
-                  onClose={() => setShowModal(false)}
+            {showCreateModal && (
+              <Modal onClose={() => setShowCreateModal(false)}>
+                <PostForm
+                  onClose={() => setShowCreateModal(false)}
                   user={user}
                 />
               </Modal>
@@ -59,9 +63,37 @@ function UserFeed({ user }) {
           </div>
           <ul>
             {sortedPosts().map((post) => (
-              <li key={post.id}>{post.body}</li>
+              <li
+                onClick={() => {
+                  setEditPostId(post.id);
+                  setShowEditModal(true);
+                }}
+                key={post.id}
+              >
+                <div className="edit-post-icon">
+                  <FontAwesomeIcon icon={faEllipsis} />
+                </div>
+                <div className="post-author">feedId: {post.authorId}</div>
+                <div className="post-body">{post.body}</div>
+                <div className="add-comment">
+                  <input
+                    className="comment-input"
+                    type="text"
+                    placeholder="Write a comment..."
+                  />
+                </div>
+              </li>
             ))}
           </ul>
+          {showEditModal && (
+            <Modal onClose={() => setShowEditModal(false)}>
+              <PostForm
+                onClose={() => setShowEditModal(false)}
+                user={user}
+                postId={editPostId}
+              />
+            </Modal>
+          )}
         </div>
       </div>
     </>

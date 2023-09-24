@@ -1,10 +1,11 @@
-import "./CreatePostForm.css";
+import "./PostForm.css";
 import { useState, useEffect, useRef } from "react";
-import { createPost, receivePost } from "../../store/posts";
-import { useDispatch } from "react-redux";
+import { createPost, getPost, updatePost } from "../../store/posts";
+import { useDispatch, useSelector } from "react-redux";
 
-function CreatePostForm({ onClose, user }) {
-  const [body, setBody] = useState("");
+function PostForm({ onClose, user, postId }) {
+  const post = useSelector(getPost(postId));
+  const [body, setBody] = useState(postId ? post.body : "");
   const dispatch = useDispatch();
   const postInput = useRef();
   const authorId = user.id;
@@ -16,11 +17,11 @@ function CreatePostForm({ onClose, user }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onClose();
-    console.log("submitting");
-    // console.log(body);
-    // let id = Math.random() * 1000;
-    // return dispatch(receivePost({ post: { id, body: body } }));
-    return dispatch(createPost({ authorId, body }));
+    if (postId) {
+      return dispatch(updatePost({ ...post, body }));
+    } else {
+      return dispatch(createPost({ authorId, body }));
+    }
   };
 
   return (
@@ -32,7 +33,7 @@ function CreatePostForm({ onClose, user }) {
         src="https://static.xx.fbcdn.net/rsrc.php/v3/yO/r/zgulV2zGm8t.png"
       />
       <form onSubmit={handleSubmit}>
-        <h1>Create post</h1>
+        <h1>{postId ? "Edit post" : "Create post"}</h1>
         <textarea
           ref={postInput}
           value={body}
@@ -43,10 +44,14 @@ function CreatePostForm({ onClose, user }) {
           rows="4"
           cols="50"
         />
-        <input id="post-button" type="submit" value="Post" />
+        <input
+          id="post-button"
+          type="submit"
+          value={postId ? "Save" : "Post"}
+        />
       </form>
     </div>
   );
 }
 
-export default CreatePostForm;
+export default PostForm;

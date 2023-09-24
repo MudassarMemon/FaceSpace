@@ -62,9 +62,57 @@
     /* border: 1px solid red; */
     margin: 15px 0;
     border-radius: 8px;
-    padding:10px;
+    padding:20px;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
     background-color: #ffffff;
+    position: relative;
+}
+
+li > div.edit-post-icon {
+    border-radius: 100px;
+    position:absolute;
+    right: 10px;
+    top: 10px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li > div.edit-post-icon:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+li > div.edit-post-icon:active {
+    background-color: #d8d9dc;
+}
+
+li > div.add-comment {
+    height: 30px;
+    margin-top: 10px;
+}
+.comment-input {
+    border: none;
+    width: 100%;
+    height: 100%; 
+    border-radius: 20px;
+    background-color: #f0f2f5;
+    text-align: left;
+    padding-left: 20px;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    color: .656768;
+    cursor: pointer;    
+}
+
+.comment-input:hover {
+    background-color: #e4e6e8;
+}
+
+.comment-input:focus {
+    background-color: #e4e6e8;
+    outline: none;
 }
 
 .create-profile-post{
@@ -89,7 +137,7 @@
     text-align: left;
     padding-left: 20px;
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     color: #656768;
     cursor: pointer;    
 }
