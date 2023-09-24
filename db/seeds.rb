@@ -27,8 +27,8 @@ ApplicationRecord.transaction do
         gender:"Male",
         birthday: "1995-05-03",
         password: 'password',
-        bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto iste iure aspernatur odit debitis magnam atque nisi sit nulla. Expedita, delectus harum laboriosam iusto saepe cum dolor explicabo quaerat fugit."
-    )
+        bio:Faker::Quote.famous_last_words
+      )
   
     # More users
     10.times do 
@@ -40,7 +40,8 @@ ApplicationRecord.transaction do
         email: Faker::Internet.email(name: "#{first_name} #{last_name}", separators: ['-'], domain: 'test'),
         gender: Faker::Gender.binary_type,
         birthday: Faker::Date.birthday(min_age: 13, max_age: 130),
-        password: Faker::Internet.password
+        password: Faker::Internet.password,
+        bio: Faker::Quote.famous_last_words
       }) 
     end
 
@@ -48,14 +49,17 @@ ApplicationRecord.transaction do
 
     Post.create!({
       author_id: 1,
-      body: Faker::Quotes::Shakespeare.hamlet_quote
+      feed_id: 1,
+      body: "This is my first post!"
     })
 
     # More posts
-    10.times do 
-      num = rand(1..10)
+    30.times do 
+      num1 = rand(1..11)
+      num2 = rand(1..11)
       Post.create!({
-        author_id: 1,
+        author_id: num1,
+        feed_id: num2,
         body: Faker::Quotes::Shakespeare.hamlet_quote
       })
     end

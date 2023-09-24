@@ -1,5 +1,5 @@
 class Api::PostsController < ApplicationController
-    wrap_parameters include: Post.attribute_names + ["authorId"]
+    wrap_parameters include: Post.attribute_names + ["authorId", "feedId"]
 
     def create
         @post = Post.new(post_params)
@@ -20,6 +20,6 @@ class Api::PostsController < ApplicationController
 
     private
     def post_params
-        params.require(:post).permit(:author_id, :body)
+        params.require(:post).permit(:author_id, :body, :feed_id)
     end
 end

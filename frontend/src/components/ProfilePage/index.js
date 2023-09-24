@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser, fetchUser } from "../../store/users";
+import { getUser, fetchUser, fetchUsers } from "../../store/users";
 import UserFeed from "./UserFeed";
 import UserAbout from "./UserAbout";
 import ProfileHeader from "./ProfileHeader";
@@ -12,6 +12,10 @@ function ProfilePage() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const user = useSelector(getUser(id));
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchUser(id));

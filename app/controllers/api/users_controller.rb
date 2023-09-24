@@ -4,8 +4,7 @@ class Api::UsersController < ApplicationController
 
   def index
     @users = User.all
-    # render 'api/users/index'
-    render json: @users
+    render 'api/users/index'
   end
 
   def show

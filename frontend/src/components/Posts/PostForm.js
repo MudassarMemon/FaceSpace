@@ -11,6 +11,7 @@ function PostForm({ onClose, user, postId }) {
   const postInput = useRef();
   const authorId = sessionUser.id;
   const feedId = user.id;
+
   console.log(postId);
   useEffect(() => {
     postInput.current.focus();
@@ -22,7 +23,7 @@ function PostForm({ onClose, user, postId }) {
     if (postId) {
       return dispatch(updatePost({ ...post, body }));
     } else {
-      return dispatch(createPost({ authorId, body }));
+      return dispatch(createPost({ authorId, body, feedId }));
     }
   };
 

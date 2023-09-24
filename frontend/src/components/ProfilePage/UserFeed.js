@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { getPosts } from "../../store/posts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import { getUsers } from "../../store/users";
 
 function UserFeed({ user }) {
   const [showCreateModal, setShowCreateModal] = useState(false);
@@ -13,7 +14,7 @@ function UserFeed({ user }) {
   const [showEditModal, setShowEditModal] = useState(false);
   const [editPostId, setEditPostId] = useState("");
   const posts = useSelector(getPosts);
-  const sessionUser = useSelector((state) => state.session.user);
+  const users = useSelector(getUsers);
 
   const sortedPosts = () => {
     let sorted = [];
@@ -75,7 +76,10 @@ function UserFeed({ user }) {
                 <div className="edit-post-icon">
                   <FontAwesomeIcon icon={faEllipsis} />
                 </div>
-                <div className="post-author">{sessionUser.firstName}</div>
+                <div className="post-author">
+                  {users[post.authorId - 1].firstName}{" "}
+                  {users[post.authorId - 1].lastName}
+                </div>
                 <div className="post-body">{post.body}</div>
                 <div className="add-comment">
                   <input
