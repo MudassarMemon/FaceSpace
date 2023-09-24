@@ -9,6 +9,7 @@ import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 
 function UserFeed({ user }) {
   const [showCreateModal, setShowCreateModal] = useState(false);
+  const [showPostSettingsModal, setShowPostSettingsModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editPostId, setEditPostId] = useState("");
   const posts = useSelector(getPosts);
@@ -67,7 +68,7 @@ function UserFeed({ user }) {
               <li
                 onClick={() => {
                   setEditPostId(post.id);
-                  setShowEditModal(true);
+                  setShowPostSettingsModal(true);
                 }}
                 key={post.id}
               >
@@ -86,6 +87,24 @@ function UserFeed({ user }) {
               </li>
             ))}
           </ul>
+
+          {showPostSettingsModal && (
+            <Modal
+              background={false}
+              onClose={() => setShowPostSettingsModal(false)}
+            >
+              <button
+                onClick={() => {
+                  setShowPostSettingsModal(false);
+                  setShowEditModal(true);
+                }}
+              >
+                Edit Post
+              </button>
+              <button>Delete Post</button>
+            </Modal>
+          )}
+
           {showEditModal && (
             <Modal onClose={() => setShowEditModal(false)}>
               <PostForm

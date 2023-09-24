@@ -26,7 +26,7 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-
+    
     if @user == current_user && @user.update(user_params)
       render 'api/users/show'
     else

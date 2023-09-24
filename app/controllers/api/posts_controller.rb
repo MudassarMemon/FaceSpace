@@ -15,6 +15,7 @@ class Api::PostsController < ApplicationController
         if params[:author_id] == current_user.id && @post.update(post_params)
             render 'api/posts/show'
         end
+
     end
 
     private
