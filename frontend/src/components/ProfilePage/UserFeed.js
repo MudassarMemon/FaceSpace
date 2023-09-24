@@ -12,6 +12,7 @@ function UserFeed({ user }) {
   const [showEditModal, setShowEditModal] = useState(false);
   const [editPostId, setEditPostId] = useState("");
   const posts = useSelector(getPosts);
+  const sessionUser = useSelector((state) => state.session.user);
 
   const sortedPosts = () => {
     let sorted = [];
@@ -73,7 +74,7 @@ function UserFeed({ user }) {
                 <div className="edit-post-icon">
                   <FontAwesomeIcon icon={faEllipsis} />
                 </div>
-                <div className="post-author">feedId: {post.authorId}</div>
+                <div className="post-author">{sessionUser.firstName}</div>
                 <div className="post-body">{post.body}</div>
                 <div className="add-comment">
                   <input

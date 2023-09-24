@@ -4,11 +4,13 @@ import { createPost, getPost, updatePost } from "../../store/posts";
 import { useDispatch, useSelector } from "react-redux";
 
 function PostForm({ onClose, user, postId }) {
+  const sessionUser = useSelector((state) => state.session.user);
   const post = useSelector(getPost(postId));
   const [body, setBody] = useState(postId ? post.body : "");
   const dispatch = useDispatch();
   const postInput = useRef();
-  const authorId = user.id;
+  const authorId = sessionUser.id;
+  const feedId = user.id;
 
   useEffect(() => {
     postInput.current.focus();
