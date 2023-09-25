@@ -1,6 +1,5 @@
 import { Modal } from "../../context/Modal";
 import { useState } from "react";
-// import ProfileEditForm from "./ProfileEditModal";
 
 function FriendModal({ user }) {
   const [showModal, setShowModal] = useState(false);
@@ -17,11 +16,7 @@ function FriendModal({ user }) {
         <button>Friends</button>
       </div>
 
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          {/* <ProfileEditForm onClose={() => setShowModal(false)} user={user} /> */}
-        </Modal>
-      )}
+      {showModal && <Modal onClose={() => setShowModal(false)}></Modal>}
     </>
   );
 }

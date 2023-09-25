@@ -1,6 +1,6 @@
 import { Modal } from "../../context/Modal";
 import { useState } from "react";
-import ProfileEditForm from "./ProfileEditModal";
+import ProfileEditForm from "./ProfileEditForm";
 import "./ProfileEditModal.css";
 
 function ProfileEditModal({ user }) {
