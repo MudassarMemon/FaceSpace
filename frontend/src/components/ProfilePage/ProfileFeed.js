@@ -1,14 +1,12 @@
 import "./ProfileFeed.css";
 import ProfilePosts from "../Posts/ProfilePosts";
+import ProfileIntro from "./ProfileIntro";
 
 function ProfileFeed({ user }) {
   return (
     <>
       <div className="profile-left-container">
-        <div className="profile-bio-container">
-          <h2>Bio</h2>
-          {user ? user.bio : ""}
-        </div>
+        <ProfileIntro user={user} />
         <div className="profile-friends-container">
           <h2>Friends</h2>
         </div>

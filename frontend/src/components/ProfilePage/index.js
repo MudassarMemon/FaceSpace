@@ -5,7 +5,6 @@ import { getUser, fetchUser, fetchUsers } from "../../store/users";
 import ProfileFeed from "./ProfileFeed";
 import ProfileAbout from "./ProfileAbout";
 import ProfileHeader from "./ProfileHeader";
-
 import "./ProfilePage.css";
 
 function ProfilePage() {

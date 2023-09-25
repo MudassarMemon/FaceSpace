@@ -1,13 +1,3 @@
-.profile-main-container{
-    width: 100%;
-    height:100%;
-    background-color: #f0f2f5;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    padding-top: 10px;
-}
-
 .profile-left-container {
     width: 25%;
     padding: 5px 10px;
