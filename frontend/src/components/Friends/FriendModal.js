@@ -1,9 +1,8 @@
 import { Modal } from "../../context/Modal";
 import { useState } from "react";
-import ProfileEditForm from "./ProfileEditModal";
-import "./ProfileEditModal.css";
+// import ProfileEditForm from "./ProfileEditModal";
 
-function ProfileEditModal({ user }) {
+function FriendModal({ user }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -15,16 +14,16 @@ function ProfileEditModal({ user }) {
         }}
       >
         <div className="edit-icon"></div>
-        <button>Edit Profile</button>
+        <button>Friends</button>
       </div>
 
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <ProfileEditForm onClose={() => setShowModal(false)} user={user} />
+          {/* <ProfileEditForm onClose={() => setShowModal(false)} user={user} /> */}
         </Modal>
       )}
     </>
   );
 }
 
-export default ProfileEditModal;
+export default FriendModal;

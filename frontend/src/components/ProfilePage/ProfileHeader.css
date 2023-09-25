@@ -40,53 +40,6 @@
     background-color: #ffffff00;
 }
 
-.edit-profile-container {
-    background-color: #e4e6eb;
-    border-radius: 8px;
-    width: 120px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 10px;
-    position: relative;
-    cursor: pointer;
-}
-
-.edit-profile-container button{
-    background: inherit;
-    border: none;
-    font-family: "Segoe UI Historic","Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    font-weight: bold;
-    width: 100%;
-    padding-left: 25px;
-    cursor: pointer;
-
-}
-
-.edit-profile-container:hover {
-    background-color: #d8d9dc;
-  }
-
-.edit-profile-container:active {
-    transform: scale(.95);
-}
-
-.edit-icon{
-    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yZ/r/n2RR8_RffR8.png);
-    background-position: 0px -530px;
-    background-size: 26px 1026px;
-    transform: scale(.8);
-    width: 20px;
-    height: 25px;
-    background-repeat: no-repeat;
-    display: inline-block;
-    position: absolute;
-    left: 20px;
-    top: 8px
-  }
-
 .profile-photo-container {
     position: relative;
     background-color: rgba(255, 255, 255, 0);

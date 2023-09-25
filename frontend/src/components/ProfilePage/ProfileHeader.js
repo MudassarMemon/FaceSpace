@@ -2,6 +2,7 @@ import { NavLink, Link } from "react-router-dom";
 import "./ProfileHeader.css";
 import { useSelector } from "react-redux";
 import ProfileEditModal from "./ProfileEditModal";
+import FriendModal from "../Friends/FriendModal";
 
 function ProfileHeader({ id, user }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -24,10 +25,10 @@ function ProfileHeader({ id, user }) {
           </div>
         </div>
         <div className="right-profile-details">
-          {user.id === sessionUser.id ? (
+          {user && user.id === sessionUser.id ? (
             <ProfileEditModal user={user} />
           ) : (
-            <div>Add Friend</div>
+            <FriendModal user={user} />
           )}
         </div>
       </div>
