@@ -69,7 +69,7 @@ function Navigation() {
           <img
             id="userLogo"
             alt="userLogo"
-            src="https://cdn-icons-png.flaticon.com/512/219/219970.png"
+            src={sessionUser.profilePicUrl}
             onClick={() => {
               setShowModal((prev) => !prev);
             }}

@@ -27,7 +27,9 @@ ApplicationRecord.transaction do
         gender:"Male",
         birthday: "1995-05-03",
         password: 'password',
-        bio:Faker::Quote.famous_last_words
+        bio:Faker::Quote.famous_last_words,
+        profile_pic_url: "https://cdn-icons-png.flaticon.com/512/219/219970.png",
+        cover_pic_url: "https://visualparadox.com/images/no_linking_allowed_/facebook/hideaway-fb.jpg"
       )
   
     # More users
@@ -40,8 +42,10 @@ ApplicationRecord.transaction do
         email: Faker::Internet.email(name: "#{first_name} #{last_name}", separators: ['-'], domain: 'test'),
         gender: Faker::Gender.binary_type,
         birthday: Faker::Date.birthday(min_age: 13, max_age: 130),
-        password: Faker::Internet.password,
-        bio: Faker::Quote.famous_last_words
+        password: "password",
+        bio: Faker::Quote.famous_last_words,
+        profile_pic_url: "https://cdn-icons-png.flaticon.com/512/219/219970.png",
+        cover_pic_url: "https://visualparadox.com/images/no_linking_allowed_/facebook/hideaway-fb.jpg"
       }) 
     end
 

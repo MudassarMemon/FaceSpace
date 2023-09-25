@@ -7,8 +7,11 @@ import { deletePost, getPosts } from "../../store/posts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { getUsers } from "../../store/users";
+import { Link } from "react-router-dom";
+import { formatDateTime, formatDateShort } from "../Util/DateUtil";
 
 function ProfilePosts({ user }) {
+  const sessionUser = useSelector((state) => state.session.user);
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showPostSettingsModal, setShowPostSettingsModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -34,11 +37,7 @@ function ProfilePosts({ user }) {
   return (
     <div className="profile-posts-container">
       <div className="create-profile-post">
-        <img
-          id="userLogo"
-          alt="userLogo"
-          src="https://cdn-icons-png.flaticon.com/512/219/219970.png"
-        ></img>
+        <img id="userIcon" alt="userLogo" src={sessionUser.profilePicUrl}></img>
         <button
           onClick={() => {
             setShowCreateModal(true);
@@ -67,22 +66,57 @@ function ProfilePosts({ user }) {
               <FontAwesomeIcon icon={faEllipsis} />
             </div>
             <div className="post-author">
-              {users ? (
-                <>
-                  {users[post.authorId - 1]?.firstName}{" "}
-                  {users[post.authorId - 1]?.lastName}
-                </>
-              ) : (
-                ""
-              )}
+              <div>
+                <img
+                  id="userIcon"
+                  alt="userLogo"
+                  src={user.profilePicUrl}
+                ></img>
+              </div>
+              <div className="post-author-name">
+                <div>
+                  <Link to={`/users/${post.authorId}`}>
+                    {users ? (
+                      <>
+                        {users[post.authorId - 1]?.firstName}{" "}
+                        {users[post.authorId - 1]?.lastName}
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </Link>
+                  {post.authorId !== user.id ? (
+                    <>
+                      <div className="arrow-icon"></div>
+                      <Link to={`/users/${user.id}`}>
+                        {user.firstName} {user.lastName}
+                      </Link>
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <div>
+                  <p>{formatDateShort(post.createdAt)}</p>
+                </div>
+              </div>
             </div>
             <div className="post-body">{post.body}</div>
             <div className="add-comment">
-              <input
-                className="comment-input"
-                type="text"
-                placeholder="Write a comment..."
-              />
+              <div>
+                <img
+                  id="userIcon"
+                  alt="userLogo"
+                  src={user.profilePicUrl}
+                ></img>
+              </div>
+              <div className="comment-input">
+                <input
+                  className="comment-input"
+                  type="text"
+                  placeholder="Write a comment..."
+                />
+              </div>
             </div>
           </li>
         ))}

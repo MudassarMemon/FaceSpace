@@ -28,10 +28,10 @@ class User < ApplicationRecord
     class_name: :Post,
     dependent: :destroy
 
-    # has_many :posts,
-    # foreign_key: :author_id,
-    # class_name: :Post,
-    # dependent: :destroy
+  has_many :authored_posts,
+    foreign_key: :author_id,
+    class_name: :Post,
+    dependent: :destroy
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email.downcase)
