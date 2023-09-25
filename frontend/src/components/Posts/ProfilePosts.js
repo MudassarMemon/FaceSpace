@@ -2,8 +2,8 @@ import "./ProfilePosts.css";
 import { Modal } from "../../context/Modal";
 import { useState } from "react";
 import PostForm from "./PostForm";
-import { useSelector } from "react-redux";
-import { getPosts } from "../../store/posts";
+import { useSelector, useDispatch } from "react-redux";
+import { deletePost, getPosts } from "../../store/posts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { getUsers } from "../../store/users";
@@ -15,11 +15,18 @@ function ProfilePosts({ user }) {
   const [editPostId, setEditPostId] = useState("");
   const posts = useSelector(getPosts);
   const users = useSelector(getUsers);
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    dispatch(deletePost(editPostId));
+  };
 
   const sortedPosts = () => {
     let sorted = [];
     for (let i = posts.length - 1; i >= 0; i--) {
-      sorted.push(posts[i]);
+      if (posts[i].feedId === user.id) {
+        sorted.push(posts[i]);
+      }
     }
     return sorted;
   };
@@ -60,8 +67,14 @@ function ProfilePosts({ user }) {
               <FontAwesomeIcon icon={faEllipsis} />
             </div>
             <div className="post-author">
-              {users[post.authorId - 1].firstName}{" "}
-              {users[post.authorId - 1].lastName}
+              {users ? (
+                <>
+                  {users[post.authorId - 1]?.firstName}{" "}
+                  {users[post.authorId - 1]?.lastName}
+                </>
+              ) : (
+                ""
+              )}
             </div>
             <div className="post-body">{post.body}</div>
             <div className="add-comment">
@@ -88,7 +101,14 @@ function ProfilePosts({ user }) {
           >
             Edit Post
           </button>
-          <button>Delete Post</button>
+          <button
+            onClick={() => {
+              handleDelete();
+              setShowPostSettingsModal(false);
+            }}
+          >
+            Delete Post
+          </button>
         </Modal>
       )}
 

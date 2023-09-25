@@ -15,7 +15,18 @@ class Api::PostsController < ApplicationController
         if params[:author_id] == current_user.id && @post.update(post_params)
             render 'api/posts/show'
         end
+    end
 
+    def destroy
+        @post = Post.find_by(id: params[:id])
+
+        if @post.author_id == current_user.id || @post.feed_id == current_user.id
+            @post.destroy
+            render json: { message: 'success' }
+        else
+            render json: { errors: ['You cannot delete this post'] }, 
+              status: :unauthorized
+          end 
     end
 
     private

@@ -2,7 +2,7 @@ import csrfFetch from "./csrf";
 import { RECEIVE_USER } from "./users";
 const RECEIVE_POSTS = "/posts/receivePosts";
 const RECEIVE_POST = "/posts/receivePost";
-const REMOVE_POST = "/posts/receivePost";
+const REMOVE_POST = "/posts/removePost";
 
 export const receivePosts = (data) => {
   return { type: RECEIVE_POSTS, data };
@@ -52,6 +52,16 @@ export const updatePost = (post) => async (dispatch) => {
   }
 };
 
+export const deletePost = (postId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/posts/${postId}`, {
+    method: "DELETE",
+  });
+
+  if (res.ok) {
+    dispatch(removePost(postId));
+  }
+};
+
 const postsReducer = (state = [], action) => {
   const nextState = { ...state };
   switch (action.type) {
@@ -59,6 +69,9 @@ const postsReducer = (state = [], action) => {
       return { ...nextState, ...action.data.posts };
     case RECEIVE_POST:
       nextState[action.data.post.id] = action.data.post;
+      return nextState;
+    case REMOVE_POST:
+      delete nextState[action.id];
       return nextState;
     case RECEIVE_USER:
       return { ...nextState, ...action.data.posts };
