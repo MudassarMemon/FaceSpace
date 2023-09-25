@@ -1,4 +1,4 @@
-function UserAbout({ user }) {
+function ProfileAbout({ user }) {
   return (
     <ul>
       <li>{user.birthday}</li>
@@ -8,4 +8,4 @@ function UserAbout({ user }) {
   );
 }
 
-export default UserAbout;
+export default ProfileAbout;

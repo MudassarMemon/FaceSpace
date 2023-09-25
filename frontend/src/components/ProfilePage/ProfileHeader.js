@@ -2,7 +2,7 @@ import { NavLink, Link } from "react-router-dom";
 import "./ProfileHeader.css";
 import { Modal } from "../../context/Modal";
 import { useState } from "react";
-import EditProfile from "./EditProfile";
+import ProfileEditForm from "./ProfileEditForm";
 
 function ProfileHeader({ id, user }) {
   const [showModal, setShowModal] = useState(false);
@@ -43,7 +43,10 @@ function ProfileHeader({ id, user }) {
 
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-              <EditProfile onClose={() => setShowModal(false)} user={user} />
+              <ProfileEditForm
+                onClose={() => setShowModal(false)}
+                user={user}
+              />
             </Modal>
           )}
         </div>

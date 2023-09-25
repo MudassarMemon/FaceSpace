@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useParams, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, fetchUser, fetchUsers } from "../../store/users";
-import UserFeed from "./UserFeed";
-import UserAbout from "./UserAbout";
+import ProfileFeed from "./ProfileFeed";
+import ProfileAbout from "./ProfileAbout";
 import ProfileHeader from "./ProfileHeader";
 
 import "./ProfilePage.css";
@@ -26,10 +26,10 @@ function ProfilePage() {
       <ProfileHeader user={user} id={id} />
       <div className="profile-main-container">
         <Route exact path="/users/:id">
-          <UserFeed user={user} />
+          <ProfileFeed user={user} />
         </Route>
         <Route path="/users/:id/about">
-          <UserAbout user={user} />
+          <ProfileAbout user={user} />
         </Route>
         <Route path="/users/:id/friends"></Route>
         <Route path="/users/:id/photos"></Route>

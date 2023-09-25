@@ -1,9 +1,9 @@
-import "./EditProfile.css";
+import "./ProfileEditForm.css";
 import { useState, useEffect, useRef } from "react";
 import { updateUser } from "../../store/users";
 import { useDispatch } from "react-redux";
 
-function EditProfileModal({ onClose, user }) {
+function ProfileEditForm({ onClose, user }) {
   const [bio, setBio] = useState(user.bio ? user.bio : "");
   const dispatch = useDispatch();
   const bioInput = useRef();
@@ -44,4 +44,4 @@ function EditProfileModal({ onClose, user }) {
   );
 }
 
-export default EditProfileModal;
+export default ProfileEditForm;
