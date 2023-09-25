@@ -1,11 +1,10 @@
 import { NavLink, Link } from "react-router-dom";
 import "./ProfileHeader.css";
-import { Modal } from "../../context/Modal";
-import { useState } from "react";
-import ProfileEditForm from "./ProfileEditForm";
+import { useSelector } from "react-redux";
+import ProfileEditModal from "./ProfileEditModal";
 
 function ProfileHeader({ id, user }) {
-  const [showModal, setShowModal] = useState(false);
+  const sessionUser = useSelector((state) => state.session.user);
 
   return (
     <header className="profile-header">
@@ -25,23 +24,10 @@ function ProfileHeader({ id, user }) {
           </div>
         </div>
         <div className="right-profile-details">
-          <div
-            className="edit-profile-container"
-            onClick={() => {
-              setShowModal(true);
-            }}
-          >
-            <div className="edit-icon"></div>
-            <button>Edit Profile</button>
-          </div>
-
-          {showModal && (
-            <Modal onClose={() => setShowModal(false)}>
-              <ProfileEditForm
-                onClose={() => setShowModal(false)}
-                user={user}
-              />
-            </Modal>
+          {user.id === sessionUser.id ? (
+            <ProfileEditModal user={user} />
+          ) : (
+            <div>Add Friend</div>
           )}
         </div>
       </div>
