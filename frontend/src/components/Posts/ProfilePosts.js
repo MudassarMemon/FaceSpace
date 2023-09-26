@@ -112,7 +112,14 @@ function ProfilePosts({ user }) {
                   )}
                 </div>
                 <div>
-                  <p>{formatDateShort(post.createdAt)}</p>
+                  <p className="created-at">
+                    {formatDateShort(post.createdAt)}
+                  </p>
+                  <p className="last-updated">
+                    {post.createdAt === post.updatedAt
+                      ? formatDateTime(post.createdAt)
+                      : "Edited on " + formatDateTime(post.updatedAt)}
+                  </p>
                 </div>
               </div>
             </div>

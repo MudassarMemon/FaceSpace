@@ -6,7 +6,7 @@ div.add-comment > div.comment-input {
 }
 input.comment-input {
     border: none;
-    width: 95%;
+    width: 98%;
     height: 100%; 
     border-radius: 20px;
     background-color: #f0f2f5;
@@ -30,7 +30,7 @@ input.comment-input:focus {
 
 #submit-message{
     position: absolute;
-    right: 30px;
+    right: 15px;
     top: 6px;
     color: #bec3c9;
 }
