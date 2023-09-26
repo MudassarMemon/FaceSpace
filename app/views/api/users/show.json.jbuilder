@@ -1,5 +1,5 @@
 json.user do
-    json.extract! @user, :id, :email, :first_name, :last_name, :gender, :birthday, :bio, :profile_pic_url, :cover_pic_url, :created_at, :updated_at
+    json.extract! @user, :id, :email, :first_name, :last_name, :gender, :birthday, :bio, :profile_pic_url, :cover_pic_url, :workplace, :school, :current_city, :hometown, :pronunciation, :created_at, :updated_at
 end
 
 posts = @user.posts

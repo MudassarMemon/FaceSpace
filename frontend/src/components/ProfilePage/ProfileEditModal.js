@@ -3,7 +3,7 @@ import { useState } from "react";
 import ProfileEditForm from "./ProfileEditForm";
 import "./ProfileEditModal.css";
 
-function ProfileEditModal({ user }) {
+function ProfileEditModal({ user, buttonName }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -15,7 +15,7 @@ function ProfileEditModal({ user }) {
         }}
       >
         <div className="edit-icon"></div>
-        <button>Edit Profile</button>
+        <button>{buttonName ? buttonName : "Edit Profile"}</button>
       </div>
 
       {showModal && (

@@ -29,7 +29,12 @@ ApplicationRecord.transaction do
         password: 'password',
         bio:Faker::Quote.famous_last_words,
         profile_pic_url: "https://cdn-icons-png.flaticon.com/512/219/219970.png",
-        cover_pic_url: "https://visualparadox.com/images/no_linking_allowed_/facebook/hideaway-fb.jpg"
+        cover_pic_url: "https://visualparadox.com/images/no_linking_allowed_/facebook/hideaway-fb.jpg",   
+        workplace: "Meta",
+        hometown: "Burlington, Ontario",
+        current_city: "New York, New York",
+        school: "Stony Brook University",
+        pronunciation: "Muh-duh-sar Mem-in"
       )
   
     # More users

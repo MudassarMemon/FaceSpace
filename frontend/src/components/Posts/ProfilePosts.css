@@ -59,6 +59,7 @@ div.post-author p {
     background-size: 26px 810px;
     width: 16px;
     height: 16px;
+    filter:opacity(.5);
     background-repeat: no-repeat;
     display: inline-block;
     color: #0090d8;

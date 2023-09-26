@@ -1,0 +1,44 @@
+.profile-bio-container {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.405);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.intro-container {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    height: auto;
+    padding:20px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.profile-bio-container > div.edit-profile-container{
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.profile-bio-container > div.edit-profile-container > button{
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.profile-bio-container > div.edit-profile-container > .edit-icon {
+    display: none;
+}
+
+.intro-container > div > div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.intro-container > div > div > img {
+    margin-right: 10px;
+    filter:opacity(.5);
+    transform:scale(.6)
+}

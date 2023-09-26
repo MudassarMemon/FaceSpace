@@ -5,6 +5,17 @@ import { useDispatch } from "react-redux";
 
 function ProfileEditForm({ onClose, user }) {
   const [bio, setBio] = useState(user.bio ? user.bio : "");
+  const [currentCity, setCurrentCity] = useState(
+    user.currentCity ? user.currentCity : ""
+  );
+  const [workplace, setWorkplace] = useState(
+    user.workplace ? user.workplace : ""
+  );
+  const [school, setSchool] = useState(user.school ? user.school : "");
+  const [hometown, setHometown] = useState(user.hometown ? user.hometown : "");
+  const [pronunciation, setPronunciation] = useState(
+    user.pronunciation ? user.pronunciation : ""
+  );
   const dispatch = useDispatch();
   const bioInput = useRef();
 
@@ -37,6 +48,36 @@ function ProfileEditForm({ onClose, user }) {
           name="edit-bio"
           rows="4"
           cols="50"
+        />
+        <input
+          type="text"
+          value={currentCity}
+          placeholder=""
+          onChange={(e) => setCurrentCity(e.target.value)}
+        />
+        <input
+          type="text"
+          value={workplace}
+          placeholder=""
+          onChange={(e) => setWorkplace(e.target.value)}
+        />
+        <input
+          type="text"
+          value={school}
+          placeholder=""
+          onChange={(e) => setSchool(e.target.value)}
+        />
+        <input
+          type="text"
+          value={hometown}
+          placeholder=""
+          onChange={(e) => setHometown(e.target.value)}
+        />
+        <input
+          type="text"
+          value={pronunciation}
+          placeholder=""
+          onChange={(e) => setPronunciation(e.target.value)}
         />
         <button>Save</button>
       </form>
