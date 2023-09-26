@@ -3,16 +3,18 @@
 # Table name: comments
 #
 #  id         :bigint           not null, primary key
-#  user_id    :bigint           not null
+#  author_id  :bigint           not null
 #  post_id    :bigint           not null
 #  body       :text             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 class Comment < ApplicationRecord
-    validates :body, presesnce:true
+    validates :body, presence:true
 
-    belongs_to :user
+    belongs_to :author,
+        foreign_key: :author_id,
+        class_name: :user
     belongs_to :post
     
 end

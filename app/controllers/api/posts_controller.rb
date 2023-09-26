@@ -25,8 +25,8 @@ class Api::PostsController < ApplicationController
             render json: { message: 'success' }
         else
             render json: { errors: ['You cannot delete this post'] }, 
-              status: :unauthorized
-          end 
+            status: :unauthorized
+        end 
     end
 
     private

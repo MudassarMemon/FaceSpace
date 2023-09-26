@@ -41,6 +41,8 @@ class User < ApplicationRecord
     dependent: :destroy
 
   has_many :comments,
+    foreign_key: :author_id,
+    class_name: :comments,
     dependent: :destroy
 
   def self.find_by_credentials(email, password)
