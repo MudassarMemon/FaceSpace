@@ -1,8 +1,17 @@
-import "./CommentInput.css";
+import "./CommentForm.css";
 import { useState } from "react";
+import createComment from "../../store/comments";
+import { useDispatch } from "react-redux";
 
-function CommentInput() {
-  const [comment, setComment] = useState("");
+function CommentForm({ authorId, postId }) {
+  const [body, setBody] = useState("");
+  const dispatch = useDispatch();
+
+  const handleSubmit = () => {
+    console.log({ body, authorId, postId });
+    debugger;
+    dispatch(createComment({ body, authorId, postId }));
+  };
 
   return (
     <div className="comment-input">
@@ -10,12 +19,16 @@ function CommentInput() {
         className="comment-input"
         type="text"
         placeholder="Write a comment..."
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
+        value={body}
+        onChange={(e) => setBody(e.target.value)}
       />
-      <i id="submit-message" class="fa-solid fa-paper-plane-top"></i>
+      <i
+        onClick={handleSubmit}
+        id="submit-message"
+        className="fa-solid fa-paper-plane-top"
+      ></i>
     </div>
   );
 }
 
-export default CommentInput;
+export default CommentForm;
