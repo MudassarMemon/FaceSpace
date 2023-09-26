@@ -173,9 +173,9 @@ img#userIcon  {
 
 
   div.post-settings {
-    width: 125px;
+    width: 150px;
     border-radius: 8px;
-    padding: 15px 5px;
+    padding: 10px 0px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -184,23 +184,58 @@ img#userIcon  {
     box-shadow: 0px 2px 2px rgba(0, 0, 0, .1)
   }
 
+
+  div.post-settings > div {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    border-radius: 8px;
+    width: 80%;
+    align-items: center;
+    padding: 2px;
+  }
+
+  div.post-settings > div:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+  }
+  
+  div.post-settings > div:active {
+    background-color: #e5e5e5;
+  }
+
   div.post-settings button {
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 15px;
     font-weight: 500;
-    width: 90%;
+    width: 80%;
     border: none;
     padding: 5px;
     cursor: pointer;
     border-radius: 8px;
-    background-color: #f8f8f8;
+    background-color: inherit;
+    display:flex;
+    justify-content: flex-start;
+    padding-left: 5px;
   }
+ 
 
-  div.post-settings button:hover {
-    background-color: #f2f2f2;
-  }
-  
-  div.post-settings button:active {
-    background-color: #e5e5e5;
-  }
-  
+  .edit-posts-icon{
+    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yH/r/vaAkJ-lmnYp.png);
+    background-position: 0px -357px;
+    background-size: auto;
+    width: 25px;
+    height: 20px;
+    background-repeat: no-repeat;
+    display: inline-block;
+  } 
+
+  .delete-posts-icon{
+    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yx/r/BS4qBw3i0wj.png);
+    background-position: 0px -1049px;
+    background-size: auto;
+    width: 25px;
+    height: 20px;
+    background-repeat: no-repeat;
+    display: inline-block;
+  } 

@@ -139,22 +139,27 @@ function ProfilePosts({ user }) {
           onClose={() => setShowPostSettingsModal(false)}
         >
           <div className="post-settings">
-            <button
+            <div
+              className="edit-posts-container"
               onClick={() => {
                 setShowPostSettingsModal(false);
                 setShowEditModal(true);
               }}
             >
-              Edit Post
-            </button>
-            <button
+              <div className="edit-posts-icon"></div>
+              <button>Edit Post</button>
+            </div>
+
+            <div
+              className="delete-posts-container"
               onClick={() => {
                 handleDelete();
                 setShowPostSettingsModal(false);
               }}
             >
-              Delete Post
-            </button>
+              <div className="delete-posts-icon"></div>
+              <button>Delete Post</button>
+            </div>
           </div>
         </Modal>
       )}
