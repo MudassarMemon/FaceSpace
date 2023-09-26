@@ -1,6 +1,6 @@
 import "./CommentForm.css";
 import { useState } from "react";
-import createComment from "../../store/comments";
+import { createComment } from "../../store/comments";
 import { useDispatch } from "react-redux";
 
 function CommentForm({ authorId, postId }) {
@@ -9,7 +9,7 @@ function CommentForm({ authorId, postId }) {
 
   const handleSubmit = () => {
     console.log({ body, authorId, postId });
-    debugger;
+    // debugger;
     dispatch(createComment({ body, authorId, postId }));
   };
 

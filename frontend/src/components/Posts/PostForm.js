@@ -12,7 +12,6 @@ function PostForm({ onClose, user, postId }) {
   const authorId = sessionUser.id;
   const feedId = user.id;
 
-  console.log(postId);
   useEffect(() => {
     postInput.current.focus();
   }, [postInput]);

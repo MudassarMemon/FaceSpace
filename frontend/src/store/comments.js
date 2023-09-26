@@ -31,7 +31,7 @@ export const createComment = (comment) => async (dispatch) => {
     method: "POST",
     body: JSON.stringify(comment),
   });
-
+  debugger;
   if (res.ok) {
     let data = await res.json();
     dispatch(receiveComment(data));

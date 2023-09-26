@@ -12,10 +12,10 @@ class Api::CommentsController < ApplicationController
     end
 
     def create
-        @comment = Comment.create(comment_params)
+        @comment = Comment.new(comment_params)
 
         if @comment.save
-            render 'api/comments/show'
+            render "api/comments/show"
         else
             render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
         end
