@@ -26,11 +26,11 @@ export function Modal({ onClose, children, background = true, position }) {
   useEffect(() => {
     let body = document.querySelector("body");
     let nav = document.getElementsByClassName("rightNavBarContainer");
-    body.style.overflowY = "hidden";
-    nav[0].style.marginRight = "25px";
+    if (body) body.style.overflowY = "hidden";
+    if (nav[0]) nav[0].style.marginRight = "25px";
     return () => {
-      body.style.overflowY = "scroll";
-      nav[0].style.marginRight = "10px";
+      if (body) body.style.overflowY = "scroll";
+      if (nav[0]) nav[0].style.marginRight = "10px";
     };
   }, []);
 
