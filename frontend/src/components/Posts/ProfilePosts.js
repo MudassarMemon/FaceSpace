@@ -65,17 +65,21 @@ function ProfilePosts({ user }) {
       <ul>
         {sortedPosts().map((post) => (
           <li key={post.id}>
-            <div
-              className="edit-post-icon"
-              id={`edit-post-icon${post.id}`}
-              onClick={(e) => {
-                setEditPostId(post.id);
-                getElementCoordinates(post.id);
-                setShowPostSettingsModal(true);
-              }}
-            >
-              <FontAwesomeIcon icon={faEllipsis} />
-            </div>
+            {post.authorId === user.id || post.authorId === sessionUser.id ? (
+              <div
+                className="edit-post-icon"
+                id={`edit-post-icon${post.id}`}
+                onClick={(e) => {
+                  setEditPostId(post.id);
+                  getElementCoordinates(post.id);
+                  setShowPostSettingsModal(true);
+                }}
+              >
+                <FontAwesomeIcon icon={faEllipsis} />
+              </div>
+            ) : (
+              ""
+            )}
             <div className="post-author">
               <div>
                 <img
