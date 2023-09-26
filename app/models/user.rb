@@ -13,6 +13,13 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  profile_pic_url :string
+#  cover_pic_url   :string
+#  workplace       :string
+#  hometown        :string
+#  current_city    :string
+#  school          :string
+#  pronunciation   :string
 #
 class User < ApplicationRecord
   validates :email, :session_token, presence: true, uniqueness: true
@@ -31,6 +38,9 @@ class User < ApplicationRecord
   has_many :authored_posts,
     foreign_key: :author_id,
     class_name: :Post,
+    dependent: :destroy
+
+  has_many :comments,
     dependent: :destroy
 
   def self.find_by_credentials(email, password)
