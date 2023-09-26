@@ -26,7 +26,17 @@ function ProfileEditForm({ onClose, user }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onClose();
-    dispatch(updateUser({ ...user, bio }));
+    dispatch(
+      updateUser({
+        ...user,
+        bio,
+        currentCity,
+        workplace,
+        school,
+        hometown,
+        pronunciation,
+      })
+    );
   };
 
   return (
