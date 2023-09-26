@@ -1,10 +1,11 @@
+import ProfileIntro from "./ProfileIntro";
+import "./ProfileAbout.css";
+
 function ProfileAbout({ user }) {
   return (
-    <ul>
-      <li>{user.birthday}</li>
-      <li>{user.gender}</li>
-      <li>{user.bio}</li>
-    </ul>
+    <div className="profile-about-container">
+      <ProfileIntro user={user} />
+    </div>
   );
 }
 

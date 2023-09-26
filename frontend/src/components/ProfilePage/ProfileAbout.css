@@ -1,0 +1,9 @@
+div.profile-about-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+div.profile-about-container > div.intro-container{
+    width: 60%;
+}
