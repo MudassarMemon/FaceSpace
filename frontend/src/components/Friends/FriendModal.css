@@ -1,46 +1,35 @@
-.edit-profile-container {
-    background-color: #e4e6eb;
+.friends-container {
+    background-color: #0866ff;
     border-radius: 8px;
     width: 120px;
     height: 40px;
     display: flex;
     justify-content: center;
+    justify-items: center;
     align-items: center;
     padding: 0 10px;
     position: relative;
     cursor: pointer;
 }
 
-.edit-profile-container button{
+.friends-container button {
     background: inherit;
+    color:white;
+    padding: 0;
     border: none;
     font-family: "Segoe UI Historic","Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 15px;
     font-weight: bold;
     width: 100%;
-    padding-left: 25px;
     cursor: pointer;
 
+
 }
 
-.edit-profile-container:hover {
-    background-color: #d8d9dc;
+.friends-container:hover {
+    background-color: #075ce5;
   }
 
-.edit-profile-container:active {
+.friends-container:active {
     transform: scale(.95);
 }
-
-.edit-icon{
-    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yZ/r/n2RR8_RffR8.png);
-    background-position: 0px -530px;
-    background-size: 26px 1026px;
-    transform: scale(.8);
-    width: 20px;
-    height: 25px;
-    background-repeat: no-repeat;
-    display: inline-block;
-    position: absolute;
-    left: 20px;
-    top: 8px
-  }

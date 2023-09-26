@@ -1,5 +1,6 @@
 import { Modal } from "../../context/Modal";
 import { useState } from "react";
+import "./FriendModal.css";
 
 function FriendModal({ user }) {
   const [showModal, setShowModal] = useState(false);
@@ -7,12 +8,11 @@ function FriendModal({ user }) {
   return (
     <>
       <div
-        className="edit-profile-container"
+        className="friends-container"
         onClick={() => {
           setShowModal(true);
         }}
       >
-        <div className="edit-icon"></div>
         <button>Friends</button>
       </div>
 
