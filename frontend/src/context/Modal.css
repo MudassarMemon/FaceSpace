@@ -9,6 +9,7 @@
     align-items: center;
     background-color: rgba(255, 255, 255, 0);
     overflow-y: scroll;
+    z-index: 101;
   }
   
   #modal-background {

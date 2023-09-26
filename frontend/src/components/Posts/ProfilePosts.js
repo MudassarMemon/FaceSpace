@@ -16,7 +16,6 @@ function ProfilePosts({ user }) {
   const [showPostSettingsModal, setShowPostSettingsModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editPostId, setEditPostId] = useState("");
-  const [modalX, setmodalX] = useState(0);
   const [modalY, setmodalY] = useState(0);
   const posts = useSelector(getPosts);
   const users = useSelector(getUsers);
@@ -34,6 +33,13 @@ function ProfilePosts({ user }) {
       }
     }
     return sorted;
+  };
+
+  const getElementCoordinates = async (postId) => {
+    let coordinates = document
+      .querySelector(`#edit-post-icon${postId}`)
+      .getBoundingClientRect();
+    setmodalY(coordinates.bottom);
   };
 
   return (
@@ -60,10 +66,10 @@ function ProfilePosts({ user }) {
           <li key={post.id}>
             <div
               className="edit-post-icon"
+              id={`edit-post-icon${post.id}`}
               onClick={(e) => {
                 setEditPostId(post.id);
-                setmodalX(e.clientX - 200);
-                setmodalY(e.clientY);
+                getElementCoordinates(post.id);
                 setShowPostSettingsModal(true);
               }}
             >
@@ -129,7 +135,7 @@ function ProfilePosts({ user }) {
       {showPostSettingsModal && (
         <Modal
           background={false}
-          position={[modalY, null, null, modalX]}
+          position={[modalY, "20.5%", null, null]}
           onClose={() => setShowPostSettingsModal(false)}
         >
           <div className="post-settings">
