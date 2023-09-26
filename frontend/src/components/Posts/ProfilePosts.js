@@ -9,6 +9,7 @@ import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { getUsers } from "../../store/users";
 import { Link } from "react-router-dom";
 import { formatDateTime, formatDateShort } from "../Util/DateUtil";
+import CommentInput from "../Comments/CommentInput";
 
 function ProfilePosts({ user }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -120,13 +121,7 @@ function ProfilePosts({ user }) {
                   src={user.profilePicUrl}
                 ></img>
               </div>
-              <div className="comment-input">
-                <input
-                  className="comment-input"
-                  type="text"
-                  placeholder="Write a comment..."
-                />
-              </div>
+              <CommentInput />
             </div>
           </li>
         ))}

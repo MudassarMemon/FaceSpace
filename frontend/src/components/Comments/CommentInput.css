@@ -1,0 +1,41 @@
+
+div.add-comment > div.comment-input {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+input.comment-input {
+    border: none;
+    width: 95%;
+    height: 100%; 
+    border-radius: 20px;
+    background-color: #f0f2f5;
+    text-align: left;
+    margin-left: 10px;
+    padding-left: 20px;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    color: #656768;
+    cursor: pointer;
+}
+
+input.comment-input:hover {
+    background-color: #e4e6e8;
+}
+
+input.comment-input:focus {
+    background-color: #e4e6e8;
+    outline: none;
+}
+
+#submit-message{
+    position: absolute;
+    right: 30px;
+    top: 5px;
+    color: #bec3c9;
+}
+
+#submit-message:hover{
+    cursor: pointer;
+    color: #0062d2;
+}
