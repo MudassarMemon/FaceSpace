@@ -10,7 +10,7 @@ function ProfileEditModal({ user }) {
     <>
       <div
         className="edit-profile-container"
-        onClick={() => {
+        onClick={(e) => {
           setShowModal(true);
         }}
       >

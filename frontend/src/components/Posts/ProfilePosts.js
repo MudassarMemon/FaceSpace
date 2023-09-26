@@ -16,6 +16,8 @@ function ProfilePosts({ user }) {
   const [showPostSettingsModal, setShowPostSettingsModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editPostId, setEditPostId] = useState("");
+  const [modalX, setmodalX] = useState(0);
+  const [modalY, setmodalY] = useState(0);
   const posts = useSelector(getPosts);
   const users = useSelector(getUsers);
   const dispatch = useDispatch();
@@ -58,8 +60,10 @@ function ProfilePosts({ user }) {
           <li key={post.id}>
             <div
               className="edit-post-icon"
-              onClick={() => {
+              onClick={(e) => {
                 setEditPostId(post.id);
+                setmodalX(e.clientX - 200);
+                setmodalY(e.clientY);
                 setShowPostSettingsModal(true);
               }}
             >
@@ -125,24 +129,27 @@ function ProfilePosts({ user }) {
       {showPostSettingsModal && (
         <Modal
           background={false}
+          position={[modalY, null, null, modalX]}
           onClose={() => setShowPostSettingsModal(false)}
         >
-          <button
-            onClick={() => {
-              setShowPostSettingsModal(false);
-              setShowEditModal(true);
-            }}
-          >
-            Edit Post
-          </button>
-          <button
-            onClick={() => {
-              handleDelete();
-              setShowPostSettingsModal(false);
-            }}
-          >
-            Delete Post
-          </button>
+          <div className="post-settings">
+            <button
+              onClick={() => {
+                setShowPostSettingsModal(false);
+                setShowEditModal(true);
+              }}
+            >
+              Edit Post
+            </button>
+            <button
+              onClick={() => {
+                handleDelete();
+                setShowPostSettingsModal(false);
+              }}
+            >
+              Delete Post
+            </button>
+          </div>
         </Modal>
       )}
 

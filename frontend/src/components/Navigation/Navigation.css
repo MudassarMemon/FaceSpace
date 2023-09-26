@@ -13,7 +13,7 @@ div.navBarContainer {
 }
 
 div.leftNavBarContainer {
-  margin-left: 10px;
+  padding-left: 10px;
   width: 33%;
   display: flex;
   flex-flow: row nowrap;

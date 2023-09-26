@@ -3,6 +3,8 @@
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-y: overlay;
+    overflow-x: hidden;
 }
 
 body{
@@ -11,5 +13,8 @@ body{
     margin: 0;
     padding: 0;
     overflow-y: scroll;
-    overflow-x: hidden;
 }
+
+html {
+    scrollbar-gutter: stable;
+  }

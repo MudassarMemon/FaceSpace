@@ -14,7 +14,7 @@ function App() {
     return <Splash />;
   } else {
     return (
-      <>
+      <div id="app">
         <Navigation />
         <Switch>
           <Route exact path="/">
@@ -24,7 +24,7 @@ function App() {
             <ProfilePage />
           </Route>
         </Switch>
-      </>
+      </div>
     );
   }
 }

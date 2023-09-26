@@ -22,7 +22,17 @@ export function ModalProvider({ children }) {
 
 export function Modal({ onClose, children, background = true, position }) {
   const modalNode = useContext(ModalContext);
-  if (!modalNode) return null;
+
+  useEffect(() => {
+    let body = document.querySelector("body");
+    let nav = document.getElementsByClassName("rightNavBarContainer");
+    body.style.overflowY = "hidden";
+    nav[0].style.marginRight = "25px";
+    return () => {
+      body.style.overflowY = "scroll";
+      nav[0].style.marginRight = "10px";
+    };
+  }, []);
 
   let backgroundColor;
   if (background) {
@@ -38,8 +48,8 @@ export function Modal({ onClose, children, background = true, position }) {
   if (position) {
     top = position[0];
     right = position[1];
-    left = position[2];
-    bottom = position[3];
+    bottom = position[2];
+    left = position[3];
   }
 
   const modalBackgroundStyle = {
