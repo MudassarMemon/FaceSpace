@@ -18,14 +18,11 @@ function ProfilePosts({ user }) {
   const [showPostSettingsModal, setShowPostSettingsModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editPostId, setEditPostId] = useState("");
+  const [editPostAuthorId, setEditPostAuthorId] = useState("");
   const [modalY, setmodalY] = useState(0);
   const posts = useSelector(getPosts);
   const users = useSelector(getUsers);
   const dispatch = useDispatch();
-
-  const handleDelete = () => {
-    dispatch(deletePost(editPostId));
-  };
 
   const sortedPosts = () => {
     let sorted = [...posts].sort((a, b) => {
@@ -34,6 +31,10 @@ function ProfilePosts({ user }) {
       return dateB - dateA;
     });
     return sorted;
+  };
+
+  const handleDelete = () => {
+    dispatch(deletePost(editPostId));
   };
 
   const getElementCoordinates = async (postId) => {
@@ -75,6 +76,7 @@ function ProfilePosts({ user }) {
                 id={`edit-post-icon${post.id}`}
                 onClick={(e) => {
                   setEditPostId(post.id);
+                  setEditPostAuthorId(post.authorId);
                   getElementCoordinates(post.id);
                   setShowPostSettingsModal(true);
                 }}
@@ -84,6 +86,54 @@ function ProfilePosts({ user }) {
             ) : (
               ""
             )}
+
+            {showPostSettingsModal && (
+              <Modal
+                background={false}
+                position={[modalY, "20.5%", null, null]}
+                onClose={() => setShowPostSettingsModal(false)}
+              >
+                {editPostAuthorId === sessionUser.id ? (
+                  <div className="post-settings">
+                    <div
+                      className="edit-posts-container"
+                      onClick={() => {
+                        setShowPostSettingsModal(false);
+                        setShowEditModal(true);
+                      }}
+                    >
+                      <div className="edit-posts-icon"></div>
+                      <button>Edit Post</button>
+                    </div>
+
+                    <div
+                      className="delete-posts-container"
+                      onClick={() => {
+                        handleDelete();
+                        setShowPostSettingsModal(false);
+                      }}
+                    >
+                      <div className="delete-posts-icon"></div>
+                      <button>Delete Post</button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="post-settings">
+                    <div
+                      className="delete-posts-container"
+                      onClick={() => {
+                        handleDelete();
+                        setShowPostSettingsModal(false);
+                      }}
+                    >
+                      <div className="delete-posts-icon"></div>
+                      <button>Delete Post</button>
+                    </div>
+                  </div>
+                )}
+              </Modal>
+            )}
+
             <div className="post-author">
               <div>
                 <img
@@ -142,38 +192,6 @@ function ProfilePosts({ user }) {
           </li>
         ))}
       </ul>
-
-      {showPostSettingsModal && (
-        <Modal
-          background={false}
-          position={[modalY, "20.5%", null, null]}
-          onClose={() => setShowPostSettingsModal(false)}
-        >
-          <div className="post-settings">
-            <div
-              className="edit-posts-container"
-              onClick={() => {
-                setShowPostSettingsModal(false);
-                setShowEditModal(true);
-              }}
-            >
-              <div className="edit-posts-icon"></div>
-              <button>Edit Post</button>
-            </div>
-
-            <div
-              className="delete-posts-container"
-              onClick={() => {
-                handleDelete();
-                setShowPostSettingsModal(false);
-              }}
-            >
-              <div className="delete-posts-icon"></div>
-              <button>Delete Post</button>
-            </div>
-          </div>
-        </Modal>
-      )}
 
       {showEditModal && (
         <Modal onClose={() => setShowEditModal(false)}>
