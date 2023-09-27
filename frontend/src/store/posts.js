@@ -22,7 +22,9 @@ export const getPosts = (state) => {
 };
 
 export const getPost = (postId) => (state) => {
-  if (state.posts[postId]) return state.posts[postId];
+  if (state.posts[postId]) {
+    return state.posts[postId];
+  }
   return null;
 };
 
@@ -74,7 +76,10 @@ const postsReducer = (state = [], action) => {
       delete nextState[action.id];
       return nextState;
     case RECEIVE_USER:
-      return { ...nextState, ...action.data.user.posts };
+      Object.values(action.data.user.posts).forEach((post) => {
+        nextState[Object.values(post)[0].id] = Object.values(post)[0];
+      });
+      return { ...nextState };
     default:
       return state;
   }

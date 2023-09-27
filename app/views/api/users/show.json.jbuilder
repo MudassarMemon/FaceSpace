@@ -2,10 +2,15 @@ json.user do
     json.extract! @user, :id, :email, :first_name, :last_name, :gender, :birthday, :bio, :profile_pic_url, :cover_pic_url, :workplace, :school, :current_city, :hometown, :pronunciation, :created_at, :updated_at
   
     json.posts @user.posts.includes(:comments) do |post|
-      json.extract! post, :id, :body, :author_id, :feed_id, :created_at, :updated_at
-      
+
+      json.set! post.id do
+        json.extract! post, :id, :body, :author_id, :feed_id, :created_at, :updated_at
+      end
+
       json.comments post.comments do |comment|
-        json.extract! comment, :id, :body, :author_id, :post_id, :created_at, :updated_at
+        json.set! comment.id do
+          json.extract! comment, :id, :body, :author_id, :post_id, :created_at, :updated_at
+        end
       end
     end
   end

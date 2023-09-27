@@ -28,12 +28,12 @@ function ProfilePosts({ user }) {
   };
 
   const sortedPosts = () => {
-    posts.sort((a, b) => {
+    let sorted = [...posts].sort((a, b) => {
       let dateA = new Date(a.createdAt);
       let dateB = new Date(b.createdAt);
       return dateB - dateA;
     });
-    return posts;
+    return sorted;
   };
 
   const getElementCoordinates = async (postId) => {
@@ -57,7 +57,11 @@ function ProfilePosts({ user }) {
 
         {showCreateModal && (
           <Modal onClose={() => setShowCreateModal(false)}>
-            <PostForm onClose={() => setShowCreateModal(false)} user={user} />
+            <PostForm
+              postId={editPostId}
+              onClose={() => setShowCreateModal(false)}
+              user={user}
+            />
           </Modal>
         )}
       </div>

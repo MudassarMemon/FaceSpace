@@ -8,8 +8,6 @@ function CommentForm({ authorId, postId }) {
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
-    console.log({ body, authorId, postId });
-    // debugger;
     dispatch(createComment({ body, authorId, postId }));
   };
 
