@@ -19,7 +19,7 @@ function NavSearch() {
     if (query.trim() !== "") {
       dispatch(fetchSearchResults(query));
     } else {
-      dispatch(clearSearchResults);
+      dispatch(clearSearchResults());
     }
   };
 
@@ -31,6 +31,10 @@ function NavSearch() {
       setSearchText("");
     };
   };
+
+  // const searchDropDown = () => {
+
+  // }
 
   return (
     <div>

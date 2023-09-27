@@ -76,6 +76,10 @@ input#userSearch{
     display: flex;
   }
 
+  div.search-dropdown:hover{
+    display: flex;
+  }
+
   #magnify-icon{
     color: rgb(102, 99, 99);
     position: absolute;
