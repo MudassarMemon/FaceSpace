@@ -10,6 +10,7 @@ import { getUsers } from "../../store/users";
 import { Link } from "react-router-dom";
 import { formatDateTime, formatDateShort } from "../Util/DateUtil";
 import CommentForm from "../Comments/CommentInput";
+import PostComments from "../Comments/PostComments";
 
 function ProfilePosts({ user }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -27,13 +28,12 @@ function ProfilePosts({ user }) {
   };
 
   const sortedPosts = () => {
-    let sorted = [];
-    for (let i = posts.length - 1; i >= 0; i--) {
-      if (posts[i].feedId === user.id) {
-        sorted.push(posts[i]);
-      }
-    }
-    return sorted;
+    posts.sort((a, b) => {
+      let dateA = new Date(a.createdAt);
+      let dateB = new Date(b.createdAt);
+      return dateB - dateA;
+    });
+    return posts;
   };
 
   const getElementCoordinates = async (postId) => {
@@ -124,6 +124,7 @@ function ProfilePosts({ user }) {
               </div>
             </div>
             <div className="post-body">{post.body}</div>
+            <PostComments postId={post.id} />
             <div className="add-comment">
               <div>
                 <img

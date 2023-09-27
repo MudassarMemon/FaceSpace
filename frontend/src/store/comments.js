@@ -21,8 +21,8 @@ export const getComments = (state) => {
   return [];
 };
 
-export const getComment = (commentId) => (state) => {
-  if (state.comments[commentId]) return state.comments[commentId];
+export const getComment = (postId) => (state) => {
+  if (state.comments[postId]) return state.comments[postId];
   return null;
 };
 
@@ -31,7 +31,6 @@ export const createComment = (comment) => async (dispatch) => {
     method: "POST",
     body: JSON.stringify(comment),
   });
-  debugger;
   if (res.ok) {
     let data = await res.json();
     dispatch(receiveComment(data));
@@ -74,7 +73,12 @@ const commentsReducer = (state = [], action) => {
       delete nextState[action.id];
       return nextState;
     case RECEIVE_USER:
-      return { ...nextState, ...action.data.comments };
+      Object.values(action.data.user.posts).forEach((post) => {
+        if (post.comments) {
+          nextState[post.id] = post.comments;
+        }
+      });
+      return { ...nextState };
     default:
       return state;
   }

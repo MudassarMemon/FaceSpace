@@ -74,7 +74,7 @@ const postsReducer = (state = [], action) => {
       delete nextState[action.id];
       return nextState;
     case RECEIVE_USER:
-      return { ...nextState, ...action.data.posts };
+      return { ...nextState, ...action.data.user.posts };
     default:
       return state;
   }

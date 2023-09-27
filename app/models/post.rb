@@ -12,6 +12,8 @@
 class Post < ApplicationRecord
     validates :body, :author_id, presence: true
     
+    has_one_attached :photo
+
     belongs_to :user_feed,
         foreign_key: :feed_id,
         class_name: :User
