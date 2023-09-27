@@ -1,6 +1,6 @@
 import "./ProfilePosts.css";
 import { Modal } from "../../context/Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PostForm from "./PostForm";
 import { useSelector } from "react-redux";
 import { getPosts } from "../../store/posts";
@@ -18,6 +18,8 @@ function ProfilePosts({ user }) {
   const [editPostId, setEditPostId] = useState("");
   const posts = useSelector(getPosts);
   const users = useSelector(getUsers);
+
+  useEffect(() => {}, [user]);
 
   const sortedPosts = () => {
     let sorted = [...posts].sort((a, b) => {

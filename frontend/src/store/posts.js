@@ -76,10 +76,11 @@ const postsReducer = (state = [], action) => {
       delete nextState[action.id];
       return nextState;
     case RECEIVE_USER:
+      const usersPosts = [];
       Object.values(action.data.user.posts).forEach((post) => {
-        nextState[Object.values(post)[0].id] = Object.values(post)[0];
+        usersPosts[Object.values(post)[0].id] = Object.values(post)[0];
       });
-      return { ...nextState };
+      return usersPosts;
     default:
       return state;
   }

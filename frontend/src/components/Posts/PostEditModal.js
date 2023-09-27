@@ -4,6 +4,7 @@ import { deletePost } from "../../store/posts";
 import { Modal } from "../../context/Modal";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import "./PostEditModal.css";
 
 function PostEditModal({
   post,
@@ -31,7 +32,7 @@ function PostEditModal({
 
   return (
     <>
-      {post.feedId === user.id || post.authorId === sessionUser.id ? (
+      {post.feedId === sessionUser.id || post.authorId === sessionUser.id ? (
         <div
           className="edit-post-icon"
           id={`edit-post-icon${post.id}`}
