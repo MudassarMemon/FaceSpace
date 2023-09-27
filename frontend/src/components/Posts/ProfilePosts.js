@@ -2,27 +2,22 @@ import "./ProfilePosts.css";
 import { Modal } from "../../context/Modal";
 import { useState } from "react";
 import PostForm from "./PostForm";
-import { useSelector, useDispatch } from "react-redux";
-import { deletePost, getPosts } from "../../store/posts";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+import { getPosts } from "../../store/posts";
 import { getUsers } from "../../store/users";
 import { Link } from "react-router-dom";
 import { formatDateTime, formatDateShort } from "../Util/DateUtil";
 import CommentForm from "../Comments/CommentInput";
 import PostComments from "../Comments/PostComments";
+import PostEditModal from "./PostEditModal";
 
 function ProfilePosts({ user }) {
   const sessionUser = useSelector((state) => state.session.user);
   const [showCreateModal, setShowCreateModal] = useState(false);
-  const [showPostSettingsModal, setShowPostSettingsModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editPostId, setEditPostId] = useState("");
-  const [editPostAuthorId, setEditPostAuthorId] = useState("");
-  const [modalY, setmodalY] = useState(0);
   const posts = useSelector(getPosts);
   const users = useSelector(getUsers);
-  const dispatch = useDispatch();
 
   const sortedPosts = () => {
     let sorted = [...posts].sort((a, b) => {
@@ -31,17 +26,6 @@ function ProfilePosts({ user }) {
       return dateB - dateA;
     });
     return sorted;
-  };
-
-  const handleDelete = () => {
-    dispatch(deletePost(editPostId));
-  };
-
-  const getElementCoordinates = async (postId) => {
-    let coordinates = document
-      .querySelector(`#edit-post-icon${postId}`)
-      .getBoundingClientRect();
-    setmodalY(coordinates.bottom);
   };
 
   return (
@@ -58,11 +42,7 @@ function ProfilePosts({ user }) {
 
         {showCreateModal && (
           <Modal onClose={() => setShowCreateModal(false)}>
-            <PostForm
-              postId={editPostId}
-              onClose={() => setShowCreateModal(false)}
-              user={user}
-            />
+            <PostForm onClose={() => setShowCreateModal(false)} user={user} />
           </Modal>
         )}
       </div>
@@ -70,69 +50,14 @@ function ProfilePosts({ user }) {
       <ul>
         {sortedPosts().map((post) => (
           <li key={post.id}>
-            {post.feedId === user.id || post.authorId === sessionUser.id ? (
-              <div
-                className="edit-post-icon"
-                id={`edit-post-icon${post.id}`}
-                onClick={(e) => {
-                  setEditPostId(post.id);
-                  setEditPostAuthorId(post.authorId);
-                  getElementCoordinates(post.id);
-                  setShowPostSettingsModal(true);
-                }}
-              >
-                <FontAwesomeIcon icon={faEllipsis} />
-              </div>
-            ) : (
-              ""
-            )}
-
-            {showPostSettingsModal && (
-              <Modal
-                background={false}
-                position={[modalY, "20.5%", null, null]}
-                onClose={() => setShowPostSettingsModal(false)}
-              >
-                {editPostAuthorId === sessionUser.id ? (
-                  <div className="post-settings">
-                    <div
-                      className="edit-posts-container"
-                      onClick={() => {
-                        setShowPostSettingsModal(false);
-                        setShowEditModal(true);
-                      }}
-                    >
-                      <div className="edit-posts-icon"></div>
-                      <button>Edit Post</button>
-                    </div>
-
-                    <div
-                      className="delete-posts-container"
-                      onClick={() => {
-                        handleDelete();
-                        setShowPostSettingsModal(false);
-                      }}
-                    >
-                      <div className="delete-posts-icon"></div>
-                      <button>Delete Post</button>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="post-settings">
-                    <div
-                      className="delete-posts-container"
-                      onClick={() => {
-                        handleDelete();
-                        setShowPostSettingsModal(false);
-                      }}
-                    >
-                      <div className="delete-posts-icon"></div>
-                      <button>Delete Post</button>
-                    </div>
-                  </div>
-                )}
-              </Modal>
-            )}
+            <PostEditModal
+              post={post}
+              user={user}
+              sessionUser={sessionUser}
+              setShowEditModal={setShowEditModal}
+              setEditPostId={setEditPostId}
+              editPostId={editPostId}
+            />
 
             <div className="post-author">
               <div>
