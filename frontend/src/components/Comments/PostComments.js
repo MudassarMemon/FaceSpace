@@ -8,7 +8,7 @@ function PostComments({ postId }) {
   return (
     <div className="post-comments">
       <ul>
-        {comments
+        {comments.length > 0
           ? comments.map((comment) => {
               return (
                 <div key={comment.id} className="post-comment" id={comment.id}>

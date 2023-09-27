@@ -67,18 +67,16 @@ const commentsReducer = (state = [], action) => {
     case RECEIVE_COMMENTS:
       return { ...nextState, ...action.data.comments };
     case RECEIVE_COMMENT:
-      nextState[action.data.comment.id] = action.data.comment;
+      nextState[action.data.comment.postId].push(action.data.comment);
       return nextState;
     case REMOVE_COMMENT:
       delete nextState[action.id];
       return nextState;
     case RECEIVE_USER:
       Object.values(action.data.user.posts).forEach((post) => {
-        if (post.comments) {
-          nextState[post.id] = post.comments;
-        }
+        nextState[Object.values(post)[0].id] = post.comments;
       });
-      return { ...nextState };
+      return nextState;
     default:
       return state;
   }

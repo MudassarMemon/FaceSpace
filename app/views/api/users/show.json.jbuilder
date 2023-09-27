@@ -8,9 +8,9 @@ json.user do
       end
 
       json.comments post.comments do |comment|
-        json.set! comment.id do
+        # json.set! comment.id do
           json.extract! comment, :id, :body, :author_id, :post_id, :created_at, :updated_at
-        end
+        # end
       end
     end
   end

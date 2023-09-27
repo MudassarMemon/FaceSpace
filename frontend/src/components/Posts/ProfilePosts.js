@@ -69,7 +69,7 @@ function ProfilePosts({ user }) {
       <ul>
         {sortedPosts().map((post) => (
           <li key={post.id}>
-            {post.authorId === user.id || post.authorId === sessionUser.id ? (
+            {post.feedId === user.id || post.authorId === sessionUser.id ? (
               <div
                 className="edit-post-icon"
                 id={`edit-post-icon${post.id}`}
