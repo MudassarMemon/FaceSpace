@@ -2,6 +2,8 @@ import "./PostComments.css";
 import { useSelector } from "react-redux";
 import { getComment } from "../../store/comments";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 
 function PostComments({ postId, sessionUser }) {
   const comments = useSelector(getComment(postId));
@@ -23,6 +25,7 @@ function PostComments({ postId, sessionUser }) {
                 </Link>
                 <p>{comment.body}</p>
               </li>
+              <FontAwesomeIcon icon={faEllipsis} />
             </div>
           );
         })}
