@@ -32,10 +32,6 @@ function NavSearch() {
     };
   };
 
-  // const searchDropDown = () => {
-
-  // }
-
   return (
     <div>
       <FontAwesomeIcon id="magnify-icon" icon={faMagnifyingGlass} />

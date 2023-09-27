@@ -25,7 +25,9 @@ function PostComments({ postId, sessionUser }) {
                 </Link>
                 <p>{comment.body}</p>
               </li>
-              <FontAwesomeIcon icon={faEllipsis} />
+              <div className="comment-settings">
+                <FontAwesomeIcon icon={faEllipsis} />
+              </div>
             </div>
           );
         })}
