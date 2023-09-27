@@ -28,33 +28,9 @@ div.leftNavBarContainer > nav {
   align-items: center;
 }
 
-input#userSearch{
-  width: 90%;
-  height: 35px;
-  border-radius: 20px;
-  margin-left: 5px;
-  background-color: #f0f2f5;
-  border: none;
-  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  padding: 0 0 2px 35px;
-}
-
-input#userSearch:focus{
-  outline: none;
-}
-
 img#fbLogo {
   width: 35px;
   height: 35px;
-}
-
-#magnify-icon{
-  color: rgb(102, 99, 99);
-  position: absolute;
-  top: 17px;
-  left: 65px;
-  background:none;
 }
 
 div.centerNavBarContainer{

@@ -4,11 +4,11 @@ import { NavLink, Link, useParams, useHistory } from "react-router-dom";
 import "./Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "../../context/Modal";
 import { useState, useEffect } from "react";
 import * as sessionActions from "../../store/session";
 import NavBarDropdown from "./NavBarDropdown";
+import NavSearch from "./NavSearch";
 
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -34,10 +34,11 @@ function Navigation() {
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
             ></img>
           </NavLink>
-          <div>
+          <NavSearch />
+          {/* <div>
             <FontAwesomeIcon id="magnify-icon" icon={faMagnifyingGlass} />
             <input id="userSearch" placeholder="Search Facespace" type="text" />
-          </div>
+          </div> */}
         </nav>
       </div>
 

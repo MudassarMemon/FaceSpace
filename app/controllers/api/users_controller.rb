@@ -12,6 +12,15 @@ class Api::UsersController < ApplicationController
     render 'api/users/show'
   end
 
+  def search
+    query = params[:query]
+
+    @users = User.where('first_name ILIKE ?', "%#{query}%")
+    # @users = User.where('first_name ILIKE ?', "%{query}%")
+
+    render :search    
+  end
+
   def create
     @user = User.new(user_params)
 

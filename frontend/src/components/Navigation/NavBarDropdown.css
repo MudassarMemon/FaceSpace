@@ -30,7 +30,6 @@ img#userLogo:hover {
   width: 90%;
   height: 50%;
   padding: 10px 0;
-  /* border: 1px solid red; */
   display: flex;
   justify-content: center;
   align-items: center;

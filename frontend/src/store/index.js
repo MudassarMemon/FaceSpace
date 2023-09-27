@@ -4,12 +4,14 @@ import session from "./session";
 import users from "./users";
 import posts from "./posts";
 import comments from "./comments";
+import search from "./search";
 
 const rootReducer = combineReducers({
   session,
   users,
   posts,
   comments,
+  search,
 });
 
 let enhancer;
