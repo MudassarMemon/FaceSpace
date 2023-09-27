@@ -1,0 +1,42 @@
+
+div.post-comments > ul{
+    border-top: 1px solid rgba(88, 80, 80, 0.189);
+}
+
+div.post-comment {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 15px 0;
+}
+
+div.post-comment img{
+    width: 32px;
+    height: 32px;
+}
+
+li#comment-body {
+    display: flex;
+    flex-flow:column nowrap;
+    width: max-content;
+    padding: 3px 6px;
+    margin: 0 0 0 10px;
+    background-color: #f0f2f5;
+    font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    color: black;
+}
+
+li#comment-body > p{
+    margin: 1px;
+    padding: 1px;
+}
+li#comment-body > a{
+    text-decoration: none;
+    font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    color: black;
+    font-weight: 600;
+    letter-spacing: .2px;
+}
