@@ -24,8 +24,6 @@ export const fetchSearchResults = (query) => async (dispatch) => {
 };
 
 const searchReducer = (state = {}, action) => {
-  const nextState = { ...state };
-
   switch (action.type) {
     case GET_SEARCH_RESULTS:
       return { ...action.searchResults.users };

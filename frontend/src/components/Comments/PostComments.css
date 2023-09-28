@@ -28,6 +28,10 @@ li#comment-body {
     color: black;
 }
 
+div.post-comment:hover > div.comment-settings{
+    display:flex;
+}
+
 li#comment-body > p{
     margin: 1px;
     padding: 1px;
@@ -40,3 +44,68 @@ li#comment-body > a{
     font-weight: 600;
     letter-spacing: .2px;
 }
+
+div.comment-settings {
+    display:none;
+    align-self: center;
+    margin-left: 5px;
+    border-radius: 100px;
+    padding: 6px 8px;
+    transform: scale(.8);
+}
+
+div.comment-settings:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+  
+div.comment-settings:active {
+    background-color: #e5e5e5;
+}
+
+div.delete-comment{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-self: center;
+    border-radius: 8px;
+    width: 75px;
+    align-items: center;
+    padding: 5px;
+    margin-left: 10px;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.221)
+}
+
+div.delete-comment:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+  
+div.delete-comment:active {
+    background-color: #e5e5e5;
+}
+
+div.delete-comment button{
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: inherit;
+    display:flex;
+    width:
+}
+
+.delete-comment-icon{
+    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yx/r/BS4qBw3i0wj.png);
+    background-position: 0px -1049px;
+    background-size: auto;
+    width: 25px;
+    height: 20px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    transform: scale(.8);
+  } 

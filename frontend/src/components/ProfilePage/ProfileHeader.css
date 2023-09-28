@@ -11,7 +11,7 @@
 .cover-photo-container{
     display: flex;
     justify-content: center;
-    background-image: linear-gradient(rgb(134, 124, 124), white);
+    background-image: linear-gradient(#173855ba, white);
     height: 70%;
     width: 100%;
 }

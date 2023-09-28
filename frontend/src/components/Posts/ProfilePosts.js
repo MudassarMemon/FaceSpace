@@ -105,7 +105,11 @@ function ProfilePosts({ user }) {
               </div>
             </div>
             <div className="post-body">{post.body}</div>
-            <PostComments sessionUser={sessionUser} postId={post.id} />
+            <PostComments
+              sessionUser={sessionUser}
+              postId={post.id}
+              postAuthor={post.authorId}
+            />
             <div className="add-comment">
               <div>
                 <img

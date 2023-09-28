@@ -70,7 +70,18 @@ const commentsReducer = (state = [], action) => {
       nextState[action.data.comment.postId].push(action.data.comment);
       return nextState;
     case REMOVE_COMMENT:
-      delete nextState[action.id];
+      // debugger;
+      let postKey;
+      let commentIndex;
+      Object.values(nextState).forEach((comments) => {
+        comments.forEach((comment, i) => {
+          if (comment.id === action.id) {
+            commentIndex = i;
+            postKey = comment.postId;
+          }
+        });
+      });
+      nextState[postKey].splice(commentIndex, 1);
       return nextState;
     case RECEIVE_USER:
       Object.values(action.data.user.posts).forEach((post) => {

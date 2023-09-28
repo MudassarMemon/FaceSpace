@@ -1,12 +1,24 @@
 import "./PostComments.css";
-import { useSelector } from "react-redux";
-import { getComment } from "../../store/comments";
+import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
+import { getComment, deleteComment } from "../../store/comments";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 
-function PostComments({ postId, sessionUser }) {
+function PostComments({ postId, postAuthor, sessionUser }) {
   const comments = useSelector(getComment(postId));
+  const [showDelete, setShowDelete] = useState(false);
+  const [deleteCommentId, setDeleteCommentId] = useState("");
+  const dispatch = useDispatch();
+
+  function handleDelete(id) {
+    return (e) => {
+      e.stopPropagation();
+      dispatch(deleteComment(id));
+      setDeleteCommentId("");
+    };
+  }
 
   if (!comments || !(comments.length > 0)) return null;
   return (
@@ -25,9 +37,27 @@ function PostComments({ postId, sessionUser }) {
                 </Link>
                 <p>{comment.body}</p>
               </li>
-              <div className="comment-settings">
-                <FontAwesomeIcon icon={faEllipsis} />
-              </div>
+              {comment.authorId === sessionUser.id ||
+              postAuthor === sessionUser.id ? (
+                <div className="comment-settings">
+                  <FontAwesomeIcon
+                    icon={faEllipsis}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setDeleteCommentId(comment.id);
+                      setShowDelete(!showDelete);
+                    }}
+                  />
+                </div>
+              ) : (
+                ""
+              )}
+              {showDelete && deleteCommentId === comment.id && (
+                <div className="delete-comment">
+                  <div className="delete-comment-icon"> </div>
+                  <button onClick={handleDelete(comment.id)}>Delete</button>
+                </div>
+              )}
             </div>
           );
         })}
