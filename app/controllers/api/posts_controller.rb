@@ -1,6 +1,11 @@
 class Api::PostsController < ApplicationController
     wrap_parameters include: Post.attribute_names + ["authorId", "feedId"]
 
+    def index
+        @posts = Post.all
+        render 'api/posts/index'
+    end
+
     def create
         @post = Post.new(post_params)
 

@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import ProfilePage from "./components/ProfilePage";
 import Navigation from "./components/Navigation";
 import Splash from "./components/Splash";
+import MainFeed from "./components/Mainfeed/MainFeed";
 
 function App() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -18,7 +19,7 @@ function App() {
         <Navigation />
         <Switch>
           <Route exact path="/">
-            {/* <MainFeed /> */}
+            <MainFeed />
           </Route>
           <Route path="/users/:id">
             <ProfilePage />

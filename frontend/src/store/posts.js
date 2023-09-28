@@ -28,6 +28,16 @@ export const getPost = (postId) => (state) => {
   return null;
 };
 
+export const fetchPosts = () => async (dispatch) => {
+  const res = await csrfFetch("/api/posts");
+
+  if (res.ok) {
+    let data = await res.json();
+    dispatch(receivePosts(data));
+    return data;
+  }
+};
+
 export const createPost = (post) => async (dispatch) => {
   const res = await csrfFetch("/api/posts", {
     method: "POST",
