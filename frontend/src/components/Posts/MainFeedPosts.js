@@ -19,7 +19,6 @@ function MainFeedPosts() {
   const posts = useSelector(getPosts);
   const users = useSelector(getUsers);
   const dispatch = useDispatch();
-  console.log(users);
 
   useEffect(() => {
     dispatch(fetchPosts);
@@ -38,7 +37,7 @@ function MainFeedPosts() {
   return (
     <div className="profile-posts-container">
       <div className="create-profile-post">
-        <img id="userIcon" alt="userLogo" src={sessionUser.photoUrls[1]}></img>
+        <img id="userIcon" alt="userLogo" src={sessionUser.avatarUrl}></img>
         <button
           onClick={() => {
             setShowCreateModal(true);
@@ -73,7 +72,7 @@ function MainFeedPosts() {
                 <img
                   id="userIcon"
                   alt="userLogo"
-                  src={users && users[post.authorId - 1].photoUrls[1]}
+                  src={users && users[post.authorId - 1].avatarUrl}
                 ></img>
               </div>
               <div className="post-author-name">
@@ -123,7 +122,7 @@ function MainFeedPosts() {
                 <img
                   id="userIcon"
                   alt="userLogo"
-                  src={sessionUser && sessionUser.photoUrls[1]}
+                  src={sessionUser && sessionUser.avatarUrl}
                 ></img>
               </div>
               <CommentForm authorId={sessionUser.id} postId={post.id} />

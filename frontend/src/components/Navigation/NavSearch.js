@@ -49,7 +49,7 @@ function NavSearch() {
             ? searchResults.map((result) => (
                 <li onClick={handleClick(result.id)} key={result.id}>
                   <div>
-                    <img alt="" src={result.photoUrls[1]}></img>
+                    <img alt="" src={result.avatarUrl}></img>
                     <p>
                       {result.firstName} {result.lastName}
                     </p>

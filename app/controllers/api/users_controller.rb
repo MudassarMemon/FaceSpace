@@ -1,6 +1,5 @@
 class Api::UsersController < ApplicationController
-  # before_action :require_logged_out, only: [:create]
-  wrap_parameters include: User.attribute_names + ['password', 'firstName', 'lastName', 'currentCity']
+  wrap_parameters include: User.attribute_names + [ 'avatar', 'cover', 'password', 'firstName', 'lastName', 'currentCity']
 
   def index
     @users = User.all
@@ -9,15 +8,13 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+
     render 'api/users/show'
   end
 
   def search
     query = params[:query]
-
-    @users = User.where('first_name ILIKE ?', "%#{query}%")
-    # @users = User.where('first_name ILIKE ?', "%{query}%")
-
+    @users = User.where('first_name ILIKE ? OR last_name ILIKE ?', "%#{query}%", "%#{query}%").limit(8)
     render :search    
   end
 
@@ -33,9 +30,9 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(id:params[:id])
     
-    if @user == current_user && @user.update(user_params)
+    if  @user.update(user_params)
       render 'api/users/show'
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
@@ -45,7 +42,7 @@ class Api::UsersController < ApplicationController
   private 
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :gender, :birthday, :password, :bio, :workplace, :school, :current_city, :hometown, :pronunciation)
+    params.require(:user).permit(:id, :avatar, :cover, :email, :first_name, :last_name, :gender, :birthday, :password, :bio, :workplace, :school, :current_city, :hometown, :pronunciation)
   end
 
 end

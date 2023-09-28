@@ -30,7 +30,8 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
   validate :verify_age
 
-  has_many_attached :photos
+  has_one_attached :cover
+  has_one_attached :avatar
 
   has_many :posts,
     foreign_key: :feed_id,

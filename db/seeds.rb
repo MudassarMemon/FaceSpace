@@ -55,14 +55,14 @@ User.create!(
 puts "Attaching images..."
 
 User.first(15).each_with_index do |user, index|
-  user.photos.attach(
+  user.cover.attach(
     io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/cover_photo_#{index+1}.jpg"),
     filename: "cover_photo_#{index+1}.jpg"
   )
 end
 
 User.first(15).each_with_index do |user, index|
-  user.photos.attach(
+  user.avatar.attach(
     io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/profile_pic_#{index+1}.jpg"),
     filename: "profile_pic_#{index+1}.jpg"
   )

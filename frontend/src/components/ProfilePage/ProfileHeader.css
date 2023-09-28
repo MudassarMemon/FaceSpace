@@ -14,6 +14,59 @@
     background-image: linear-gradient(#173855ba, white);
     height: 70%;
     width: 100%;
+    position:relative;
+}
+
+div.upload-cover-photo{
+    display: flex;
+    flex-flow: row nowrap;
+    position: absolute;
+    bottom: 25px;
+    right: 19%;
+    padding: 10px;
+    background-color: #0808086e;
+    border-radius: 8px;
+    width: 200px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-family: "Segoe UI Historic","Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    color: white;
+    font-weight: 900;
+}
+
+div.upload-cover-photo:hover{
+    background-color: #080808ac;
+}
+
+div.upload-cover-photo:active{
+    transform: scale(.95);
+}
+
+div.cover-photo-icon{
+    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/HavLioY1LSC.png);
+    background-position: 0px -248px;
+    background-size: 33px 554px;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-right: 20px;
+    transform: scale(1.5);
+    filter: invert(1);
+}
+
+form.cover-form > input#cover {
+    opacity: 0;
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    cursor: pointer;
 }
 
 .cover-photo-container > img{
@@ -50,8 +103,50 @@
     width: 200px;
     height: 200px;
     border-radius: 100%;
-    border: 3px solid white;
+    outline: 4px solid white;
     bottom: 0;
+}
+
+.profile-photo-container > div {
+    position: absolute;
+    bottom: 30px;
+    left: 160px;
+    padding:15px 15px 10px 15px;
+    border-radius: 100px;
+    background-color: #e4e6eb;
+    cursor: pointer;
+}
+
+.profile-photo-container > div:hover{
+    background-color: #d0d0d4;
+}
+
+.profile-photo-container > div:active{
+    transform: scale(.95);
+}
+
+div.profile-photo-icon{
+    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/HavLioY1LSC.png);
+    background-position: 0px -248px;
+    background-size: 33px 554px;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    transform: scale(2);
+    filter: opacity(.5);
+    filter: invert(.2);
+}
+
+form.upload-form > input#avatar {
+    opacity: 0;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -4px;
+    top:-4px;
+    border-radius: 50px;
+    cursor: pointer;
 }
 
 .profile-name-container{
@@ -122,4 +217,3 @@ background-color: #e5e5e5;
     border-bottom-left-radius: 0;
     border-bottom: 3px solid #1b74e4;
 }
-

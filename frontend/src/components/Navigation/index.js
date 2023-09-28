@@ -70,7 +70,7 @@ function Navigation() {
           <img
             id="userLogo"
             alt="userLogo"
-            src={sessionUser && sessionUser.photoUrls[1]}
+            src={sessionUser && sessionUser.avatarUrl}
             onClick={() => {
               setShowModal((prev) => !prev);
             }}

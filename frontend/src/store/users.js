@@ -65,6 +65,19 @@ export const updateUser = (user) => async (dispatch) => {
   }
 };
 
+export const uploadPhoto = (user) => async (dispatch) => {
+  const res = await csrfFetch(`/api/users/${user.id}`, {
+    method: "PATCH",
+    body: user.photo,
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(recieveUser(data));
+    return data;
+  }
+};
+
 const usersReducer = (state = [], action) => {
   const nextState = { ...state };
 

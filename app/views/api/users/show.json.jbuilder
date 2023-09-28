@@ -1,7 +1,7 @@
 json.user do
     json.extract! @user, :id, :email, :first_name, :last_name, :gender, :birthday, :bio, :workplace, :school, :current_city, :hometown, :pronunciation, :created_at, :updated_at
-    json.photoUrls @user.photos.attached? ? @user.photos.map(&:url) : ["https://facespace-fs-seeds.s3.amazonaws.com/cover_photo_default.jpg","https://facespace-fs-seeds.s3.amazonaws.com/profile_pic_default.jpg"]
-  
+    json.coverUrl @user.cover.attached? ? @user.cover.url : "https://facespace-fs-seeds.s3.amazonaws.com/cover_photo_default.jpg"
+    json.avatarUrl @user.avatar.attached? ? @user.avatar.url : "https://facespace-fs-seeds.s3.amazonaws.com/profile_pic_default.jpg"
     json.posts @user.posts.includes(:comments) do |post|
 
       json.set! post.id do
