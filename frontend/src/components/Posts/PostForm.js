@@ -39,7 +39,11 @@ function PostForm({ onClose, user, postId }) {
         <textarea
           ref={postInput}
           value={body}
-          placeholder="What's on your mind?"
+          placeholder={
+            user.id === sessionUser.id
+              ? "What's on your mind?"
+              : `Write something to ${user.firstName}...`
+          }
           onChange={(e) => setBody(e.target.value)}
           id="create-post"
           name="create-post"

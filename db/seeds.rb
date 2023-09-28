@@ -45,8 +45,6 @@ User.create!(
   birthday: "1995-05-03",
   password: 'password',
   bio:Faker::Quote.famous_last_words,
-  profile_pic_url: "https://cdn-icons-png.flaticon.com/512/219/219970.png",
-  cover_pic_url: "https://visualparadox.com/images/no_linking_allowed_/facebook/hideaway-fb.jpg",   
   workplace: "Meta",
   hometown: "Burlington, Ontario",
   current_city: "New York, New York",
@@ -54,19 +52,21 @@ User.create!(
   pronunciation: "Muh-duh-sar Mem-in"
 )
 
-# puts "Attaching images..."
+puts "Attaching images..."
 
-# User.first(15).each_with_index do |user, index|
-#   user.photos.attach(
-#     io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/profile_pic_#{index + 1}.png"),
-#     filename: "profile_pic_#{index+1}.png"
-#   )
+User.first(15).each_with_index do |user, index|
+  user.photos.attach(
+    io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/cover_photo_#{index+1}.jpg"),
+    filename: "cover_photo_#{index+1}.jpg"
+  )
+end
 
-#   user.photos.attach(
-#     io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/cover_photo_#{index + 1}.jpg"),
-#     filename: "cover_photo_#{index+1}.jpg"
-#   )
-# end
+User.first(15).each_with_index do |user, index|
+  user.photos.attach(
+    io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/profile_pic_#{index+1}.jpg"),
+    filename: "profile_pic_#{index+1}.jpg"
+  )
+end
 
 puts "Creating posts..."
 

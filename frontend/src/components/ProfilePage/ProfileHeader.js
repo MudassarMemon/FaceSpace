@@ -10,12 +10,12 @@ function ProfileHeader({ id, user }) {
   return (
     <header className="profile-header">
       <div className="cover-photo-container">
-        {/* <img alt="cover" src={user.photoUrls && user.photoUrls[1]} /> */}
+        <img alt="cover" src={user && user.photoUrls[0]} />
       </div>
       <div className="profile-details-container">
         <div className="left-profile-details">
           <div className="profile-photo-container">
-            {/* <img alt="userLogo" src={user.photoUrls && user.photoUrls[0]}></img> */}
+            <img alt="userLogo" src={user && user.photoUrls[1]}></img>
           </div>
           <div className="profile-name-container">
             <h1>{user && user.firstName + " " + user.lastName}</h1>
