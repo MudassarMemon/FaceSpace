@@ -8,7 +8,6 @@ import "./PostEditModal.css";
 
 function PostEditModal({
   post,
-  user,
   sessionUser,
   setShowEditModal,
   setEditPostId,

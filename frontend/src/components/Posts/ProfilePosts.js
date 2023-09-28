@@ -29,6 +29,7 @@ function ProfilePosts({ user }) {
     });
     return sorted;
   };
+  if (!user) return null;
 
   return (
     <div className="profile-posts-container">
@@ -39,7 +40,7 @@ function ProfilePosts({ user }) {
             setShowCreateModal(true);
           }}
         >
-          {user.id === sessionUser.id
+          {user && sessionUser && user.id === sessionUser.id
             ? "What's on your mind?"
             : `Write something to ${user.firstName}...`}
         </button>
