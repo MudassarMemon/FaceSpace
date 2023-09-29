@@ -1,0 +1,58 @@
+.profile-friends-container {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    padding:20px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+}
+
+div.friends-component-container{
+    /* border: 1px solid red; */
+    width: 100%;
+}
+
+div.friend {    
+    width: 30%;
+    height: 150px;
+    /* border: 3px solid red; */
+    border-radius: 8px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    margin-bottom: 5px;
+    padding: 5px;
+
+}
+
+ul.friend {
+    /* border: 2px solid rgb(21, 255, 0); */
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+
+}
+
+div.friend li {
+    /* border: 1px solid rgb(0, 4, 255); */
+    list-style: none;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+div.friend img{
+    width: 110px;
+    height: 110px;
+    object-fit: scale-down;
+}
+
+div.friend h5{
+    color:black;
+    font-family: "Segoe UI Historic","Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    margin:0;
+    padding: 0;
+    font-weight: bold;
+}

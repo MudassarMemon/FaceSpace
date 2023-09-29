@@ -19,10 +19,11 @@ function MainFeedPosts() {
   const posts = useSelector(getPosts);
   const users = useSelector(getUsers);
   const dispatch = useDispatch();
+  // debugger;
 
   useEffect(() => {
-    dispatch(fetchPosts);
-    dispatch(fetchUsers);
+    dispatch(fetchPosts());
+    dispatch(fetchUsers());
   }, [dispatch]);
 
   const sortedPosts = () => {
@@ -34,10 +35,12 @@ function MainFeedPosts() {
     return sorted;
   };
 
+  if (!posts || !users) return null;
+
   return (
     <div className="profile-posts-container">
       <div className="create-profile-post">
-        <img id="userIcon" alt="userLogo" src={sessionUser.avatarUrl}></img>
+        <img id="userIcon" alt="userLogo" src={sessionUser?.avatarUrl}></img>
         <button
           onClick={() => {
             setShowCreateModal(true);
@@ -72,7 +75,7 @@ function MainFeedPosts() {
                 <img
                   id="userIcon"
                   alt="userLogo"
-                  src={users && users[post.authorId - 1].avatarUrl}
+                  src={users && users[post.authorId - 1]?.avatarUrl}
                 ></img>
               </div>
               <div className="post-author-name">
@@ -91,8 +94,8 @@ function MainFeedPosts() {
                     <>
                       <div className="arrow-icon"></div>
                       <Link to={`/users/${post.feedId}`}>
-                        {users[post.feedId].firstName}{" "}
-                        {users[post.feedId].lastName}
+                        {users[post.feedId - 1]?.firstName}{" "}
+                        {users[post.feedId - 1]?.lastName}
                       </Link>
                     </>
                   ) : (

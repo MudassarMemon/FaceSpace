@@ -34,7 +34,7 @@ function ProfilePosts({ user }) {
   return (
     <div className="profile-posts-container">
       <div className="create-profile-post">
-        <img id="userIcon" alt="userLogo" src={sessionUser.avatarUrl}></img>
+        <img id="userIcon" alt="userLogo" src={sessionUser?.avatarUrl}></img>
         <button
           onClick={() => {
             setShowCreateModal(true);
@@ -65,7 +65,7 @@ function ProfilePosts({ user }) {
             />
 
             <div className="post-author">
-              <div>
+              <div className="userIcon">
                 <img
                   id="userIcon"
                   alt="userLogo"
@@ -112,6 +112,7 @@ function ProfilePosts({ user }) {
               sessionUser={sessionUser}
               postId={post.id}
               postAuthor={post.authorId}
+              users={users}
             />
             <div className="add-comment">
               <div>
@@ -121,7 +122,11 @@ function ProfilePosts({ user }) {
                   src={sessionUser && sessionUser.avatarUrl}
                 ></img>
               </div>
-              <CommentForm authorId={sessionUser.id} postId={post.id} />
+              <CommentForm
+                post={post}
+                authorId={sessionUser.id}
+                postId={post.id}
+              />
             </div>
           </li>
         ))}
