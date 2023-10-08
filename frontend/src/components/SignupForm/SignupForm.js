@@ -223,16 +223,6 @@ function SignupFormPage() {
               </div>
             </>
           )}
-
-          <p>
-            People who use our service may have uploaded your contact
-            information to Facebook. Learn more.
-          </p>
-          <p>
-            By clicking Sign Up, you agree to our Terms, Privacy Policy and
-            Cookies Policy. You may receive SMS Notifications from us and can
-            opt out any time.
-          </p>
           <button type="submit">Sign Up</button>
         </form>
       </div>
