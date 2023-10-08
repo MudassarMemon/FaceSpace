@@ -8,12 +8,14 @@ div.post-comment {
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: flex-start;
-    margin: 20px 0 15px 0;
+    margin: 20px 0 15px 3px;
 }
 
 div.post-comment img{
     width: 32px;
     height: 32px;
+    border-radius: 100px;
+    margin-right: 5px;
 }
 
 li#comment-body {
@@ -28,7 +30,7 @@ li#comment-body {
     color: black;
 }
 
-div.post-comment:hover > div.comment-settings{
+div.post-comment:hover > div.comment-edit{
     display:flex;
 }
 
@@ -45,7 +47,7 @@ li#comment-body > a{
     letter-spacing: .2px;
 }
 
-div.comment-settings {
+div.comment-edit {
     display:none;
     align-self: center;
     margin-left: 5px;
@@ -54,16 +56,16 @@ div.comment-settings {
     transform: scale(.8);
 }
 
-div.comment-settings:hover {
+div.comment-edit:hover {
     background-color: #f2f2f2;
     cursor: pointer;
 }
   
-div.comment-settings:active {
+div.comment-edit:active {
     background-color: #e5e5e5;
 }
 
-div.delete-comment{
+div.comment-edit-options{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
@@ -77,16 +79,16 @@ div.delete-comment{
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.221)
 }
 
-div.delete-comment:hover {
+div.comment-edit-options:hover {
     background-color: #f2f2f2;
     cursor: pointer;
 }
   
-div.delete-comment:active {
+div.comment-edit-options:active {
     background-color: #e5e5e5;
 }
 
-div.delete-comment button{
+div.comment-edit-options button{
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 15px;
     font-weight: 500;

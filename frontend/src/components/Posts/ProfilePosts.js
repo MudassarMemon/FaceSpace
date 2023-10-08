@@ -34,7 +34,10 @@ function ProfilePosts({ user }) {
   return (
     <div className="profile-posts-container">
       <div className="create-profile-post">
-        <img id="userIcon" alt="userLogo" src={sessionUser?.avatarUrl}></img>
+        <Link to={`/users/${sessionUser?.id}`}>
+          <img id="userIcon" alt="userLogo" src={sessionUser?.avatarUrl}></img>
+        </Link>
+
         <button
           onClick={() => {
             setShowCreateModal(true);
@@ -66,11 +69,13 @@ function ProfilePosts({ user }) {
 
             <div className="post-author">
               <div className="userIcon">
-                <img
-                  id="userIcon"
-                  alt="userLogo"
-                  src={users[post.authorId - 1]?.avatarUrl}
-                ></img>
+                <Link to={`/users/${post.authorId}`}>
+                  <img
+                    id="userIcon"
+                    alt="userLogo"
+                    src={users[post.authorId - 1]?.avatarUrl}
+                  ></img>
+                </Link>
               </div>
               <div className="post-author-name">
                 <div>
@@ -116,11 +121,13 @@ function ProfilePosts({ user }) {
             />
             <div className="add-comment">
               <div>
-                <img
-                  id="userIcon"
-                  alt="userLogo"
-                  src={sessionUser && sessionUser.avatarUrl}
-                ></img>
+                <Link to={`/users/${sessionUser?.id}`}>
+                  <img
+                    id="userIcon"
+                    alt="userLogo"
+                    src={sessionUser && sessionUser.avatarUrl}
+                  ></img>
+                </Link>
               </div>
               <CommentForm
                 post={post}

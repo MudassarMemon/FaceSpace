@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get "users/search", to: "users#search"
     resources :users, only: [:create, :index, :show, :update]
     resources :posts, only: [:create, :index, :show, :update, :destroy]
-    resources :comments, only: [:create, :index, :show, :destroy]
+    resources :comments, only: [:create, :index, :show, :update, :destroy]
     resource :session, only: [:show, :create, :destroy]
   end
 

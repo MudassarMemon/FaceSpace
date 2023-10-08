@@ -1,11 +1,12 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { NavLink, Link, useParams, useHistory } from "react-router-dom";
+// styling and icon imports
 import "./Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
+// functional imports
+import { React, useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { NavLink, Link, useParams, useHistory } from "react-router-dom";
 import { Modal } from "../../context/Modal";
-import { useState, useEffect } from "react";
 import * as sessionActions from "../../store/session";
 import NavBarDropdown from "./NavBarDropdown";
 import NavSearch from "./NavSearch";
@@ -23,6 +24,7 @@ function Navigation() {
     history.push("/");
     return dispatch(sessionActions.logout());
   }
+
   return (
     <div className="navBarContainer">
       <div className="leftNavBarContainer">

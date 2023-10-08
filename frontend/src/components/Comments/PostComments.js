@@ -1,68 +1,118 @@
 import "./PostComments.css";
-import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
-import { getComment, deleteComment } from "../../store/comments";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import { useSelector, useDispatch } from "react-redux";
+import { useState, useRef, useEffect } from "react";
+import { getComment, getComments, deleteComment } from "../../store/comments";
+import { Link } from "react-router-dom";
+import { getUsers } from "../../store/users";
+import { Modal } from "../../context/Modal";
+import CommentEditForm from "./CommentEditForm";
 
 function PostComments({ postId, postAuthor, sessionUser }) {
   const comments = useSelector(getComment(postId));
-  const [showDelete, setShowDelete] = useState(false);
-  const [deleteCommentId, setDeleteCommentId] = useState("");
+  const users = useSelector(getUsers);
+  const [commentId, setCommentId] = useState("");
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  const handleClickOutside = (e) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  const toggleDropdown = (e) => {
+    e.stopPropagation();
+    setIsOpen(!isOpen);
+  };
 
   function handleDelete(id) {
     return (e) => {
       e.stopPropagation();
       dispatch(deleteComment(id));
-      setDeleteCommentId("");
+      setCommentId("");
     };
   }
 
   if (!comments || !(comments.length > 0)) return null;
   return (
-    <div className="post-comments">
-      <ul>
-        {comments.map((comment) => {
-          return (
-            <div key={comment.id} className="post-comment" id={comment.id}>
-              <img
-                alt=""
-                src="https://cdn-icons-png.flaticon.com/512/219/219970.png"
-              ></img>
-              <li id="comment-body" key={comment.id}>
-                <Link to={`/users/${sessionUser.id}`}>
-                  {sessionUser.firstName} {sessionUser.lastName}
+    <>
+      <div className="post-comments">
+        <ul>
+          {comments.map((comment) => {
+            return (
+              <div key={comment.id} className="post-comment" id={comment.id}>
+                <Link to={`/users/${comment.authorId}`}>
+                  <img
+                    alt=""
+                    src={users && users[comment.authorId - 1]?.avatarUrl}
+                  />
                 </Link>
-                <p>{comment.body}</p>
-              </li>
-              {comment.authorId === sessionUser.id ||
-              postAuthor === sessionUser.id ? (
-                <div className="comment-settings">
-                  <FontAwesomeIcon
-                    icon={faEllipsis}
+
+                <li id="comment-body" key={comment.id}>
+                  <Link to={`/users/${comment.authorId}`}>
+                    {users &&
+                      users[comment.authorId - 1] &&
+                      `${users[comment.authorId - 1].firstName} ${
+                        users[comment.authorId - 1].lastName
+                      }`}
+                  </Link>
+                  <p>{comment.body}</p>
+                </li>
+                {comment.authorId === sessionUser.id ||
+                postAuthor === sessionUser.id ? (
+                  <div
+                    className="comment-edit"
                     onClick={(e) => {
                       e.stopPropagation();
-                      setDeleteCommentId(comment.id);
-                      setShowDelete(!showDelete);
+                      setCommentId(comment.id);
+                      toggleDropdown(e);
                     }}
-                  />
-                </div>
-              ) : (
-                ""
-              )}
-              {showDelete && deleteCommentId === comment.id && (
-                <div className="delete-comment">
-                  <div className="delete-comment-icon"> </div>
-                  <button onClick={handleDelete(comment.id)}>Delete</button>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </ul>
-    </div>
+                  >
+                    <FontAwesomeIcon icon={faEllipsis} />
+                  </div>
+                ) : (
+                  ""
+                )}
+                {isOpen && commentId === comment.id && (
+                  <div ref={dropdownRef} className="comment-edit-options">
+                    <div className="delete-comment-icon"> </div>
+                    <button onClick={handleDelete(comment.id)}>Delete</button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setShowEditModal(true);
+                      }}
+                    >
+                      Edit
+                    </button>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </ul>
+      </div>
+      {showEditModal && (
+        <Modal onClose={() => setShowEditModal(false)}>
+          <CommentEditForm
+            onClose={() => setShowEditModal(false)}
+            commentId={commentId}
+          />
+        </Modal>
+      )}
+    </>
   );
 }
 
