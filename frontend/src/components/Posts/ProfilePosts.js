@@ -119,7 +119,12 @@ function ProfilePosts({ user }) {
               </div>
             </div>
             <div className="post-body">{post.body}</div>
-            <Likes post={post} users={users} handleComment={handleComment} />
+            <Likes
+              post={post}
+              sessionUser={sessionUser}
+              users={users}
+              handleComment={handleComment}
+            />
             <PostComments
               sessionUser={sessionUser}
               postId={post.id}

@@ -2,7 +2,7 @@ import "./Likes.css";
 import { useDispatch } from "react-redux";
 import { likePost } from "../../store/posts";
 
-function Likes({ post, users, handleComment }) {
+function Likes({ post, users, handleComment, sessionUser }) {
   const dispatch = useDispatch();
 
   const handleLike = () => {
@@ -21,20 +21,80 @@ function Likes({ post, users, handleComment }) {
         ) : (
           ""
         )}
-        {post.likes
-          .map(
-            (like) =>
-              users[like.user_id - 1]?.firstName +
-              " " +
-              users[like.user_id - 1]?.lastName
-          )
-          .join(" ")}
+        {post.likes.length < 2
+          ? post.likes
+              .map(
+                (like) =>
+                  users[like.user_id - 1]?.firstName +
+                  " " +
+                  users[like.user_id - 1]?.lastName
+              )
+              .join(" ")
+          : ""}
+
+        {post.likes.length === 2
+          ? post.likes
+              .map(
+                (like) =>
+                  users[like.user_id - 1]?.firstName +
+                  " " +
+                  users[like.user_id - 1]?.lastName
+              )
+              .join(" and ")
+          : ""}
+
+        {post.likes.length === 3
+          ? post.likes
+              .slice(0, 2)
+              .map(
+                (like) =>
+                  users[like.user_id - 1]?.firstName +
+                  " " +
+                  users[like.user_id - 1]?.lastName
+              )
+              .join(", ") + ` and ${post.likes.length - 2} other`
+          : ""}
+
+        {post.likes.length > 3
+          ? post.likes
+              .slice(0, 2)
+              .map(
+                (like) =>
+                  users[like.user_id - 1]?.firstName +
+                  " " +
+                  users[like.user_id - 1]?.lastName
+              )
+              .join(", ") + ` and ${post.likes.length - 2} others`
+          : ""}
+      </div>
+      <div className="likes-list">
+        <ul>
+          {post.likes.map((like) => {
+            return (
+              <li key={like.id}>
+                {users[like.user_id - 1]?.firstName +
+                  " " +
+                  users[like.user_id - 1]?.lastName}
+              </li>
+            );
+          })}
+        </ul>
       </div>
       <div className="like-bar-container">
         <div className="like-button">
           {" "}
           <button onClick={handleLike}>
-            <i id="thumbs-up" class="fa-light fa-thumbs-up"></i> Like
+            {post.likes.findIndex((like) => like.user_id === sessionUser.id) <
+            0 ? (
+              <i id="thumbs-up" class="fa-light fa-thumbs-up"></i>
+            ) : (
+              <i
+                id="thumbs-up"
+                class="fa-solid fa-thumbs-up"
+                style={{ color: "#0566ff" }}
+              ></i>
+            )}{" "}
+            Like
           </button>
         </div>
         <div class="comment-button-focus">

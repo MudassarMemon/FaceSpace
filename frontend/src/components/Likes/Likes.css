@@ -77,8 +77,50 @@ div.like-bar-container {
   }
 
   div.post-likes {
-    /* height:20px; */
+    position:relative;
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
+    cursor: pointer;
+  }
+
+  div.likes-list {
+    position: absolute;
+    z-index: 1;
+    height: auto;
+    width: 200px;
+    left: 15px;
+    border-radius: 8px;
+    background-color: #020202b2;
+    font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 5px;
+    display:none;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, .1)
+  }
+
+  div.likes-list ul {
+    width: 100%;
+    background-color: #02020200;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  div.likes-list li {
+    width: fit-content;
+    background-color: #02020200;
+    color: rgb(255, 255, 255);
+    padding:2px 0px;
+    margin: 0;
+  }
+
+
+  div.post-likes:hover + div.likes-list {
+    display:flex;
   }
