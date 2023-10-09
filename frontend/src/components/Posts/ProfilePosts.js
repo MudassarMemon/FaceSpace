@@ -113,6 +113,17 @@ function ProfilePosts({ user }) {
               </div>
             </div>
             <div className="post-body">{post.body}</div>
+            <div className="like-bar-container">
+              <div className="like-button">
+                {" "}
+                <button>
+                  <i class="fa-light fa-thumbs-up"></i> Like
+                </button>
+              </div>
+              <div className="comment-button-focus">
+                <button>Comment</button>
+              </div>
+            </div>
             <PostComments
               sessionUser={sessionUser}
               postId={post.id}

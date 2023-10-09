@@ -1,31 +1,36 @@
 class Api::LikesController < ApplicationController
-    # likes will be created in the posts and controllers respectively
-    wrap_parameters include: Like.attribute_names + ["userId", "likableId"]
-
-    def create
-        @like = Like.new(like_params)
-
-        if @like.save
-            render json: { message: 'success' }
-        else
-            render json: { errors: ['unsuccessful'] }, 
-            status: :unauthorized
-        end 
+    # wrap_parameters include: Like.attribute_names + ["userId", "likeableId"]
+    
+    def index
+        @likes = Like.all
+        render :index
     end
 
-    def destroy
-        @like = Like.find_by(like_params)
+    # likes will be created and destroyed in the posts and controllers respectively
+    # def create
+    #     @like = Like.new(like_params)
 
-        if @like.destroy
-            render json: { message: 'success' }
-        else
-            render json: { errors: ['unsuccessful'] }, 
-            status: :unauthorized
-        end 
-    end
+    #     if @like.save
+    #         render json: { message: 'success' }
+    #     else
+    #         render json: { errors: ['unsuccessful'] }, 
+    #         status: :unauthorized
+    #     end 
+    # end
 
-    private
+    # def destroy
+    #     @like = Like.find_by(like_params)
 
-    def like_params
-        params.require[:like].permit(:user_id, :likeable_id)
+    #     if @like.destroy
+    #         render json: { message: 'success' }
+    #     else
+    #         render json: { errors: ['unsuccessful'] }, 
+    #         status: :unauthorized
+    #     end 
+    # end
+
+    # private
+
+    # def like_params
+    #     params.require[:like].permit(:user_id, :likeable_id)
 end

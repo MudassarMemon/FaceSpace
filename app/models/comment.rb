@@ -18,7 +18,7 @@ class Comment < ApplicationRecord
     belongs_to :post
 
     has_many :likes, 
-        as: :likable,
+        as: :likeable,
         class_name: :Like,
         dependent: :destroy
     

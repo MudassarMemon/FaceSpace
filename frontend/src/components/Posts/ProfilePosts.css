@@ -89,6 +89,8 @@ div.post-body {
     margin: 10px 0;
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.409);
 }
 
 li > div.add-comment {
@@ -233,4 +235,39 @@ img#userIcon  {
 
   div.post-author p.created-at:hover + p.last-updated {
     display:flex;
+  }
+
+  div.like-bar-container {
+    border: 0px;
+    border: 1px 0;
+    padding: 0px 0px 5px 0px;
+    margin: 5px 0;
+    border-color: grey;
+    border-style: solid;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  div.like-button {
+    /* border: 1px solid red; */
+    border: 0px;
+    width: 50%;
+  }
+
+  div.comment-button-focus {
+    /* border: 1px solid red; */
+    border: 0px;
+    width: 50%;
+  }
+
+  div.like-button > button {
+    border: 0px;
+    width: 100%;
+    height: 30px;
+  }
+
+  div.comment-button-focus > button {
+    border: 0px;
+    width: 100%;
+    height: 30px;
   }

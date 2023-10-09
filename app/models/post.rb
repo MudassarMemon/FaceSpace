@@ -26,7 +26,7 @@ class Post < ApplicationRecord
         dependent: :destroy
     
     has_many :likes, 
-        as: :likable,
+        as: :likeable,
         class_name: :Like,
         dependent: :destroy
 end
