@@ -1,0 +1,84 @@
+div.like-bar-container {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    border-TOP: 1px solid rgba(128, 128, 128, 0.5);
+    padding: 5px 0px;
+    margin: 5px 0px;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  div.like-button {
+    /* border: 1px solid red; */
+    border: 0px;
+    width: 50%;  }
+
+  div.comment-button-focus {
+    /* border: 1px solid red; */
+    border: 0px;
+    width: 50%;
+  }
+
+  div.like-button > button {
+    border: 0px;
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 15px;
+    font-family: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  div.like-button > button:hover {
+    background-color: #f2f2f2;
+  }
+
+  div.like-button > button:active {
+    background-color: #e5e5e5;
+    transform: scale(.98);
+  }
+
+  div.comment-button-focus > button {
+    border: 0px;
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 15px;
+    font-family: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  div.comment-button-focus > button:hover {
+    background-color: #f2f2f2;
+  }
+
+  div.comment-button-focus > button:active {
+    background-color: #e5e5e5;
+    transform: scale(.98);
+  }
+
+  #thumbs-up{
+    transform: scale(1.1);
+    margin-right: 5px;
+  }
+
+  #comment-icon{
+    transform: scale(1.2);
+    margin-right: 5px;
+  }
+
+  #liked {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+  }
+
+  div.post-likes {
+    /* height:20px; */
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+  }

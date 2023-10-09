@@ -1,8 +1,3 @@
-
-div.post-comments > ul{
-    border-top: 1px solid rgba(88, 80, 80, 0.189);
-}
-
 div.post-comment {
     display: flex;
     flex-flow: row nowrap;

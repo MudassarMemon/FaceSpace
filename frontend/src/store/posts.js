@@ -74,6 +74,17 @@ export const deletePost = (postId) => async (dispatch) => {
   }
 };
 
+export const likePost = (id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/posts/${id}/like`, {
+    method: "POST",
+  });
+
+  if (res.ok) {
+    const post = await res.json();
+    dispatch(receivePost(post));
+  }
+};
+
 const postsReducer = (state = [], action) => {
   const nextState = { ...state };
   switch (action.type) {
