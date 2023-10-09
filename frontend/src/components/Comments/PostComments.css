@@ -3,7 +3,7 @@ div.post-comment {
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: flex-start;
-    margin: 20px 0 15px 3px;
+    margin: 15px 0 5px 3px;
 }
 
 div.post-comment img{
@@ -106,3 +106,4 @@ div.comment-edit-options button{
     display: inline-block;
     transform: scale(.8);
   } 
+

@@ -10,7 +10,7 @@ import PostForm from "./PostForm";
 import CommentForm from "../Comments/CommentForm";
 import PostComments from "../Comments/PostComments";
 import PostEditModal from "./PostEditModal";
-import Likes from "../Likes/Likes";
+import PostLikes from "../Likes/PostLikes";
 
 function ProfilePosts({ user }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -119,7 +119,7 @@ function ProfilePosts({ user }) {
               </div>
             </div>
             <div className="post-body">{post.body}</div>
-            <Likes
+            <PostLikes
               post={post}
               sessionUser={sessionUser}
               users={users}

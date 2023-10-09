@@ -1,8 +1,8 @@
-import "./Likes.css";
+import "./PostLikes.css";
 import { useDispatch } from "react-redux";
 import { likePost } from "../../store/posts";
 
-function Likes({ post, users, handleComment, sessionUser }) {
+function PostLikes({ post, users, handleComment, sessionUser }) {
   const dispatch = useDispatch();
 
   const handleLike = () => {
@@ -107,4 +107,4 @@ function Likes({ post, users, handleComment, sessionUser }) {
   );
 }
 
-export default Likes;
+export default PostLikes;

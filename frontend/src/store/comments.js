@@ -66,6 +66,17 @@ export const deleteComment = (commentId) => async (dispatch) => {
   }
 };
 
+export const likeComment = (id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/comments/${id}/like`, {
+    method: "POST",
+  });
+
+  if (res.ok) {
+    const comment = await res.json();
+    dispatch(editComment(comment));
+  }
+};
+
 const commentsReducer = (state = [], action) => {
   const nextState = { ...state };
   switch (action.type) {
