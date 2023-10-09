@@ -48,6 +48,11 @@ class User < ApplicationRecord
     class_name: :Comment,
     dependent: :destroy
 
+  has_many :likes,
+    class_name: :Like,
+    dependent: :destroy
+
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email.downcase)
     user&.authenticate(password)

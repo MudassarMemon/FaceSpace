@@ -16,5 +16,10 @@ class Comment < ApplicationRecord
         foreign_key: :author_id,
         class_name: :User
     belongs_to :post
+
+    has_many :likes, 
+        as: :likable,
+        class_name: :Like,
+        dependent: :destroy
     
 end

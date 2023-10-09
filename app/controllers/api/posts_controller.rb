@@ -22,6 +22,22 @@ class Api::PostsController < ApplicationController
         end
     end
 
+    def like
+        @post = Post.find_by(id: params[:id])
+
+        if @post
+            previous_like = @post.likes.find_by(user_id: current_user.id)
+            if previous_like
+                previous_like.destroy
+            else
+                @post.likes.create(user_id: current_user.id)
+            end
+            render "api/posts/show"
+        else
+            render json: { errors: ['Something went wrong'] }, status: :not_found
+        end
+    end
+
     def destroy
         @post = Post.find_by(id: params[:id])
 

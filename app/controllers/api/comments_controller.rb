@@ -31,6 +31,23 @@ class Api::CommentsController < ApplicationController
         end
     end
 
+    def like
+        @comment = Comment.find_by(id: params[:id])
+
+        if @comment
+            previous_like = @comment.likes.find_by(user_id: current_user.id)
+            if previous_like
+                previous_like.destroy
+            else
+                @comment.likes.create(user_id: current_user.id)
+            end
+            render "api/comments/show"
+        else
+            render json: { errors: ['Something went wrong'] }, status: :not_found
+        end
+    end
+
+
     def destroy
         @comment = Comment.find_by(id: params[:id])
 
