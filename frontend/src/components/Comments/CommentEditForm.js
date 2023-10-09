@@ -1,11 +1,10 @@
 import "./CommentEditForm.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { updateComment, getComment } from "../../store/comments";
+import { updateComment } from "../../store/comments";
 
-function CommentEditForm({ onClose, commentId }) {
-  const comment = useSelector(getComment(commentId));
-  const [body, setBody] = useState(comment?.body ?? "");
+function CommentEditForm({ onClose, commentId, commentBody }) {
+  const [body, setBody] = useState(commentBody ?? "");
   const dispatch = useDispatch();
 
   const handleUpdate = (e) => {
@@ -16,14 +15,15 @@ function CommentEditForm({ onClose, commentId }) {
 
   return (
     <div className="edit-comment-form">
+      <h1>Edit Comment</h1>
       <img
         onClick={onClose}
-        id="close-create-post"
-        alt="close-create-post"
+        id="close-edit-comment"
+        alt="close-edit-comment"
         src="https://static.xx.fbcdn.net/rsrc.php/v3/yO/r/zgulV2zGm8t.png"
       />
       <div className="comment-input">
-        <input
+        <textarea
           className="comment-input"
           type="text"
           placeholder="Write a comment..."

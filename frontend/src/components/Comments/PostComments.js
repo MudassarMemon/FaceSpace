@@ -11,6 +11,7 @@ import CommentEditForm from "./CommentEditForm";
 function PostComments({ users, postId, postAuthor, sessionUser }) {
   const postComments = useSelector(getComment(postId));
   const [commentId, setCommentId] = useState("");
+  const [commentBody, setCommentBody] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [showEditFormModal, setShowEditFormModal] = useState(false);
   const editCommentRef = useRef(null);
@@ -76,6 +77,7 @@ function PostComments({ users, postId, postAuthor, sessionUser }) {
                     onClick={(e) => {
                       e.stopPropagation();
                       setCommentId(comment.id);
+                      setCommentBody(comment.body);
                       toggleDropdown(e);
                     }}
                   >
@@ -108,6 +110,7 @@ function PostComments({ users, postId, postAuthor, sessionUser }) {
           <CommentEditForm
             onClose={() => setShowEditFormModal(false)}
             commentId={commentId}
+            commentBody={commentBody}
           />
         </Modal>
       )}

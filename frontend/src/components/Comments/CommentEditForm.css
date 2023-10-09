@@ -1,4 +1,4 @@
-img#close-create-post {
+img#close-edit-comment {
     border-radius: 50%;
     background-color: #f0f2f5;
     padding: 3px;
@@ -7,17 +7,17 @@ img#close-create-post {
     right: 10px;
 }
 
-img#close-create-post:hover {
+img#close-edit-comment:hover {
     background-color: #e4e6e8;
     cursor: pointer;
   }
 
-img#close-create-post:active {
+img#close-edit-comment:active {
     background-color: #d8d9dc;
     transform: scale(.9);
 }
 
-div.create-post-form {
+div.edit-comment-form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,28 +25,31 @@ div.create-post-form {
     padding: 20px;
 }
 
-textarea#create-post {
+textarea.comment-input {
     width: 97%;
     border-radius: 8px;
     border-color: #ced0d4;
     background-color: #f0f2f5;
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     padding: 5px;
+    margin-right: 200px;
 }
 
-textarea#create-post:focus {
+textarea.comment-input:focus {
     outline: 1px solid #0766ff;
 }
 
-div.create-post-form h1{
+div.edit-comment-form h1{
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 20px;
     margin-top: 0;
+    align-self: flex-start;
 }
 
-div.create-post-form #post-button {
+button.update-comment-button {
     border: none;
     background-color: #0766ff;
+    width: 100%;
     padding: 10px 20px;
     border-radius: 8px;
     color: white;
