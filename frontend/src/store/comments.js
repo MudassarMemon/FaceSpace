@@ -3,6 +3,7 @@ import { RECEIVE_USER } from "./users";
 const RECEIVE_COMMENTS = "/comments/receiveComments";
 const RECEIVE_COMMENT = "/comments/receiveComment";
 const REMOVE_COMMENT = "/comments/removeComment";
+const EDIT_COMMENT = "/comments/editComment";
 
 export const receiveComments = (data) => {
   return { type: RECEIVE_COMMENTS, data };
@@ -14,6 +15,10 @@ export const receiveComment = (data) => {
 
 export const removeComment = (id) => {
   return { type: REMOVE_COMMENT, id };
+};
+
+export const editComment = (data) => {
+  return { type: EDIT_COMMENT, data };
 };
 
 export const getComments = (state) => {
@@ -46,7 +51,7 @@ export const updateComment = (comment) => async (dispatch) => {
 
   if (res.ok) {
     let data = await res.json();
-    dispatch(receiveComment(data));
+    dispatch(editComment(data));
     return data;
   }
 };
@@ -69,8 +74,17 @@ const commentsReducer = (state = [], action) => {
     case RECEIVE_COMMENT:
       nextState[action.data.comment.postId].push(action.data.comment);
       return nextState;
+    case EDIT_COMMENT:
+      let indexToEdit = nextState[action.data.comment.postId].findIndex(
+        (comment) => comment.id === action.data.comment.id
+      );
+      nextState[action.data.comment.postId].splice(
+        indexToEdit,
+        1,
+        action.data.comment
+      );
+      return nextState;
     case REMOVE_COMMENT:
-      // debugger;
       let postKey;
       let commentIndex;
       Object.values(nextState).forEach((comments) => {

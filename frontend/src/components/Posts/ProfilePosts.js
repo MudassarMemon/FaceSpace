@@ -1,13 +1,13 @@
 import "./ProfilePosts.css";
-import { Modal } from "../../context/Modal";
 import { useEffect, useState } from "react";
-import PostForm from "./PostForm";
 import { useSelector } from "react-redux";
-import { getPosts } from "../../store/posts";
-import { getUsers } from "../../store/users";
 import { Link } from "react-router-dom";
 import { formatDateTime, formatDateShort } from "../Util/DateUtil";
-import CommentForm from "../Comments/CommentInput";
+import { Modal } from "../../context/Modal";
+import { getPosts } from "../../store/posts";
+import { getUsers } from "../../store/users";
+import PostForm from "./PostForm";
+import CommentForm from "../Comments/CommentForm";
 import PostComments from "../Comments/PostComments";
 import PostEditModal from "./PostEditModal";
 
@@ -29,6 +29,7 @@ function ProfilePosts({ user }) {
     });
     return sorted;
   };
+
   if (!user) return null;
 
   return (
@@ -60,7 +61,6 @@ function ProfilePosts({ user }) {
           <li key={post.id}>
             <PostEditModal
               post={post}
-              user={user}
               sessionUser={sessionUser}
               setShowEditModal={setShowEditModal}
               setEditPostId={setEditPostId}

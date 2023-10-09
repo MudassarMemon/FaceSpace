@@ -1,4 +1,4 @@
-import "./CommentInput.css";
+import "./CommentForm.css";
 import { useState } from "react";
 import { createComment } from "../../store/comments";
 import { useDispatch } from "react-redux";

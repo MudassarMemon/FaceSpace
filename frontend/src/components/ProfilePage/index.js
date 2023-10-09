@@ -12,6 +12,7 @@ function ProfilePage() {
   const dispatch = useDispatch();
   const user = useSelector(getUser(id));
 
+  // should only fetch friends
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);

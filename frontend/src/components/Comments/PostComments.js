@@ -3,20 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useRef, useEffect } from "react";
-import { getComment, getComments, deleteComment } from "../../store/comments";
 import { Link } from "react-router-dom";
-import { getUsers } from "../../store/users";
 import { Modal } from "../../context/Modal";
+import { getComment, deleteComment } from "../../store/comments";
 import CommentEditForm from "./CommentEditForm";
 
-function PostComments({ postId, postAuthor, sessionUser }) {
-  const comments = useSelector(getComment(postId));
-  const users = useSelector(getUsers);
+function PostComments({ users, postId, postAuthor, sessionUser }) {
+  const postComments = useSelector(getComment(postId));
   const [commentId, setCommentId] = useState("");
-  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const [showEditModal, setShowEditModal] = useState(false);
-  const dropdownRef = useRef(null);
+  const [showEditFormModal, setShowEditFormModal] = useState(false);
+  const editCommentRef = useRef(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
@@ -27,7 +25,7 @@ function PostComments({ postId, postAuthor, sessionUser }) {
   }, []);
 
   const handleClickOutside = (e) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+    if (editCommentRef.current && !editCommentRef.current.contains(e.target)) {
       setIsOpen(false);
     }
   };
@@ -45,12 +43,13 @@ function PostComments({ postId, postAuthor, sessionUser }) {
     };
   }
 
-  if (!comments || !(comments.length > 0)) return null;
+  if (!postComments || !(postComments.length > 0)) return null;
+
   return (
     <>
       <div className="post-comments">
         <ul>
-          {comments.map((comment) => {
+          {postComments.map((comment) => {
             return (
               <div key={comment.id} className="post-comment" id={comment.id}>
                 <Link to={`/users/${comment.authorId}`}>
@@ -86,13 +85,13 @@ function PostComments({ postId, postAuthor, sessionUser }) {
                   ""
                 )}
                 {isOpen && commentId === comment.id && (
-                  <div ref={dropdownRef} className="comment-edit-options">
+                  <div ref={editCommentRef} className="comment-edit-options">
                     <div className="delete-comment-icon"> </div>
                     <button onClick={handleDelete(comment.id)}>Delete</button>
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        setShowEditModal(true);
+                        setShowEditFormModal(true);
                       }}
                     >
                       Edit
@@ -104,10 +103,10 @@ function PostComments({ postId, postAuthor, sessionUser }) {
           })}
         </ul>
       </div>
-      {showEditModal && (
-        <Modal onClose={() => setShowEditModal(false)}>
+      {showEditFormModal && (
+        <Modal onClose={() => setShowEditFormModal(false)}>
           <CommentEditForm
-            onClose={() => setShowEditModal(false)}
+            onClose={() => setShowEditFormModal(false)}
             commentId={commentId}
           />
         </Modal>
