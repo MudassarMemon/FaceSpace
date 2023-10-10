@@ -22,6 +22,10 @@
       cursor: pointer;
     }
 
+    div.comment-like-icon:hover > div{  
+      display: flex;
+   }
+
   div.comment-likes-list {
     position: absolute;
     z-index: 1;

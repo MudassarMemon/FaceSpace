@@ -23,7 +23,7 @@ function CommentLikes({ comment, users, sessionUser }) {
         Like
       </p>
 
-      <div className="comment-likes-list">
+      {/* <div className="comment-likes-list">
         <ul>
           {comment.likes.map((like) => {
             return (
@@ -35,7 +35,7 @@ function CommentLikes({ comment, users, sessionUser }) {
             );
           })}
         </ul>
-      </div>
+      </div> */}
     </>
   );
 }
