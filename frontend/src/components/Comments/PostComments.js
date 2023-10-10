@@ -117,16 +117,29 @@ function PostComments({ users, postId, postAuthor, sessionUser }) {
                   )}
                   {isOpen && commentId === comment.id && (
                     <div ref={editCommentRef} className="comment-edit-options">
-                      <div className="delete-comment-icon"> </div>
-                      <button onClick={handleDelete(comment.id)}>Delete</button>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setShowEditFormModal(true);
-                        }}
-                      >
-                        Edit
-                      </button>
+                      <div>
+                        <div className="delete-comment-icon"> </div>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDelete(comment.id);
+                          }}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                      <div>
+                        <div id="comments" className="edit-posts-icon"></div>
+
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setShowEditFormModal(true);
+                          }}
+                        >
+                          Edit
+                        </button>
+                      </div>
                     </div>
                   )}
                 </div>

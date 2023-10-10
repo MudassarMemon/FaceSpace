@@ -62,7 +62,7 @@ div.comment-edit:active {
 
 div.comment-edit-options{
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: space-around;
     align-self: center;
     border-radius: 8px;
@@ -74,12 +74,24 @@ div.comment-edit-options{
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.221)
 }
 
-div.comment-edit-options:hover {
+div.comment-edit-options > div {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    cursor: pointer;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    border-radius: 8px;
+    width: 100%;
+
+}
+
+div.comment-edit-options > div:hover {
     background-color: #f2f2f2;
     cursor: pointer;
 }
   
-div.comment-edit-options:active {
+div.comment-edit-options > div:active {
     background-color: #e5e5e5;
 }
 
@@ -106,3 +118,6 @@ div.comment-edit-options button{
     transform: scale(.8);
   } 
 
+  .edit-posts-icon#comments{
+    transform: scale(.8);
+  } 
