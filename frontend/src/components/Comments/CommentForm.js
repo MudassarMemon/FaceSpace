@@ -3,7 +3,7 @@ import { useState } from "react";
 import { createComment } from "../../store/comments";
 import { useDispatch } from "react-redux";
 
-function CommentForm({ authorId, postId, commentInput }) {
+function CommentForm({ authorId, postId }) {
   const [body, setBody] = useState("");
   const dispatch = useDispatch();
 
@@ -17,9 +17,9 @@ function CommentForm({ authorId, postId, commentInput }) {
       <input
         className="comment-input"
         type="text"
+        id={`id${postId}`}
         placeholder="Write a comment..."
         value={body}
-        ref={commentInput}
         onChange={(e) => setBody(e.target.value)}
       />
       <i

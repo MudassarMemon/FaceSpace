@@ -2,11 +2,20 @@ import "./PostLikes.css";
 import { useDispatch } from "react-redux";
 import { likePost } from "../../store/posts";
 
-function PostLikes({ post, users, handleComment, sessionUser }) {
+function PostLikes({ post, users, sessionUser }) {
   const dispatch = useDispatch();
 
   const handleLike = () => {
     dispatch(likePost(post.id));
+  };
+
+  const focusCommentInput = () => {
+    const inputElement = document.querySelector(
+      `input#id${post.id}.comment-input`
+    );
+    if (inputElement) {
+      inputElement.focus();
+    }
   };
 
   return (
@@ -97,8 +106,8 @@ function PostLikes({ post, users, handleComment, sessionUser }) {
             Like
           </button>
         </div>
-        <div class="comment-button-focus">
-          <button onClick={handleComment}>
+        <div class="comment-button-focus" onClick={focusCommentInput}>
+          <button>
             <i id="comment-icon" class="fa-light fa-comment"></i>Comment
           </button>
         </div>

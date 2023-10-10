@@ -1,5 +1,5 @@
 import "./ProfilePosts.css";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { formatDateTime, formatDateShort } from "../Util/DateUtil";
@@ -19,11 +19,6 @@ function ProfilePosts({ user }) {
   const [editPostId, setEditPostId] = useState("");
   const posts = useSelector(getPosts);
   const users = useSelector(getUsers);
-  const commentInput = useRef();
-
-  const handleComment = () => {
-    commentInput.current.focus();
-  };
 
   useEffect(() => {}, [user]);
 
@@ -119,12 +114,7 @@ function ProfilePosts({ user }) {
               </div>
             </div>
             <div className="post-body">{post.body}</div>
-            <PostLikes
-              post={post}
-              sessionUser={sessionUser}
-              users={users}
-              handleComment={handleComment}
-            />
+            <PostLikes post={post} sessionUser={sessionUser} users={users} />
             <PostComments
               sessionUser={sessionUser}
               postId={post.id}
@@ -145,7 +135,6 @@ function ProfilePosts({ user }) {
                 post={post}
                 authorId={sessionUser.id}
                 postId={post.id}
-                commentInput={commentInput}
               />
             </div>
           </li>
