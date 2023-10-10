@@ -4,6 +4,7 @@ import { likePost } from "../../store/posts";
 
 function PostLikes({ post, users, sessionUser }) {
   const dispatch = useDispatch();
+  console.log(post);
 
   const handleLike = () => {
     dispatch(likePost(post.id));
@@ -17,7 +18,7 @@ function PostLikes({ post, users, sessionUser }) {
       inputElement.focus();
     }
   };
-
+  if (!post) return null;
   return (
     <>
       <div className="post-likes">

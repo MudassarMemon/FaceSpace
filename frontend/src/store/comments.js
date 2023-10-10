@@ -1,3 +1,4 @@
+import { RECEIVE_POSTS } from "./posts";
 import csrfFetch from "./csrf";
 import { RECEIVE_USER } from "./users";
 const RECEIVE_COMMENTS = "/comments/receiveComments";
@@ -80,8 +81,12 @@ export const likeComment = (id) => async (dispatch) => {
 const commentsReducer = (state = [], action) => {
   const nextState = { ...state };
   switch (action.type) {
-    case RECEIVE_COMMENTS:
-      return { ...nextState, ...action.data.comments };
+    case RECEIVE_POSTS:
+      // debugger;
+      action.data.posts.forEach((post) => {
+        nextState[Object.values(post)[0].id] = post.comments;
+      });
+      return nextState;
     case RECEIVE_COMMENT:
       nextState[action.data.comment.postId].push(action.data.comment);
       return nextState;

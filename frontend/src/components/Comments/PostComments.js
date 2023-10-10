@@ -17,6 +17,7 @@ function PostComments({ users, postId, postAuthor, sessionUser }) {
   const [showEditFormModal, setShowEditFormModal] = useState(false);
   const editCommentRef = useRef(null);
   const dispatch = useDispatch();
+  // debugger;
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
@@ -84,10 +85,10 @@ function PostComments({ users, postId, postAuthor, sessionUser }) {
                             <ul>
                               {comment.likes.map((like) => {
                                 return (
-                                  <li key={like.id}>
-                                    {users[like.user_id - 1]?.firstName +
+                                  <li key={like?.id}>
+                                    {users[like?.user_id - 1]?.firstName +
                                       " " +
-                                      users[like.user_id - 1]?.lastName}
+                                      users[like?.user_id - 1]?.lastName}
                                   </li>
                                 );
                               })}

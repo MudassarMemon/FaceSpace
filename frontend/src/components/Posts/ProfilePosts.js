@@ -19,6 +19,7 @@ function ProfilePosts({ user }) {
   const [editPostId, setEditPostId] = useState("");
   const posts = useSelector(getPosts);
   const users = useSelector(getUsers);
+  console.log(posts);
 
   useEffect(() => {}, [user]);
 
@@ -31,7 +32,7 @@ function ProfilePosts({ user }) {
     return sorted;
   };
 
-  if (!user) return null;
+  if (!user || !posts) return null;
 
   return (
     <div className="profile-posts-container">

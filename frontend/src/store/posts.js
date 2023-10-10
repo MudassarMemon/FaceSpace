@@ -1,8 +1,8 @@
 import csrfFetch from "./csrf";
 import { RECEIVE_USER } from "./users";
-const RECEIVE_POSTS = "/posts/receivePosts";
-const RECEIVE_POST = "/posts/receivePost";
-const REMOVE_POST = "/posts/removePost";
+export const RECEIVE_POSTS = "/posts/receivePosts";
+export const RECEIVE_POST = "/posts/receivePost";
+export const REMOVE_POST = "/posts/removePost";
 
 export const receivePosts = (data) => {
   return { type: RECEIVE_POSTS, data };
@@ -89,7 +89,11 @@ const postsReducer = (state = [], action) => {
   const nextState = { ...state };
   switch (action.type) {
     case RECEIVE_POSTS:
-      return { ...nextState, ...action.data.posts };
+      const newState = [];
+      action.data.posts.forEach(
+        (post) => (newState[Object.values(post)[0].id] = Object.values(post)[0])
+      );
+      return { ...newState };
     case RECEIVE_POST:
       nextState[action.data.post.id] = action.data.post;
       return nextState;
