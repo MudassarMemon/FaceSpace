@@ -5,6 +5,7 @@ import { getUser, fetchUser, fetchUsers } from "../../store/users";
 import ProfileFeed from "./ProfileFeed";
 import ProfileAbout from "./ProfileAbout";
 import ProfileHeader from "./ProfileHeader";
+import ProfileFriends from "../Friends/ProfileFriends";
 import "./ProfilePage.css";
 
 function ProfilePage() {
@@ -31,7 +32,11 @@ function ProfilePage() {
         <Route path="/users/:id/about">
           <ProfileAbout user={user} />
         </Route>
-        <Route path="/users/:id/friends"></Route>
+        <Route path="/users/:id/friends">
+          <div className="friends-tab">
+            <ProfileFriends user={user} />
+          </div>
+        </Route>
         <Route path="/users/:id/photos"></Route>
       </div>
     </>

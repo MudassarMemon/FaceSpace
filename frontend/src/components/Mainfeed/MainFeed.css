@@ -1,5 +1,29 @@
 .main-feed{
-    padding-top: 50px;
+    padding: 100px 0 0 0;;
     height: 100%;
-    border: 1px solid red;
+    display: flex;
+    justify-content: space-around;
+    background-color: #f0f2f5;
+    width: 100%;
+}
+
+.friends-section {
+    width: 22%;
+    border-radius: 8px;
+    height: fit-content;
+    padding:25px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+}
+
+h2{
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.right-main-feed{
+    width: 25%;
 }

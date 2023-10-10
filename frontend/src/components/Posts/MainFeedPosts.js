@@ -1,4 +1,4 @@
-import "./ProfilePosts.css";
+import "./MainFeedPosts.css";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -20,7 +20,6 @@ function MainFeedPosts() {
   const [showEditModal, setShowEditModal] = useState(false);
   const [editPostId, setEditPostId] = useState("");
   const dispatch = useDispatch();
-  console.log(posts);
 
   useEffect(() => {
     dispatch(fetchPosts());
@@ -39,7 +38,7 @@ function MainFeedPosts() {
   if (!posts || !users) return null;
 
   return (
-    <div className="profile-posts-container">
+    <div className="mainfeed-posts-container">
       <div className="create-profile-post">
         <img id="userIcon" alt="userLogo" src={sessionUser?.avatarUrl}></img>
         <button

@@ -297,7 +297,7 @@ end
     15 => ["If I can't scuba, then what's this all been about? What am I working toward?"]
     }
       
-    [1..15].each do |i|
+    (1..15).each do |i|
       if (comments[i])
         comments[i].each do |comment|
         Post.create!({
