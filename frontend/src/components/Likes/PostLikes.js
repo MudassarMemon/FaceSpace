@@ -32,47 +32,63 @@ function PostLikes({ post, users, sessionUser }) {
         )}
         {post.likes.length < 2
           ? post.likes
-              .map(
-                (like) =>
-                  users[like.user_id - 1]?.firstName +
-                  " " +
-                  users[like.user_id - 1]?.lastName
-              )
+              .map((like) => {
+                if (like.user_id === sessionUser.id) return "You";
+                else {
+                  return (
+                    users[like.user_id - 1]?.firstName +
+                    " " +
+                    users[like.user_id - 1]?.lastName
+                  );
+                }
+              })
               .join(" ")
           : ""}
 
         {post.likes.length === 2
           ? post.likes
-              .map(
-                (like) =>
-                  users[like.user_id - 1]?.firstName +
-                  " " +
-                  users[like.user_id - 1]?.lastName
-              )
+              .map((like) => {
+                if (like.user_id === sessionUser.id) return "You";
+                else {
+                  return (
+                    users[like.user_id - 1]?.firstName +
+                    " " +
+                    users[like.user_id - 1]?.lastName
+                  );
+                }
+              })
               .join(" and ")
           : ""}
 
         {post.likes.length === 3
           ? post.likes
               .slice(0, 2)
-              .map(
-                (like) =>
-                  users[like.user_id - 1]?.firstName +
-                  " " +
-                  users[like.user_id - 1]?.lastName
-              )
+              .map((like) => {
+                if (like.user_id === sessionUser.id) return "You";
+                else {
+                  return (
+                    users[like.user_id - 1]?.firstName +
+                    " " +
+                    users[like.user_id - 1]?.lastName
+                  );
+                }
+              })
               .join(", ") + ` and ${post.likes.length - 2} other`
           : ""}
 
         {post.likes.length > 3
           ? post.likes
               .slice(0, 2)
-              .map(
-                (like) =>
-                  users[like.user_id - 1]?.firstName +
-                  " " +
-                  users[like.user_id - 1]?.lastName
-              )
+              .map((like) => {
+                if (like.user_id === sessionUser.id) return "You";
+                else {
+                  return (
+                    users[like.user_id - 1]?.firstName +
+                    " " +
+                    users[like.user_id - 1]?.lastName
+                  );
+                }
+              })
               .join(", ") + ` and ${post.likes.length - 2} others`
           : ""}
       </div>
