@@ -52,6 +52,15 @@ class User < ApplicationRecord
     class_name: :Like,
     dependent: :destroy
 
+  has_many :friends,
+    foreign_key: :user_id,
+    class_name: :Friend,
+    dependent: :destroy
+
+  has_many :friend_requests,
+    foreign_key: :friend_id,
+    class_name: :Friend,
+    dependent: :destroy
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email.downcase)
