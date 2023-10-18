@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     post "posts/:id/like", to: "posts#like"
     post "comments/:id/like", to: "comments#like"
     resources :users, only: [:create, :index, :show, :update]
+    resources :friends, only: [:create, :update, :destroy]
     resources :posts, only: [:create, :index, :show, :update, :destroy]
     resources :comments, only: [:create, :index, :show, :update, :destroy]
     resources :likes, only: [:index]

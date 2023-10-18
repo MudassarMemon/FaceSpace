@@ -111,20 +111,20 @@ function PostLikes({ post, users, sessionUser }) {
           <button onClick={handleLike}>
             {post.likes.findIndex((like) => like.user_id === sessionUser.id) <
             0 ? (
-              <i id="thumbs-up" class="fa-light fa-thumbs-up"></i>
+              <i id="thumbs-up" className="fa-light fa-thumbs-up"></i>
             ) : (
               <i
                 id="thumbs-up"
-                class="fa-solid fa-thumbs-up"
+                className="fa-solid fa-thumbs-up"
                 style={{ color: "#0566ff" }}
               ></i>
             )}{" "}
             Like
           </button>
         </div>
-        <div class="comment-button-focus" onClick={focusCommentInput}>
+        <div className="comment-button-focus" onClick={focusCommentInput}>
           <button>
-            <i id="comment-icon" class="fa-light fa-comment"></i>Comment
+            <i id="comment-icon" className="fa-light fa-comment"></i>Comment
           </button>
         </div>
       </div>

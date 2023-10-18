@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser, fetchUser, fetchUsers } from "../../store/users";
+import { getUser, getUsers, fetchUser, fetchUsers } from "../../store/users";
 import ProfileFeed from "./ProfileFeed";
 import ProfileAbout from "./ProfileAbout";
 import ProfileHeader from "./ProfileHeader";
@@ -12,6 +12,7 @@ function ProfilePage() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const user = useSelector(getUser(id));
+  const users = useSelector(getUsers);
 
   // should only fetch friends
   useEffect(() => {
@@ -34,7 +35,7 @@ function ProfilePage() {
         </Route>
         <Route path="/users/:id/friends">
           <div className="friends-tab">
-            <ProfileFriends user={user} />
+            <ProfileFriends user={user} users={users} />
           </div>
         </Route>
         <Route path="/users/:id/photos"></Route>
