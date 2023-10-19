@@ -14,7 +14,6 @@ function ProfilePage() {
   const user = useSelector(getUser(id));
   const users = useSelector(getUsers);
 
-  // should only fetch friends
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
@@ -35,7 +34,7 @@ function ProfilePage() {
         </Route>
         <Route path="/users/:id/friends">
           <div className="friends-tab">
-            <ProfileFriends user={user} users={users} />
+            {users && <ProfileFriends user={user} />}
           </div>
         </Route>
         <Route path="/users/:id/photos"></Route>

@@ -224,18 +224,18 @@ end
         )
         
         User.create!(
-          email: "mudassar-memon@test.test",
-          first_name: "Mudassar",
-          last_name: "Memon",
+          email: "Demo@email.com",
+          first_name: "Demo",
+          last_name: "User",
           gender:"Male",
-          birthday: "1995-05-03",
+          birthday: "1939-05-03",
           password: 'password',
           bio:Faker::Quote.famous_last_words,
           workplace: "Meta",
-          hometown: "Burlington, Ontario",
+          hometown: "Anchorage, Alaska",
           current_city: "New York, New York",
           school: "Stony Brook University",
-          pronunciation: "Muh-duh-sar Mem-in"
+          pronunciation: "Deh-Moh You-Zer"
           )
           
   puts "Attaching images..."
@@ -279,7 +279,7 @@ end
     body: "This is my first post!"
   })
   
-  5.times do 
+  2.times do 
     Post.create!({
       author_id: 16,
       feed_id: 16,
@@ -287,7 +287,7 @@ end
     })
   end
     
-  comments = {
+  posts = {
     1 => ["Thats what she said!", "I'm not superstitious, but I am a little stitious.", "Almost done my screenplay!", "I love inside jokes. I'd love to be a part of one someday." , "I knew exactly what to do. But in a much more real sense, I had no idea what to do."],
     2 => ["I have very little patience for stupidity.", "Why waste time say lot word when few word do trick."],
     5 => ["Did I stutter?"],
@@ -296,16 +296,60 @@ end
     11 => ["I wish there was a way to know you're in the good old days before you've actually left them."],
     15 => ["If I can't scuba, then what's this all been about? What am I working toward?"]
     }
-      
-    (1..15).each do |i|
-      if (comments[i])
-        comments[i].each do |comment|
-        Post.create!({
-        author_id: i,
-        feed_id: i,
-        body: comment
-      })
+
+    empty = false
+
+    while !empty
+      empty = true
+      (1..15).each do |i|
+        if (posts[i] && posts[i].length > 0)
+          empty = false
+          Post.create!({
+          author_id: i,
+          feed_id: i,
+          body: posts[i].pop()
+        })
+      end
     end
   end
-end
+
+  2.times do 
+    Post.create!({
+      author_id: 16,
+      feed_id: 16,
+      body: Faker::Quotes::Shakespeare.hamlet_quote
+    })
+  end
+
+  puts "Creating friends..."
+  
+  friendships = []
+
+  def is_unique(x, y, friendships)
+    friendships.each do |friendship|
+      if friendship.include?(x) && friendship.include?(y)
+        return false
+      end
+    end
+    return true
+  end
+  
+  (1..16).each do |user_id|
+    3.times do
+      friend_id = rand(1..16)
+      while (friend_id == user_id || !is_unique(friend_id, user_id, friendships))
+        friend_id = rand(1..16)
+      end
+      friendships.push([user_id, friend_id])
+    end
+  end
+
+
+  status = true;
+
+  friendships.each do |friendship|
+    status = !status;
+    Friend.create(user_id: friendship[0], friend_id: friendship[1], status: status)
+  end
+
 puts "Done!"

@@ -79,14 +79,14 @@ export const uploadPhoto = (user) => async (dispatch) => {
 };
 
 const usersReducer = (state = [], action) => {
-  const nextState = { ...state };
+  // const nextState = { ...state };
 
   switch (action.type) {
     case RECEIVE_USERS:
       return { ...action.data.users };
-    case RECEIVE_USER:
-      nextState[action.data.user.id] = action.data.user;
-      return { ...nextState };
+    // case RECEIVE_USER:
+    //   nextState[action.data.user.id] = action.data.user;
+    //   return { ...nextState };
     default:
       return state;
   }

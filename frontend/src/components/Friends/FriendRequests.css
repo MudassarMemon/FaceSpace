@@ -1,0 +1,92 @@
+.friend-requests-component-container h3, h5{
+    color: black;
+    font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.friend-requests-component-container {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    padding: 20px 10px;
+    margin: 0px;
+    border-radius: 8px;
+    background-color: #fbf9f9;
+}
+
+.friend-requests-list {
+    /* border: 1px solid red; */
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+div.friend-request {
+    width: 60%;
+    /* border: 1px solid red; */
+}
+
+.friend-requests-list li {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    width: 90%;
+}
+
+.friend-requests-list img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.friend-requests-list h5 {
+    margin: 0;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.friend-requests-list a {
+    text-decoration: none;  
+    color: inherit;
+}
+
+.friend-accept-deny-button {
+    width: 40%;
+    height: 50%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.accept-button, .reject-button {
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.accept-button {
+    background-color: #4CAF50; /* Green color */
+    color: #fff;
+}
+
+.reject-button {
+    background-color: #f44336; /* Red color */
+    color: #fff;
+}
+
+.accept-button:hover, .reject-button:hover {
+    opacity: 0.9;
+}

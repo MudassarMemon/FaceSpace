@@ -55,14 +55,14 @@ function PostComments({ users, postId, postAuthor, sessionUser }) {
           {postComments.map((comment) => {
             return (
               <>
-                <div className="post-comment" id={comment.id}>
+                <div className="post-comment" id={comment.id} key={comment?.id}>
                   <Link to={`/users/${comment.authorId}`}>
                     <img
                       alt=""
                       src={users && users[comment.authorId - 1]?.avatarUrl}
                     />
                   </Link>
-                  <li id="comment-body" key={comment?.id}>
+                  <li id="comment-body">
                     <Link to={`/users/${comment.authorId}`}>
                       {users &&
                         users[comment.authorId - 1] &&

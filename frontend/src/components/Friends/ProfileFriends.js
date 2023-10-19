@@ -1,65 +1,63 @@
-// import { useSelector, useDispatch } from "react-redux";
-// import { getUsers, fetchUsers } from "../../store/users";
-// import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import "./ProfileFriends.css";
+import { useSelector } from "react-redux";
+import { getUsers } from "../../store/users";
+import { Link, useHistory } from "react-router-dom";
+import FriendRequestModal from "./FriendRequestModal";
 
-function ProfileFriends({ user, users }) {
-  // const users = useSelector(getUsers);
-  // const dispatch = useDispatch();
+function ProfileFriends({ user }) {
+  const users = useSelector(getUsers);
+  const history = useHistory();
 
-  // useEffect(() => {
-  //   dispatch(fetchUsers());
-  // }, [dispatch]);
-
-  if (!users) return null;
-
-  // return (
-  //   <div className="friends-component-container">
-  //     <ul className="friend">
-  //       {users &&
-  //         user &&
-  //         users
-  //           .filter((friend) => user.id !== friend.id)
-  //           .map((friend) => {
-  //             return (
-  //               <div className="friend">
-  //                 <li key={friend.id}>
-  //                   <Link to={`/users/${friend.id}`}>
-  //                     <img alt="" src={friend.avatarUrl} />
-  //                     <h5>
-  //                       {friend.firstName} {friend.lastName}
-  //                     </h5>
-  //                   </Link>
-  //                 </li>
-  //               </div>
-  //             );
-  //           })}
-  //     </ul>
-  //   </div>
-  // );
+  if (!users || !user) return null;
   return (
-    <div className="friends-component-container">
+    <div
+      className={
+        history.location.pathname.includes("friends")
+          ? "friends-component-container-full-width"
+          : "friends-component-container"
+      }
+    >
+      {" "}
+      <FriendRequestModal user={user} users={users} />
       <ul className="friend">
-        {users &&
-          user &&
-          user.friendRequests?.map((request) => {
-            if (request.status) {
-              return (
-                <div className="friend">
-                  <li key={request.id}>
-                    <Link to={`/users/${request.userId}`}>
-                      <img alt="" src={users[request.userId - 1]?.avatarUrl} />
-                      <h5>
-                        {users[request.userId - 1]?.firstName}{" "}
-                        {users[request.userId - 1]?.lastName}
-                      </h5>
-                    </Link>
-                  </li>
-                </div>
-              );
-            }
-          })}
+        {user.friendRequests?.map((request) => {
+          if (request.status) {
+            return (
+              <div className="friend" key={request.id}>
+                <li>
+                  <Link to={`/users/${request.userId}`}>
+                    <img alt="" src={users[request.userId - 1]?.avatarUrl} />
+                    <h5>
+                      {users[request.userId - 1]?.firstName}{" "}
+                      {users[request.userId - 1]?.lastName}
+                    </h5>
+                  </Link>
+                </li>
+              </div>
+            );
+          } else {
+            return null;
+          }
+        })}
+        {user.friends?.map((request) => {
+          if (request.status) {
+            return (
+              <div className="friend" key={request.id}>
+                <li>
+                  <Link to={`/users/${request.friendId}`}>
+                    <img alt="" src={users[request.friendId - 1]?.avatarUrl} />
+                    <h5>
+                      {users[request.friendId - 1]?.firstName}{" "}
+                      {users[request.friendId - 1]?.lastName}
+                    </h5>
+                  </Link>
+                </li>
+              </div>
+            );
+          } else {
+            return null;
+          }
+        })}
       </ul>
     </div>
   );

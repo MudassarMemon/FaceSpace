@@ -1,25 +1,20 @@
-.profile-friends-container * {
-    text-decoration: none;
-}
-
 .profile-friends-container {
     margin-bottom: 15px;
     border-radius: 8px;
-    padding: 20px;
+    padding:20px;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
     background-color: #ffffff;
 }
 
-div.friends-component-container {
-    /* border: 1px solid red; */
+div.mainfeed-friends-component-container{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;  
+    text-decoration: none;
 }
 
-
-div.friend {
+div.mainfeed-friend {    
     width: calc(30% - 10px);  
     height: 150px;
     /* border: 3px solid red; */
@@ -27,9 +22,10 @@ div.friend {
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2); */
     margin-bottom: 5px;
     padding: 5px;
+
 }
 
-ul.friend {
+ul.mainfeed-friend {
     /* border: 2px solid rgb(21, 255, 0); */
     width: 100%;
     display: flex;
@@ -44,7 +40,7 @@ ul.friend {
     }
 }
 
-div.friend li {
+div.mainfeed-friend li {
     /* border: 1px solid rgb(0, 4, 255); */
     list-style: none;
     display: flex;
@@ -53,26 +49,23 @@ div.friend li {
     align-items: center;
 }
 
-div.friend img {
+div.mainfeed-friend img{
     width: 110px;
     height: 110px;
     object-fit: cover;
     border-radius: 10px;
 }
 
-div.friend h5 {
+div.mainfeed-friend a, 
+div.mainfeed-friend Link {
+    text-decoration: none;
+}
+
+div.mainfeed-friend h5 {
     color: black;
     font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 15px;
     margin: 0;
     padding: 0;
     font-weight: bold;
-}
-
-div.friends-component-container-full-width div.friend {
-    width: calc(20% - 10px);
-}
-
-div.friends-component-container-full-width ul.friend {
-    justify-content: flex-start;
 }

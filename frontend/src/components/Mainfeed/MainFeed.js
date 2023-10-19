@@ -1,7 +1,7 @@
 import "./MainFeed.css";
 import { useSelector } from "react-redux";
 import MainFeedPosts from "../Posts/MainFeedPosts";
-import ProfileFriends from "../Friends/ProfileFriends";
+import MainFeedFriends from "../Friends/MainFeedFriends";
 
 function MainFeed() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -16,7 +16,7 @@ function MainFeed() {
 
       <div className="friends-section">
         <h2>Friends</h2>
-        <ProfileFriends user={sessionUser} />
+        <MainFeedFriends user={sessionUser} />
       </div>
     </div>
   );

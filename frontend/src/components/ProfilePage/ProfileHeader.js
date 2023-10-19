@@ -7,6 +7,9 @@ import { uploadPhoto } from "../../store/users";
 
 function ProfileHeader({ id, user }) {
   const sessionUser = useSelector((state) => state.session.user);
+  const friendCount =
+    (user?.friends?.filter((item) => item.status === true).length || 0) +
+    (user?.friendRequests?.filter((item) => item.status === true).length || 0);
   const dispatch = useDispatch();
 
   function handleUpload(e) {
@@ -54,7 +57,7 @@ function ProfileHeader({ id, user }) {
           <div className="profile-name-container">
             <h1>{user && user.firstName + " " + user.lastName}</h1>
             <Link id="friend-count" to={`/users/${id}/friends`}>
-              3 friends
+              {friendCount} friends
             </Link>
           </div>
         </div>

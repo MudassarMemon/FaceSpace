@@ -2,7 +2,7 @@ class Api::FriendsController < ApplicationController
     wrap_parameters include: Friend.attribute_names + ["userId", "friendId"]
 
     def create
-        @friend = Friend.create!(friend_params)
+        @friend = Friend.create(friend_params)
         render "api/friends/show"
     end
 
