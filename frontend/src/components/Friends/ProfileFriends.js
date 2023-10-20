@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import FriendRequestModal from "./FriendRequestModal";
 
 function ProfileFriends({ user }) {
+  const sessionUser = useSelector((state) => state.session.user);
   const users = useSelector(getUsers);
   const history = useHistory();
 
@@ -17,8 +18,9 @@ function ProfileFriends({ user }) {
           : "friends-component-container"
       }
     >
-      {" "}
-      <FriendRequestModal user={user} users={users} />
+      {sessionUser?.id === user?.id ? (
+        <FriendRequestModal user={user} users={users} />
+      ) : null}
       <ul className="friend">
         {user.friendRequests?.map((request) => {
           if (request.status) {

@@ -5,6 +5,9 @@ import FriendRequests from "./FriendRequests";
 
 function FriendRequestModal({ user, users }) {
   const [showModal, setShowModal] = useState(false);
+  const requestCount = user?.friendRequests?.filter(
+    (item) => item.status === false
+  ).length;
 
   return (
     <>
@@ -15,6 +18,7 @@ function FriendRequestModal({ user, users }) {
         }}
       >
         <button>Friend Requests</button>
+        {requestCount > 0 ? <p>{requestCount ?? ""}</p> : null}
       </div>
 
       {showModal && (
