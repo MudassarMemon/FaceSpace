@@ -17,7 +17,7 @@ function MainFeedFriends({ user }) {
   return (
     <div className="mainfeed-friends-component-container">
       <ul className="mainfeed-friend">
-        {user.friendRequests?.map((request) => {
+        {users[user.id - 1]?.friendRequests?.map((request) => {
           if (request.status) {
             return (
               <div className="mainfeed-friend" key={request.id}>
@@ -36,7 +36,7 @@ function MainFeedFriends({ user }) {
             return null;
           }
         })}
-        {user.friends?.map((request) => {
+        {users[user.id - 1]?.friends?.map((request) => {
           if (request.status) {
             return (
               <div className="mainfeed-friend" key={request.id}>

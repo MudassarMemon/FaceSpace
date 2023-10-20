@@ -37,7 +37,7 @@ function LoginForm() {
   function demoLogin() {
     return dispatch(
       sessionActions.login({
-        email: "mudassar-memon@test.test",
+        email: "Demo@email.com",
         password: "password",
       })
     );

@@ -88,7 +88,11 @@ const commentsReducer = (state = [], action) => {
       });
       return nextState;
     case RECEIVE_COMMENT:
-      nextState[action.data.comment.postId].push(action.data.comment);
+      if (nextState[action.data.comment.postId]) {
+        nextState[action.data.comment.postId].push(action.data.comment);
+      } else {
+        nextState[action.data.comment.postId] = [action.data.comment];
+      }
       return nextState;
     case EDIT_COMMENT:
       let indexToEdit = nextState[action.data.comment.postId].findIndex(

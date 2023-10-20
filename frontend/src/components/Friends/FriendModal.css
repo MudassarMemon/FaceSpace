@@ -22,8 +22,7 @@
     font-weight: bold;
     width: 100%;
     cursor: pointer;
-
-
+    position: relative;
 }
 
 .friends-container:hover {

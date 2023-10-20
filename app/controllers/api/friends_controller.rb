@@ -3,21 +3,26 @@ class Api::FriendsController < ApplicationController
 
     def create
         @friend = Friend.create(friend_params)
-        render "api/friends/show"
+        @users = User.all
+        render "api/users/index"
     end
 
     def update
         @friend = Friend.find_by(id: params[:id])
 
-        @friend.update(friend_params)
-        render "api/friends/show"
+        @friend.update(status: true)
+        @users = User.all
+
+        render "api/users/index"
     end
 
     def destroy
         @friend = Friend.find_by(id: params[:id])
 
         @friend.destroy
-        render json: { message: 'success' }
+        @users = User.all
+
+        render "api/users/index"
     end
 
     private

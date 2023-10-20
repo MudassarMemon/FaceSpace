@@ -62,84 +62,78 @@ function MainFeedPosts() {
       <ul>
         {sortedPosts().map((post) => {
           return (
-            <>
-              <li key={post.id}>
-                <PostEditModal
-                  post={post}
-                  sessionUser={sessionUser}
-                  setShowEditModal={setShowEditModal}
-                  setEditPostId={setEditPostId}
-                  editPostId={editPostId}
-                />
+            <li key={post.id}>
+              <PostEditModal
+                post={post}
+                sessionUser={sessionUser}
+                setShowEditModal={setShowEditModal}
+                setEditPostId={setEditPostId}
+                editPostId={editPostId}
+              />
 
-                <div className="post-author">
+              <div className="post-author">
+                <div>
+                  <img
+                    id="userIcon"
+                    alt="userLogo"
+                    src={users && users[post.authorId - 1]?.avatarUrl}
+                  ></img>
+                </div>
+                <div className="post-author-name">
                   <div>
-                    <img
-                      id="userIcon"
-                      alt="userLogo"
-                      src={users && users[post.authorId - 1]?.avatarUrl}
-                    ></img>
-                  </div>
-                  <div className="post-author-name">
-                    <div>
-                      <Link to={`/users/${post.authorId}`}>
-                        {users ? (
-                          <>
-                            {users[post.authorId - 1]?.firstName}{" "}
-                            {users[post.authorId - 1]?.lastName}
-                          </>
-                        ) : (
-                          ""
-                        )}
-                      </Link>
-                      {post.authorId !== post.feedId ? (
+                    <Link to={`/users/${post.authorId}`}>
+                      {users ? (
                         <>
-                          <div className="arrow-icon"></div>
-                          <Link to={`/users/${post.feedId}`}>
-                            {users[post.feedId - 1]?.firstName}{" "}
-                            {users[post.feedId - 1]?.lastName}
-                          </Link>
+                          {users[post.authorId - 1]?.firstName}{" "}
+                          {users[post.authorId - 1]?.lastName}
                         </>
                       ) : (
                         ""
                       )}
-                    </div>
-                    <div>
-                      <p className="created-at">
-                        {formatDateShort(post.createdAt)}
-                      </p>
-                      <p className="last-updated">
-                        {post.createdAt === post.updatedAt
-                          ? formatDateTime(post.createdAt)
-                          : "Edited on " + formatDateTime(post.updatedAt)}
-                      </p>
-                    </div>
+                    </Link>
+                    {post.authorId !== post.feedId ? (
+                      <>
+                        <div className="arrow-icon"></div>
+                        <Link to={`/users/${post.feedId}`}>
+                          {users[post.feedId - 1]?.firstName}{" "}
+                          {users[post.feedId - 1]?.lastName}
+                        </Link>
+                      </>
+                    ) : (
+                      ""
+                    )}
                   </div>
-                </div>
-                <div className="post-body">{post.body}</div>
-                <PostLikes
-                  post={post}
-                  sessionUser={sessionUser}
-                  users={users}
-                />
-                <PostComments
-                  sessionUser={sessionUser}
-                  users={users}
-                  postId={post.id}
-                  postAuthor={post.authorId}
-                />
-                <div className="add-comment">
                   <div>
-                    <img
-                      id="userIcon"
-                      alt="userLogo"
-                      src={sessionUser && sessionUser.avatarUrl}
-                    ></img>
+                    <p className="created-at">
+                      {formatDateShort(post.createdAt)}
+                    </p>
+                    <p className="last-updated">
+                      {post.createdAt === post.updatedAt
+                        ? formatDateTime(post.createdAt)
+                        : "Edited on " + formatDateTime(post.updatedAt)}
+                    </p>
                   </div>
-                  <CommentForm authorId={sessionUser.id} postId={post.id} />
                 </div>
-              </li>
-            </>
+              </div>
+              <div className="post-body">{post.body}</div>
+              <PostLikes post={post} sessionUser={sessionUser} users={users} />
+              <PostComments
+                sessionUser={sessionUser}
+                users={users}
+                postId={post.id}
+                postAuthor={post.authorId}
+              />
+              <div className="add-comment">
+                <div>
+                  <img
+                    id="userIcon"
+                    alt="userLogo"
+                    src={sessionUser && sessionUser.avatarUrl}
+                  ></img>
+                </div>
+                <CommentForm authorId={sessionUser.id} postId={post.id} />
+              </div>
+            </li>
           );
         })}
       </ul>

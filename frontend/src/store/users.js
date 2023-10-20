@@ -29,6 +29,43 @@ export const getUser = (id) => {
   };
 };
 
+export const updateFriendship = (id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/friends/${id}`, {
+    method: "PATCH",
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(recieveUsers(data));
+    return data;
+  }
+};
+
+export const createFriendship = (friendship) => async (dispatch) => {
+  const res = await csrfFetch(`/api/friends`, {
+    method: "POST",
+    body: JSON.stringify(friendship),
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(recieveUsers(data));
+    return data;
+  }
+};
+
+export const deleteFriendship = (id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/friends/${id}`, {
+    method: "DELETE",
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(recieveUsers(data));
+    return data;
+  }
+};
+
 export const fetchUsers = () => async (dispatch) => {
   const res = await csrfFetch("/api/users");
 

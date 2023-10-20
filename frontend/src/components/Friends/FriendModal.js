@@ -1,6 +1,6 @@
-import { Modal } from "../../context/Modal";
-import { useState } from "react";
 import "./FriendModal.css";
+import { useState } from "react";
+import EditFriendship from "./EditFriendship";
 
 function FriendModal({ user }) {
   const [showModal, setShowModal] = useState(false);
@@ -10,13 +10,13 @@ function FriendModal({ user }) {
       <div
         className="friends-container"
         onClick={() => {
-          setShowModal(true);
+          setShowModal(!showModal);
         }}
       >
         <button>Friends</button>
       </div>
 
-      {showModal && <Modal onClose={() => setShowModal(false)}></Modal>}
+      {showModal && <EditFriendship user={user} />}
     </>
   );
 }

@@ -1,7 +1,19 @@
 import "./FriendRequests.css";
 import { Link } from "react-router-dom";
+import { updateFriendship, deleteFriendship } from "../../store/users";
+import { useDispatch } from "react-redux";
 
 function FriendRequests({ user, users }) {
+  const dispatch = useDispatch();
+
+  const handleAccept = (e) => {
+    dispatch(updateFriendship(e.currentTarget.id));
+  };
+
+  const handleReject = (e) => {
+    dispatch(deleteFriendship(e.currentTarget.id));
+  };
+
   if (!user) return null;
 
   const validRequests =
@@ -23,11 +35,19 @@ function FriendRequests({ user, users }) {
               </Link>
             </div>
             <div className="friend-accept-deny-button">
-              <button className="accept-button">
-                <i class="fa-solid fa-check"></i>
+              <button
+                className="accept-button"
+                id={request.id}
+                onClick={(e) => handleAccept(e)}
+              >
+                <i className="fa-solid fa-check"></i>
               </button>
-              <button className="reject-button">
-                <i class="fa-solid fa-x"></i>
+              <button
+                className="reject-button"
+                id={request.id}
+                onClick={(e) => handleReject(e)}
+              >
+                <i className="fa-solid fa-x"></i>
               </button>
             </div>
           </li>

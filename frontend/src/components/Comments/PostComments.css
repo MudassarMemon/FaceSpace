@@ -43,7 +43,7 @@ li#comment-body > a{
 }
 
 div.comment-edit {
-    display:none;
+    /* display:none; */
     align-self: center;
     margin-left: 5px;
     border-radius: 100px;
