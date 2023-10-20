@@ -1,6 +1,6 @@
 .edit-friendship {
     position: absolute;
-    width: 140px;
+    width: 200px;
     border-radius: 8px;
     padding: 10px 0px;
     display: flex;
@@ -17,7 +17,7 @@
     justify-content: center;
     align-items: center; 
     border-radius: 8px;
-    width: 80%;
+    width: 90%;
     padding: 2px;
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 15px;
@@ -26,6 +26,7 @@
     cursor: pointer;
     border-radius: 8px;
     background-color: inherit;
+    padding: 5px;
 }
 
 .edit-friendship button:hover {

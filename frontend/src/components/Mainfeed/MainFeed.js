@@ -18,7 +18,9 @@ function MainFeed() {
 
       <div className="friends-section">
         <Link to={`/users/${sessionUser.id}/friends`}>
-          <h2>Friends</h2>
+          <h2>
+            <i class="fa-solid fa-user-group"></i> Friends
+          </h2>
         </Link>
         <MainFeedFriends user={sessionUser} />
       </div>
