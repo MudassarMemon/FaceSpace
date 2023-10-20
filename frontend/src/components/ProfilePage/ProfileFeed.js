@@ -2,6 +2,7 @@ import "./ProfileFeed.css";
 import ProfilePosts from "../Posts/ProfilePosts";
 import ProfileIntro from "./ProfileIntro";
 import ProfileFriends from "../Friends/ProfileFriends";
+import { Link } from "react-router-dom";
 
 function ProfileFeed({ user }) {
   return (
@@ -10,7 +11,9 @@ function ProfileFeed({ user }) {
         <ProfileIntro user={user} />
         <div className="profile-friends-container">
           <div>
-            <h2>Friends</h2>
+            <Link to={`/users/${user?.id}/friends`}>
+              <h2>Friends</h2>
+            </Link>
           </div>
           <ProfileFriends user={user} />
         </div>

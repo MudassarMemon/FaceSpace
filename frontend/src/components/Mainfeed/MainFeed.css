@@ -7,6 +7,10 @@
     width: 100%;
 }
 
+.friends-section *{
+    text-decoration: none;
+}
+
 .friends-section {
     width: 22%;
     border-radius: 8px;
@@ -22,6 +26,7 @@ h2{
     margin-bottom: 30px;
     width: 100%;
     text-align: center;
+    color: black;
 }
 
 .right-main-feed{

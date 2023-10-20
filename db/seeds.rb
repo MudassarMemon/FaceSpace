@@ -13,11 +13,17 @@ ApplicationRecord.transaction do
   # Unnecessary if using `rails db:seed:replant`
   User.destroy_all
   Post.destroy_all
+  Like.destroy_all
+  Comment.destroy_all
+  Friend.destroy_all
   
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   ApplicationRecord.connection.reset_pk_sequence!('users')
   ApplicationRecord.connection.reset_pk_sequence!('posts')
+  ApplicationRecord.connection.reset_pk_sequence!('likes')
+  ApplicationRecord.connection.reset_pk_sequence!('comments')
+  ApplicationRecord.connection.reset_pk_sequence!('friends')
 end
   
   puts "Creating users..."

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import MainFeedPosts from "../Posts/MainFeedPosts";
 import MainFeedFriends from "../Friends/MainFeedFriends";
 import DeveloperLinks from "./DeveloperLinks";
+import { Link } from "react-router-dom";
 
 function MainFeed() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -16,7 +17,9 @@ function MainFeed() {
       <MainFeedPosts />
 
       <div className="friends-section">
-        <h2>Friends</h2>
+        <Link to={`/users/${sessionUser.id}/friends`}>
+          <h2>Friends</h2>
+        </Link>
         <MainFeedFriends user={sessionUser} />
       </div>
     </div>
