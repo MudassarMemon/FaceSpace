@@ -2,6 +2,7 @@ import "./MainFeed.css";
 import { useSelector } from "react-redux";
 import MainFeedPosts from "../Posts/MainFeedPosts";
 import MainFeedFriends from "../Friends/MainFeedFriends";
+import DeveloperLinks from "./DeveloperLinks";
 
 function MainFeed() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -10,7 +11,7 @@ function MainFeed() {
 
   return (
     <div className="main-feed">
-      <div className="right-main-feed">Personal Links</div>
+      <DeveloperLinks />
 
       <MainFeedPosts />
 

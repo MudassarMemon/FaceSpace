@@ -40,7 +40,9 @@ function MainFeedPosts() {
   return (
     <div className="mainfeed-posts-container">
       <div className="create-profile-post">
-        <img id="userIcon" alt="userLogo" src={sessionUser?.avatarUrl}></img>
+        <Link to={`/users/${sessionUser?.id}`}>
+          <img id="userIcon" alt="userLogo" src={sessionUser?.avatarUrl}></img>
+        </Link>
         <button
           onClick={() => {
             setShowCreateModal(true);
@@ -73,11 +75,13 @@ function MainFeedPosts() {
 
               <div className="post-author">
                 <div>
-                  <img
-                    id="userIcon"
-                    alt="userLogo"
-                    src={users && users[post.authorId - 1]?.avatarUrl}
-                  ></img>
+                  <Link to={`/users/${post.authorId}`}>
+                    <img
+                      id="userIcon"
+                      alt="userLogo"
+                      src={users && users[post.authorId - 1]?.avatarUrl}
+                    ></img>
+                  </Link>
                 </div>
                 <div className="post-author-name">
                   <div>
@@ -125,11 +129,13 @@ function MainFeedPosts() {
               />
               <div className="add-comment">
                 <div>
-                  <img
-                    id="userIcon"
-                    alt="userLogo"
-                    src={sessionUser && sessionUser.avatarUrl}
-                  ></img>
+                  <Link to={`/users/${sessionUser?.id}`}>
+                    <img
+                      id="userIcon"
+                      alt="userLogo"
+                      src={sessionUser && sessionUser.avatarUrl}
+                    ></img>
+                  </Link>
                 </div>
                 <CommentForm authorId={sessionUser.id} postId={post.id} />
               </div>

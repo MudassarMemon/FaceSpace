@@ -224,12 +224,12 @@ end
         )
         
         User.create!(
-          email: "Demo@email.com",
+          email: "demo@demo.com",
           first_name: "Demo",
           last_name: "User",
           gender:"Male",
           birthday: "1939-05-03",
-          password: 'password',
+          password: "password",
           bio:Faker::Quote.famous_last_words,
           workplace: "Meta",
           hometown: "Anchorage, Alaska",
@@ -345,10 +345,13 @@ end
   end
 
 
-  status = true;
+  friendships.each_with_index do |friendship, i|
+    if (i % 3 == 0)
+      status = false
+    else
+      status = true
+    end
 
-  friendships.each do |friendship|
-    status = !status;
     Friend.create(user_id: friendship[0], friend_id: friendship[1], status: status)
   end
 

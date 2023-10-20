@@ -1,0 +1,59 @@
+.developer-links {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    padding:20px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    height: 250px;
+    width: 20%;
+    /* border: 1px solid red; */
+  }
+  
+
+    .developer-links h2 {
+    color: black;
+    font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+    padding: 0;
+    font-weight: bold;
+    /* border: 1px solid red; */
+}
+
+  .developer-links a {
+    color: black;
+    text-decoration: none;
+    font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border-radius: 8px;
+    /* border: 1px solid red; */
+  }
+
+  .developer-links a:hover {
+    background-color: #f2f2f2;
+  }
+
+  .developer-links a:active {
+    background-color: #e5e5e5;
+  }
+  
+  .developer-links i {
+    transform: scale(2);
+    margin-right: 30px;
+  }
+  
+  /* Adjust the size and color of the icons if needed */
+  .developer-links .fa-linkedin {
+    color: #0077b5;
+  }
+  
+  .developer-links .fa-github {
+    color: #333;
+  }
+  

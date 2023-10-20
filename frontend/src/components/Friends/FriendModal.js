@@ -9,14 +9,14 @@ function FriendModal({ user }) {
     <>
       <div
         className="friends-container"
-        onClick={() => {
+        onClick={(e) => {
           setShowModal(!showModal);
         }}
       >
         <button>Friends</button>
       </div>
 
-      {showModal && <EditFriendship user={user} />}
+      {showModal && <EditFriendship user={user} onClose={setShowModal} />}
     </>
   );
 }
