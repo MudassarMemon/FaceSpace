@@ -114,6 +114,11 @@ function ProfilePosts({ user }) {
               </div>
             </div>
             <div className="post-body">{post.body}</div>
+            {post.photoUrl ? (
+              <img className="post-image" src={post.photoUrl}></img>
+            ) : (
+              ""
+            )}
             <PostLikes post={post} sessionUser={sessionUser} users={users} />
             <PostComments
               sessionUser={sessionUser}

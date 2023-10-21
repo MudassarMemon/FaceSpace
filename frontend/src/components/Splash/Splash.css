@@ -50,6 +50,7 @@ div.logoContainer {
 img#fb-logo {
     width: 400px;
     height: 105px;
+    margin-left: -10px;
     background: #f0f2f5;
 }
 

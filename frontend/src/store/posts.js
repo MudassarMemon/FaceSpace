@@ -85,6 +85,19 @@ export const likePost = (id) => async (dispatch) => {
   }
 };
 
+export const uploadPost = (post) => async (dispatch) => {
+  const res = await csrfFetch(`/api/posts`, {
+    method: "POST",
+    body: post.newPost,
+  });
+
+  if (res.ok) {
+    let data = await res.json();
+    dispatch(receivePost(data));
+    return data;
+  }
+};
+
 const postsReducer = (state = [], action) => {
   const nextState = { ...state };
   switch (action.type) {

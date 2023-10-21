@@ -12,7 +12,7 @@ function Splash() {
             <div className="logoContainer">
               <img
                 id="fb-logo"
-                src="https://facespace-fs-seeds.s3.amazonaws.com/facespace-logo.png"
+                src="https://facespace-fs-seeds.s3.amazonaws.com/facespace-logo1.png"
                 alt="fblogo"
               />
             </div>

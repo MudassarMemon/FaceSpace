@@ -1,6 +1,6 @@
 import "./PostForm.css";
 import { useState, useEffect, useRef } from "react";
-import { createPost, getPost, updatePost } from "../../store/posts";
+import { createPost, getPost, updatePost, uploadPost } from "../../store/posts";
 import { useDispatch, useSelector } from "react-redux";
 
 function PostForm({ onClose, user, postId }) {
@@ -37,32 +37,19 @@ function PostForm({ onClose, user, postId }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onClose();
-    const newPhoto = new FormData();
-    // CHECK;
-    // newPost.append("post[body]", body);
-    // if (photoFile) {
-    //   newPost.append("post[photo]", photoFile);
-    // } else if (photoURL === null) {
-    //   newPost.append("post[photo]", null);
-    // }
-    // if (modal === "create-post") {
-    //   if (userId) {
-    //     newPost.append("post[profileUserId]", userId);
-    //   } else {
-    //     newPost.append("post[profileUserId", currentUser.id);
-    //   }
-    //   dispatch(createPost(newPost));
-    // } else {
-    //   newPost.append("post[id]", post.id);
-    //   dispatch(updatePost(newPost));
-    // }
-    // CHECK;
-    // newPhoto.append(`user[${e.target.id}]`, e.target.files[0]);
-    // dispatch(uploadPhoto({ id: sessionUser.id, photo: newPhoto }));
     if (postId) {
       return dispatch(updatePost({ ...post, body }));
     } else {
-      return dispatch(createPost({ authorId, body, feedId }));
+      if (!photoURL) {
+        return dispatch(createPost({ authorId, body, feedId }));
+      } else {
+        const newPost = new FormData();
+        newPost.append("post[body]", body);
+        newPost.append("post[authorId]", authorId);
+        newPost.append("post[feedId]", feedId);
+        newPost.append("post[photo]", photoFile);
+        dispatch(uploadPost({ newPost }));
+      }
     }
   };
 
