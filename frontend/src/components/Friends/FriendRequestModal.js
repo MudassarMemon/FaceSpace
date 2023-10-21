@@ -23,7 +23,11 @@ function FriendRequestModal({ user, users }) {
 
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <FriendRequests user={user} users={users} />
+          <FriendRequests
+            user={user}
+            users={users}
+            onClose={() => setShowModal(false)}
+          />
         </Modal>
       )}
     </>

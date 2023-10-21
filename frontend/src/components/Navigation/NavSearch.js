@@ -37,7 +37,7 @@ function NavSearch() {
       <FontAwesomeIcon id="magnify-icon" icon={faMagnifyingGlass} />
       <input
         id="userSearch"
-        placeholder="Search Facespace"
+        placeholder="Search Officebook"
         type="text"
         value={searchText}
         onChange={handleChange}

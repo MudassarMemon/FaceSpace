@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { updateFriendship, deleteFriendship } from "../../store/users";
 import { useDispatch } from "react-redux";
 
-function FriendRequests({ user, users }) {
+function FriendRequests({ user, users, onClose }) {
   const dispatch = useDispatch();
 
   const handleAccept = (e) => {
@@ -21,6 +21,12 @@ function FriendRequests({ user, users }) {
 
   return (
     <div className="friend-requests-component-container">
+      <img
+        onClick={onClose}
+        id="close-friend-requests"
+        alt="close-friend-requests"
+        src="https://static.xx.fbcdn.net/rsrc.php/v3/yO/r/zgulV2zGm8t.png"
+      />
       <ul className="friend-requests-list">
         <h3>Friend Requests</h3>
         {validRequests.map((request) => (

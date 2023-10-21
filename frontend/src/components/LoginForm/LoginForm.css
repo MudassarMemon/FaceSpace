@@ -81,7 +81,7 @@ div.loginButtonContainer{
 }
 
 div.loginButtonContainer > input {
-    background-color: #474271;
+    background-color: #1877f2;
     width: 100%;
     border: none;
     line-height: 48px;
@@ -100,7 +100,7 @@ div.demoUserContainer {
 }
 
 div.demoUserContainer > button {
-    color: #474271;
+    color: #1877f2;
     font-size: 14px;
     font-family: Helvetica, Arial, sans-serif;
     border: none;

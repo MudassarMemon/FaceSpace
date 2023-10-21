@@ -29,8 +29,9 @@ div.leftNavBarContainer > nav {
 }
 
 img#fbLogo {
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 div.centerNavBarContainer{

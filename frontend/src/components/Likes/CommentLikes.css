@@ -18,8 +18,17 @@
     div.comment-like-icon {
       position: absolute;
       right: -20px;
-      bottom: -10px;;
+      bottom: -10px;
       cursor: pointer;
+    }
+
+    #comment-like-count {
+      position:absolute;
+      top: 5px;
+      right: -5px;
+      font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      color: rgba(0, 0, 0, 0.519);
     }
 
     div.comment-like-icon:hover > div{  

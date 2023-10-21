@@ -33,7 +33,7 @@ function Navigation() {
             <img
               id="fbLogo"
               alt="fbLogo"
-              src="https://facespace-fs-seeds.s3.amazonaws.com/facespace-icon.png"
+              src="https://facespace-fs-seeds.s3.amazonaws.com/TheOfficeBookIcon4.png"
             ></img>
           </NavLink>
           <NavSearch />

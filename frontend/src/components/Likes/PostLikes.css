@@ -82,6 +82,9 @@ div.like-bar-container {
     display: flex;
     flex-flow: row nowrap;
     cursor: pointer;
+    font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    color: black;
   }
 
   div.likes-list {

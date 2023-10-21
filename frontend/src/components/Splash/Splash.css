@@ -48,10 +48,12 @@ div.logoContainer {
 }
 
 img#fb-logo {
-    width: 400px;
-    height: 105px;
-    margin-left: -10px;
+    width: 500px;
+    height: 150px;
     background: #f0f2f5;
+    border-radius: 20px;
+    opacity: .8;
+    filter: contrast(100);
 }
 
 .left > h2 {    
@@ -81,7 +83,8 @@ footer > *{
     font-family: Helvetica, Arial, sans-serif;
     font-size: 30px;
     line-height: 32px;
-    color: #474271;
+    color: #1877f2;
+    color: rgb(73, 72, 72);
 }
 
 footer > a:hover{

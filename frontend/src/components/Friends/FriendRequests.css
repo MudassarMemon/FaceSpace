@@ -13,6 +13,26 @@
     margin: 0px;
     border-radius: 8px;
     background-color: #fbf9f9;
+    position: relative;
+}
+
+img#close-friend-requests {
+    border-radius: 50%;
+    background-color: #f0f2f5;
+    padding: 3px;
+    position:absolute;
+    top: 10px;
+    right: 10px;
+}
+
+img#close-friend-requests:hover {
+    background-color: #e4e6e8;
+    cursor: pointer;
+  }
+
+img#close-friend-requests:active {
+    background-color: #d8d9dc;
+    transform: scale(.9);
 }
 
 .friend-requests-list {

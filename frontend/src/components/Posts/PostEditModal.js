@@ -1,10 +1,11 @@
+import "./PostEditModal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { deletePost } from "../../store/posts";
 import { Modal } from "../../context/Modal";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import "./PostEditModal.css";
+import { useParams } from "react-router-dom";
 
 function PostEditModal({
   post,
@@ -17,6 +18,14 @@ function PostEditModal({
   const [modalY, setmodalY] = useState(0);
   const [showPostSettingsModal, setShowPostSettingsModal] = useState(false);
   const dispatch = useDispatch();
+  const { id } = useParams();
+  let modalX;
+
+  if (id) {
+    modalX = "20.5%";
+  } else {
+    modalX = "32%";
+  }
 
   const handleDelete = () => {
     dispatch(deletePost(editPostId));
@@ -42,7 +51,7 @@ function PostEditModal({
             setShowPostSettingsModal(true);
           }}
         >
-          <FontAwesomeIcon icon={faEllipsis} />
+          <FontAwesomeIcon className="meatball-menu" icon={faEllipsis} />
         </div>
       ) : (
         ""
@@ -51,7 +60,7 @@ function PostEditModal({
       {showPostSettingsModal && (
         <Modal
           background={false}
-          position={[modalY, "20.5%", null, null]}
+          position={[modalY, modalX, null, null]}
           onClose={() => setShowPostSettingsModal(false)}
         >
           {editPostAuthorId === sessionUser.id ? (

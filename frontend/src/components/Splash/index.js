@@ -12,11 +12,13 @@ function Splash() {
             <div className="logoContainer">
               <img
                 id="fb-logo"
-                src="https://facespace-fs-seeds.s3.amazonaws.com/facespace-logo1.png"
+                src="https://facespace-fs-seeds.s3.amazonaws.com/TheOfficeBookLogo.png"
                 alt="fblogo"
               />
             </div>
-            <h2>Connect with friends and the world around you on Facespace.</h2>
+            <h2>
+              Connect with friends and the world around you on Officebook.
+            </h2>
           </div>
 
           <div className="right">
@@ -33,7 +35,9 @@ function Splash() {
         <a href="https://github.com/MudassarMemon">
           <i className="fa-brands fa-github"></i> GitHub
         </a>
-        <a href="https://github.com/MudassarMemon/Facespace">Facespace Repo</a>
+        <a href="https://github.com/MudassarMemon/Facespace">
+          Officespace Repo
+        </a>
       </footer>
     </>
   );

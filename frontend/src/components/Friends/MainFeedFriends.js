@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getUsers, fetchUsers } from "../../store/users";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import FriendRequestModal from "./FriendRequestModal";
 
 function MainFeedFriends({ user }) {
   const { id } = useParams();
@@ -16,6 +17,7 @@ function MainFeedFriends({ user }) {
   if (!users || !user) return null;
   return (
     <div className="mainfeed-friends-component-container">
+      <FriendRequestModal user={user} users={users} />
       <ul className="mainfeed-friend">
         {users[user.id - 1]?.friendRequests?.map((request) => {
           if (request.status) {
