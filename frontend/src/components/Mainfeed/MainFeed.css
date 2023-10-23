@@ -7,6 +7,10 @@
     width: 100%;
 }
 
+.main-feed-left {
+    width: 22%;
+}
+
 .friends-section *{
     text-decoration: none;
 }

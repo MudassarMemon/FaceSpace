@@ -7,8 +7,9 @@
     height: 250px;
     width: 20%;
     /* border: 1px solid red; */
+    position: fixed;
+    left: 50px;
   }
-  
 
     .developer-links h2 {
     color: black;
