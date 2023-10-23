@@ -7,6 +7,7 @@ import ProfileAbout from "./ProfileAbout";
 import ProfileHeader from "./ProfileHeader";
 import ProfileFriends from "../Friends/ProfileFriends";
 import "./ProfilePage.css";
+import ProfilePhotos from "./ProfilePhotos";
 
 function ProfilePage() {
   const { id } = useParams();
@@ -37,7 +38,11 @@ function ProfilePage() {
             {users && <ProfileFriends user={user} />}
           </div>
         </Route>
-        <Route path="/users/:id/photos"></Route>
+        <Route path="/users/:id/photos">
+          <div className="photos-tab">
+            <ProfilePhotos />
+          </div>
+        </Route>
       </div>
     </>
   );

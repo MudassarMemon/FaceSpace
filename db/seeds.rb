@@ -238,7 +238,7 @@ end
           password: "password",
           bio:Faker::Quote.famous_last_words,
           workplace: "Meta",
-          hometown: "Anchorage, Alaska",
+          hometown: "Toronto, Canada",
           current_city: "New York, New York",
           school: "Stony Brook University",
           pronunciation: "Deh-Moh You-Zer"
@@ -319,13 +319,206 @@ end
     end
   end
 
-  2.times do 
+
+
+
+  demo_posts = ["Starting the day with a fresh cup of coffee in hand is pure bliss! ☕️✨", "Nothing beats the breathtaking beauty of the evening sky painted with sunset hues! 🌅", "Treating myself to a spa day — relaxation and rejuvenation at its best! 🧖‍♀️💆‍♂️🌿", "Waking up to breakfast in bed feels like the universe's way of saying 'good morning!' 🥞🍳🌞", "Spotted a cute puppy today and it instantly melted my heart! 🐶❤️"]
+  
+  demo_posts.each do |post|
     Post.create!({
       author_id: 16,
       feed_id: 16,
-      body: Faker::Quotes::Shakespeare.hamlet_quote
+      body: post
     })
   end
+
+  posts = Post.all;
+
+  (16..20).each do |i|
+    posts[i].photo.attach(
+    io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/demo#{i+3}.jpg"),
+    filename: "demo#{i+3}.jpg"
+    )
+  end
+
+  michael_posts = ["Lice pro tip: A nice peanut butter scalp massage does wonders. 🥜", 
+  "CPR training in the conference room!", "The mug don't lie.",
+   "Started from the bottom. 💯"]
+  
+  pam_posts = ["Besties! 💕"]
+
+  andy_posts = ["Here comes treble! My Cornell acapella group visited today Good times. By the way, did you hear, I went to Cornell?"]
+
+  dwight_posts = ["Who did this!? Turn yourself in!",
+   "Don't play with fire, kids.",
+    "I am definitely winning best costume."]
+
+  angela_posts = ["Oh D", 
+  "Look at how cute Sprinkles looks! ✨"]
+
+  kevin_posts = ["At least once a year, I like to bring in some of my Kevin's Famous Chili. The trick is to undercook the onions. Everybody is going to get to know each other in the pot. I'm serious about this stuff. I'm up the night before pressing garlic and dicing whole tomatoes. I toast my own Ancho chilies. It's a recipe passed down from Malones for generations. It's probably the thing I do best."] 
+
+  jim_posts = ["6 days of no nonsense. Keep up the good work folks!",
+  "Question - What kind of bear is best?"]
+
+  
+  post = Post.create!({
+    author_id: 7,
+    feed_id: 7,
+    body: dwight_posts[2]
+  })
+  
+  post.photo.attach(
+    io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/dwight3.jpg"),
+    filename: "dwight3.jpg"
+    )
+  
+
+  post = Post.create!({
+    author_id: 1,
+    feed_id: 1,
+    body: michael_posts[1]
+  })
+  
+  post.photo.attach(
+    io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/michael2.jpg"),
+    filename: "michael2.jpg"
+    )
+  
+  
+  post = Post.create!({
+    author_id: 4,
+    feed_id: 4,
+    body: angela_posts[0]
+  })
+  
+  post.photo.attach(
+    io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/angela1.jpg"),
+    filename: "angela1.jpg"
+    )
+  
+
+  post = Post.create!({
+    author_id: 4,
+    feed_id: 4,
+    body: angela_posts[1]
+  })
+  
+  post.photo.attach(
+    io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/angela2.jpg"),
+    filename: "angela2.jpg"
+    )
+  
+  post = Post.create!({
+    author_id: 8,
+    feed_id: 8,
+    body: pam_posts[0]
+  })
+  
+  post.photo.attach(
+    io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/pam1.jpeg"),
+    filename: "pam1.jpeg"
+    )
+  
+
+  post = Post.create!({
+    author_id: 3,
+    feed_id: 3,
+    body: jim_posts[0]
+  })
+  
+  post.photo.attach(
+    io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/jim1.jpg"),
+    filename: "jim1.jpg"
+    )
+
+    
+  post = Post.create!({
+    author_id: 1,
+    feed_id: 1,
+    body: michael_posts[0]
+  })
+  
+  post.photo.attach(
+    io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/michael1.jpg"),
+    filename: "michael1.jpg"
+    )
+  
+    post = Post.create!({
+      author_id: 1,
+      feed_id: 1,
+      body: michael_posts[3]
+    })
+    
+    post.photo.attach(
+      io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/michael4.jpg"),
+      filename: "michael4.jpg"
+      )
+  
+
+  post = Post.create!({
+    author_id: 7,
+    feed_id: 7,
+    body: dwight_posts[1]
+  })
+  
+  post.photo.attach(
+    io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/dwight2.jpg"),
+    filename: "dwight2.jpg"
+    )
+
+    post = Post.create!({
+      author_id: 1,
+      feed_id: 1,
+      body: michael_posts[2]
+    })
+    
+    post.photo.attach(
+      io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/michael3.jpg"),
+      filename: "michael3.jpg"
+      )
+
+  post = Post.create!({
+    author_id: 7,
+    feed_id: 7,
+    body: dwight_posts[0]
+  })
+  
+  post.photo.attach(
+    io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/dwight1.jpeg"),
+    filename: "dwight1.jpeg"
+    )
+  
+
+  post = Post.create!({
+    author_id: 2,
+    feed_id: 2,
+    body: kevin_posts[0]
+  })
+  
+  post.photo.attach(
+    io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/kevin1.jpg"),
+    filename: "kevin1.jpg"
+    )
+  
+
+  post = Post.create!({
+    author_id: 3,
+    feed_id: 3,
+    body: jim_posts[1]
+  })
+  
+  post.photo.attach(
+    io: URI.open("https://facespace-fs-seeds.s3.amazonaws.com/jim2.jpg"),
+    filename: "jim2.jpg"
+    )
+  
+  Comment.create(
+    author_id: 7,
+    post_id: post.id,
+    body: "Identity theft is not a joke jim!" 
+  )
+
 
   puts "Creating friends..."
   

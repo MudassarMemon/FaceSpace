@@ -2,6 +2,7 @@ import "./ProfileFeed.css";
 import ProfilePosts from "../Posts/ProfilePosts";
 import ProfileIntro from "./ProfileIntro";
 import ProfileFriends from "../Friends/ProfileFriends";
+import ProfilePhotos from "./ProfilePhotos";
 import { Link } from "react-router-dom";
 
 function ProfileFeed({ user }) {
@@ -19,6 +20,7 @@ function ProfileFeed({ user }) {
         </div>
         <div className="profile-photos-container">
           <h2>Photos</h2>
+          <ProfilePhotos />
         </div>
       </div>
 

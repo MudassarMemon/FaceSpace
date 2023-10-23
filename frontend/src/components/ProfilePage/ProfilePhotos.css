@@ -1,0 +1,26 @@
+.profile-photos-container{
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    padding:20px;
+}
+
+.profile-photos{
+    width: 115px;
+    height: 115px;
+    object-fit: cover;
+    float: left;
+    margin: 15px;
+    border-radius: 10px;
+
+}
+
+.profile-photos-tab{
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    float: left;
+    margin: 30px;
+    border-radius: 10px;
+    padding: 0px;
+}
