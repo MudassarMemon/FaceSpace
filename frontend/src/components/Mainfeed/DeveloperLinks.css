@@ -6,7 +6,7 @@
     background-color: #ffffff;
     height: 250px;
     width: 20%;
-    /* border: 1px solid red; */
+     
     position: fixed;
     left: 50px;
   }
@@ -18,7 +18,7 @@
     margin-bottom: 30px;
     padding: 0;
     font-weight: bold;
-    /* border: 1px solid red; */
+     
 }
 
   .developer-links a {
@@ -34,7 +34,7 @@
     border-radius: 8px;
     padding: 10px;
     box-shadow: 0px 0px 5px 0px #1b75e43c;
-    /* border: 1px solid red; */
+     
   }
 
   .developer-links a:hover {
@@ -50,7 +50,6 @@
     margin-right: 30px;
   }
   
-  /* Adjust the size and color of the icons if needed */
   .developer-links .fa-linkedin {
     color: #0077b5;
   }

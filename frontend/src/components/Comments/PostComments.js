@@ -17,7 +17,6 @@ function PostComments({ users, postId, postAuthor, sessionUser }) {
   const [showEditFormModal, setShowEditFormModal] = useState(false);
   const editCommentRef = useRef(null);
   const dispatch = useDispatch();
-  // debugger;
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);

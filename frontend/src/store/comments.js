@@ -82,7 +82,6 @@ const commentsReducer = (state = [], action) => {
   const nextState = { ...state };
   switch (action.type) {
     case RECEIVE_POSTS:
-      // debugger;
       action.data.posts.forEach((post) => {
         nextState[Object.values(post)[0].id] = post.comments;
       });

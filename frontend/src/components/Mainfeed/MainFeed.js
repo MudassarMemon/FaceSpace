@@ -23,7 +23,7 @@ function MainFeed() {
             <i class="fa-solid fa-user-group"></i> Friends
           </h2>
         </Link>
-        <MainFeedFriends user={sessionUser} />
+        <MainFeedFriends sessionUser={sessionUser} />
       </div>
     </div>
   );

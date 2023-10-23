@@ -37,10 +37,6 @@ function Navigation() {
             ></img>
           </NavLink>
           <NavSearch />
-          {/* <div>
-            <FontAwesomeIcon id="magnify-icon" icon={faMagnifyingGlass} />
-            <input id="userSearch" placeholder="Search Facespace" type="text" />
-          </div> */}
         </nav>
       </div>
 

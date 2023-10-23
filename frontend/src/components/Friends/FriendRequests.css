@@ -5,7 +5,7 @@
 }
 
 .friend-requests-component-container {
-    /* border: 1px solid red; */
+     
     display: flex;
     justify-content: center;
     width: 400px;
@@ -36,7 +36,7 @@ img#close-friend-requests:active {
 }
 
 .friend-requests-list {
-    /* border: 1px solid red; */
+     
     padding: 0px;
     margin: 0px;
     display: flex;
@@ -48,11 +48,11 @@ img#close-friend-requests:active {
 
 div.friend-request {
     width: 60%;
-    /* border: 1px solid red; */
+     
 }
 
 .friend-requests-list li {
-    /* border: 1px solid red; */
+     
     display: flex;
     justify-content: space-around;
     padding: 10px;
@@ -83,7 +83,7 @@ div.friend-request {
 .friend-accept-deny-button {
     width: 40%;
     height: 50%;
-    /* border: 1px solid red; */
+     
     display: flex;
     justify-content: center;
     align-self: center;
@@ -95,15 +95,16 @@ div.friend-request {
     border: none;
     cursor: pointer;
     font-size: 16px;
+    margin: 0px 3px;
 }
 
 .accept-button {
-    background-color: #4CAF50; /* Green color */
+    background-color: #4CAF50; 
     color: #fff;
 }
 
 .reject-button {
-    background-color: #f44336; /* Red color */
+    background-color: #f44336; 
     color: #fff;
 }
 

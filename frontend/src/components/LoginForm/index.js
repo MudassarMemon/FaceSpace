@@ -79,9 +79,6 @@ function LoginForm() {
               placeholder="Password"
               required
             />
-            {/* <div id="eye">
-              <FontAwesomeIcon icon={faEyeSlash} />
-            </div> */}
           </div>
         </div>
 

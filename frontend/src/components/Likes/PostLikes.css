@@ -8,12 +8,12 @@ div.like-bar-container {
   }
 
   div.like-button {
-    /* border: 1px solid red; */
+     
     border: 0px;
     width: 50%;  }
 
   div.comment-button-focus {
-    /* border: 1px solid red; */
+     
     border: 0px;
     width: 50%;
   }

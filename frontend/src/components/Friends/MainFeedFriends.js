@@ -5,10 +5,11 @@ import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import FriendRequestModal from "./FriendRequestModal";
 
-function MainFeedFriends({ user }) {
+function MainFeedFriends({ sessionUser }) {
   const { id } = useParams();
   const users = useSelector(getUsers);
   const dispatch = useDispatch();
+  const user = users[sessionUser.id - 1];
 
   useEffect(() => {
     dispatch(fetchUsers());

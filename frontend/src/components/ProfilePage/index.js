@@ -21,6 +21,7 @@ function ProfilePage() {
 
   useEffect(() => {
     dispatch(fetchUser(id));
+    window.scrollTo(0, 0);
   }, [id, dispatch]);
 
   return (
