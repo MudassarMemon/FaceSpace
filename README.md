@@ -13,7 +13,7 @@ Officebook is a full-stack application inspired by Facebook and themed around NB
   - Emphasis on DRY (Don't Repeat Yourself) principles, modularity, and reusability of code. Efficient state management achieved through Redux.
 - **Hosting:** Heroku and AWS
 
-### Highlighted Features
+### Feature highlights:
 
 1. **User Authentication**
    
@@ -32,7 +32,7 @@ Officebook is a full-stack application inspired by Facebook and themed around NB
   end
 ```
 
-1. **Posts**
+2. **Posts**
 
     - Users can create, view, edit, and delete their posts. What's more, image uploads with posts add a personalized touch to every user's feed.
 
