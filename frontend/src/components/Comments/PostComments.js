@@ -38,11 +38,8 @@ function PostComments({ users, postId, postAuthor, sessionUser }) {
   };
 
   function handleDelete(id) {
-    return (e) => {
-      e.stopPropagation();
-      dispatch(deleteComment(id));
-      setCommentId("");
-    };
+    dispatch(deleteComment(id));
+    setCommentId("");
   }
 
   if (!postComments || !(postComments.length > 0)) return null;
@@ -139,6 +136,7 @@ function PostComments({ users, postId, postAuthor, sessionUser }) {
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
+                            console.log("click");
                             handleDelete(comment.id);
                           }}
                         >
