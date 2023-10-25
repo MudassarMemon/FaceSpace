@@ -23,11 +23,12 @@
 #
 class User < ApplicationRecord
   validates :email, :session_token, presence: true, uniqueness: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  # validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :first_name, :last_name, :birthday, :gender, presence: true
   validates :password, length: { in: 6..255 }, allow_nil: true
   has_secure_password
   before_validation :ensure_session_token
+  validate :email_format
   validate :verify_age
 
   has_one_attached :cover
@@ -78,6 +79,49 @@ class User < ApplicationRecord
   def verify_age
     if ((Date.today - birthday).to_i) <= (13 * 365.242374)
       errors.add(:birthday, message: 'invalid. Must be 13 years of age or older to sign up')
+    end
+  end
+
+  def email_format
+  
+    email_parts = email.split("@")
+    if email_parts.length != 2 || email_parts[0].empty? || email_parts[1].empty?
+      errors.add(:email, message: 'invalid.')
+      return
+    end
+
+    email_tlds = [
+    "com",
+    "net",
+    "org",
+    "edu",
+    "gov",
+    "mil",
+    "int",
+    "eu",
+    "us",
+    "uk",
+    "ca",
+    "au",
+    "nz",
+    "jp",
+    "cn",
+    "in",
+    "br",
+    "mx",
+    "ru",
+    "za",
+    "ch",
+    "fr",
+    "de",
+    "it",
+    "es",
+    "io"
+  ]
+    email_domain = email_parts[1].split(".")
+    if email_domain.length != 2 || email_domain[0].empty? || email_domain[1].empty? || !email_tlds.include?(email_domain[1])
+      errors.add(:email, message: 'invalid.')
+      return
     end
   end
 
