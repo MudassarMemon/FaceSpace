@@ -31,14 +31,14 @@ function Splash() {
         <h4>Mudassar Memon</h4>
         <a
           href="https://www.linkedin.com/in/mudassar-memon-0a48b1125/"
-          target="_target"
+          target="_blank"
         >
           <i className="fa-brands fa-linkedin"></i> LinkedIn
         </a>
-        <a href="https://github.com/MudassarMemon" target="_target">
+        <a href="https://github.com/MudassarMemon" target="_blank">
           <i className="fa-brands fa-github"></i> GitHub
         </a>
-        <a href="https://github.com/MudassarMemon/Facespace" target="_target">
+        <a href="https://github.com/MudassarMemon/Facespace" target="_blank">
           Officespace Repo
         </a>
       </footer>

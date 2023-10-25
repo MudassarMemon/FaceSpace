@@ -119,3 +119,8 @@ div.comment-edit-options button{
   .edit-posts-icon#comments{
     transform: scale(.8);
   } 
+
+  .comment-input form{
+    height:100%;
+    width: 100%;
+  }

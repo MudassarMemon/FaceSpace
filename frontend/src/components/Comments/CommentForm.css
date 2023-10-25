@@ -39,3 +39,9 @@ input.comment-input:focus {
     cursor: pointer;
     color: #0062d2;
 }
+
+#submit-comment-button{
+    display:none;
+    z-index: -1;
+}
+

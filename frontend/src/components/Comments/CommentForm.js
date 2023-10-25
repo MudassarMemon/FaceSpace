@@ -7,26 +7,29 @@ function CommentForm({ authorId, postId }) {
   const [body, setBody] = useState("");
   const dispatch = useDispatch();
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     dispatch(createComment({ body, authorId, postId }));
     setBody("");
   };
 
   return (
     <div className="comment-input">
-      <input
-        className="comment-input"
-        type="text"
-        id={`id${postId}`}
-        placeholder="Write a comment..."
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
-      />
-      <i
-        onClick={handleSubmit}
-        id="submit-message"
-        className="fa-solid fa-paper-plane-top"
-      ></i>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <input
+          className="comment-input"
+          type="text"
+          id={`id${postId}`}
+          placeholder="Write a comment..."
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+        />
+        <i
+          onClick={handleSubmit}
+          id="submit-message"
+          className="fa-solid fa-paper-plane-top"
+        ></i>
+      </form>
     </div>
   );
 }
