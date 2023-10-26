@@ -120,3 +120,9 @@ img#remove-post-image:hover{
     opacity: .8;
     transform: scale(1.05);
 }
+
+p.empty-body{
+    color: red;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 11px;
+}

@@ -9,6 +9,7 @@ function CommentForm({ authorId, postId }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (body === "") return;
     dispatch(createComment({ body, authorId, postId }));
     setBody("");
   };

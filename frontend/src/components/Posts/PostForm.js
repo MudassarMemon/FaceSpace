@@ -9,6 +9,7 @@ function PostForm({ onClose, user, postId }) {
   const [body, setBody] = useState(postId ? post.body : "");
   const [photoFile, setPhotoFile] = useState();
   const [photoURL, setPhotoURL] = useState();
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const postInput = useRef();
   const authorId = sessionUser.id;
@@ -36,6 +37,10 @@ function PostForm({ onClose, user, postId }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (body === "") {
+      setError("Post cannot be blank.");
+      return;
+    }
     onClose();
     if (postId) {
       return dispatch(updatePost({ ...post, body }));
@@ -63,6 +68,7 @@ function PostForm({ onClose, user, postId }) {
       />
       <form onSubmit={handleSubmit}>
         <h1>{postId ? "Edit post" : "Create post"}</h1>
+        {error ? <p className="empty-body">{error}</p> : ""}
         <textarea
           ref={postInput}
           value={body}

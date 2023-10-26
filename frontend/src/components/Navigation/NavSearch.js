@@ -32,18 +32,13 @@ function NavSearch() {
     };
   };
 
-  return (
-    <div>
-      <FontAwesomeIcon id="magnify-icon" icon={faMagnifyingGlass} />
-      <input
-        id="userSearch"
-        placeholder="Search Officebook"
-        type="text"
-        value={searchText}
-        onChange={handleChange}
-      />
-
-      <div className="search-dropdown">
+  const dropDown = () => {
+    if (searchText === "") {
+      return <p>Wow, such empty!</p>;
+    } else if (searchResults.length === 0) {
+      return <p>No results found.</p>;
+    } else {
+      return (
         <ul>
           {searchResults
             ? searchResults.map((result) => (
@@ -58,7 +53,22 @@ function NavSearch() {
               ))
             : ""}
         </ul>
-      </div>
+      );
+    }
+  };
+
+  return (
+    <div>
+      <FontAwesomeIcon id="magnify-icon" icon={faMagnifyingGlass} />
+      <input
+        id="userSearch"
+        placeholder="Search Officebook"
+        type="text"
+        value={searchText}
+        onChange={handleChange}
+      />
+
+      <div className="search-dropdown">{dropDown()}</div>
     </div>
   );
 }

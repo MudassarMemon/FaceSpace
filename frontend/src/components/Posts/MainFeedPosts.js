@@ -41,7 +41,11 @@ function MainFeedPosts() {
     <div className="mainfeed-posts-container">
       <div className="create-profile-post">
         <Link to={`/users/${sessionUser?.id}`}>
-          <img id="userIcon" alt="userLogo" src={sessionUser?.avatarUrl}></img>
+          <img
+            id="userIcon"
+            alt="userLogo"
+            src={users[sessionUser.id - 1]?.avatarUrl}
+          ></img>
         </Link>
         <button
           onClick={() => {
@@ -138,7 +142,7 @@ function MainFeedPosts() {
                     <img
                       id="userIcon"
                       alt="userLogo"
-                      src={sessionUser && sessionUser.avatarUrl}
+                      src={users[sessionUser.id - 1]?.avatarUrl}
                     ></img>
                   </Link>
                 </div>

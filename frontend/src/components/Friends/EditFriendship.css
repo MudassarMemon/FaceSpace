@@ -37,3 +37,15 @@
 .edit-friendship button:active {
     background-color: #e5e5e5;
 }
+
+p.friend-notification {
+    position: absolute;
+    bottom: 80px;
+    left: 40px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    }
+    
+    .fade-in-and-out {
+    opacity: 1;
+    }

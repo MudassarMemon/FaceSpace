@@ -136,7 +136,6 @@ function PostComments({ users, postId, postAuthor, sessionUser }) {
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            console.log("click");
                             handleDelete(comment.id);
                           }}
                         >

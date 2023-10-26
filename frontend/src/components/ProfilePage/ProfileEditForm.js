@@ -37,6 +37,7 @@ function ProfileEditForm({ onClose, user }) {
         pronunciation,
       })
     );
+    window.location.reload();
   };
 
   return (

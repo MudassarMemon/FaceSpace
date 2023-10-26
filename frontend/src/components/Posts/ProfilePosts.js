@@ -37,7 +37,11 @@ function ProfilePosts({ user }) {
     <div className="profile-posts-container">
       <div className="create-profile-post">
         <Link to={`/users/${sessionUser?.id}`}>
-          <img id="userIcon" alt="userLogo" src={sessionUser?.avatarUrl}></img>
+          <img
+            id="userIcon"
+            alt="userLogo"
+            src={users[sessionUser.id - 1]?.avatarUrl}
+          ></img>
         </Link>
 
         <button
@@ -132,7 +136,7 @@ function ProfilePosts({ user }) {
                   <img
                     id="userIcon"
                     alt="userLogo"
-                    src={sessionUser && sessionUser.avatarUrl}
+                    src={users[sessionUser.id - 1]?.avatarUrl}
                   ></img>
                 </Link>
               </div>

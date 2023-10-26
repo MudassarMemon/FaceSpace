@@ -14,6 +14,7 @@ function ProfilePhotos() {
         if (post.photoUrl) {
           return (
             <img
+              key={post.id}
               className={
                 history.location.pathname.includes("photos")
                   ? "profile-photos-tab"

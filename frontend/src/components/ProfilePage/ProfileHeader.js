@@ -16,6 +16,7 @@ function ProfileHeader({ id, user }) {
     const newPhoto = new FormData();
     newPhoto.append(`user[${e.target.id}]`, e.target.files[0]);
     dispatch(uploadPhoto({ id: sessionUser.id, photo: newPhoto }));
+    window.location.reload();
   }
 
   return (

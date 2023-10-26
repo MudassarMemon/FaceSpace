@@ -7,18 +7,27 @@ import { React, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Link, useParams, useHistory } from "react-router-dom";
 import { Modal } from "../../context/Modal";
+import { getUsers } from "../../store/users";
 import * as sessionActions from "../../store/session";
 import NavBarDropdown from "./NavBarDropdown";
 import NavSearch from "./NavSearch";
 
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
+  const users = useSelector(getUsers);
   const [showModal, setShowModal] = useState(false);
   const { id } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
+  let navAvatar;
 
-  useEffect(() => {}, [history.location.pathname]);
+  if (users) {
+    if (users[sessionUser?.id]) {
+      navAvatar = users[sessionUser?.id - 1].avatarUrl;
+    }
+  }
+
+  useEffect(() => {}, [history.location.pathname, sessionUser]);
 
   function logout() {
     history.push("/");
@@ -68,7 +77,7 @@ function Navigation() {
           <img
             id="userLogo"
             alt="userLogo"
-            src={sessionUser && sessionUser.avatarUrl}
+            src={users ? navAvatar : sessionUser?.avatarUrl}
             onClick={() => {
               setShowModal((prev) => !prev);
             }}
