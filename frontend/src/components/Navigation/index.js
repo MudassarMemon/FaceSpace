@@ -19,14 +19,7 @@ function Navigation() {
   const { id } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
-  let navAvatar;
-
-  if (users) {
-    if (users[sessionUser?.id]) {
-      navAvatar = users[sessionUser?.id - 1].avatarUrl;
-    }
-  }
-
+  
   useEffect(() => {}, [history.location.pathname, sessionUser]);
 
   function logout() {
@@ -77,7 +70,7 @@ function Navigation() {
           <img
             id="userLogo"
             alt="userLogo"
-            src={users ? navAvatar : sessionUser?.avatarUrl}
+            src={users ? users[sessionUser?.id - 1]?.avatarUrl : sessionUser?.avatarUrl}
             onClick={() => {
               setShowModal((prev) => !prev);
             }}

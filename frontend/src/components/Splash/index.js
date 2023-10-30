@@ -39,7 +39,7 @@ function Splash() {
           <i className="fa-brands fa-github"></i> GitHub
         </a>
         <a href="https://github.com/MudassarMemon/Facespace" target="_blank">
-          Officespace Repo
+          Officebook Repo
         </a>
       </footer>
     </>
