@@ -54,6 +54,7 @@ function PostComments({ users, postId, postAuthor, sessionUser }) {
                 <div className="post-comment" id={comment.id} key={comment?.id}>
                   <Link to={`/users/${comment.authorId}`}>
                     <img
+                      id="userIcon"
                       alt=""
                       src={users && users[comment.authorId - 1]?.avatarUrl}
                     />
