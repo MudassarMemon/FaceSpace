@@ -6,21 +6,21 @@
 }
 
 .profile-photos{
-    width: 115px;
-    height: 115px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     float: left;
-    margin: 15px;
+    margin: 14px;
     border-radius: 10px;
 
 }
 
 .profile-photos-tab{
-    width: 320px;
+    width: 322px;
     height: 320px;
     object-fit: cover;
     float: left;
-    margin: 30px;
+    margin: 10px;
     border-radius: 10px;
     padding: 0px;
 }
