@@ -35,7 +35,7 @@ div.search-dropdown li{
 }
 
 div.search-dropdown li:hover {
-    background-color: #f2f2f2;
+    background-color: #e9e4e4;
     cursor: pointer;
 }
   
@@ -47,6 +47,7 @@ div.search-dropdown p {
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 15px;
     font-weight: 500;
+    padding-right: 10px;
 }
 
 div.search-dropdown img {

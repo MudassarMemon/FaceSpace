@@ -85,6 +85,8 @@ footer > *{
     line-height: 32px;
     color: #1877f2;
     color: rgb(73, 72, 72);
+    display: flex;
+    align-items: center;
 }
 
 footer > a:hover{
@@ -94,4 +96,17 @@ footer > a:hover{
 
 footer > h4 {
     font-weight: 400;
+}
+
+#officebook-git-logo{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    filter: grayscale(100%);
+}
+
+a > i{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }

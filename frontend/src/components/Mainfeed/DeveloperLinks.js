@@ -21,6 +21,10 @@ function DeveloperLinks() {
       >
         <i className="fa-brands fa-github"></i> GitHub
       </a>
+      <br />
+      <a href="https://github.com/MudassarMemon/Facespace" target="_blank">
+          <img alt="" id="mainfeed-git-logo" src="https://facespace-fs-seeds.s3.amazonaws.com/TheOfficeBookFavicon.png"/>Officebook Repo
+      </a>
     </div>
   );
 }

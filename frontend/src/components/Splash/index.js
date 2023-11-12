@@ -39,7 +39,7 @@ function Splash() {
           <i className="fa-brands fa-github"></i> GitHub
         </a>
         <a href="https://github.com/MudassarMemon/Facespace" target="_blank">
-          Officebook Repo
+          <img alt="" id="officebook-git-logo" src="https://facespace-fs-seeds.s3.amazonaws.com/TheOfficeBookFavicon.png"/>Officebook Repo
         </a>
       </footer>
     </>
