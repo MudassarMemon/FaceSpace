@@ -95,8 +95,20 @@ footer > a:hover{
 }
 
 footer > h4 {
+    text-decoration: none;
     font-weight: 400;
+    color: rgb(73, 72, 72);
 }
+
+footer > h4 > a {
+    text-decoration: none;
+    color: rgb(73, 72, 72);
+}
+
+footer > h4 > a:hover{
+    transform: translateY(-3px)
+}
+
 
 #officebook-git-logo{
     width: 30px;
