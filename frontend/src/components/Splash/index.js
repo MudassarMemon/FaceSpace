@@ -28,7 +28,7 @@ function Splash() {
         </div>
       </div>
       <footer>
-        <h4><a href="https://mudassarmemon.github.io/MudassarMemon/" target="_blank">Mudassar Memon</a></h4>
+        <h4><a href="https://mudassarmemon-3xhow.ondigitalocean.app/" target="_blank">Mudassar Memon</a></h4>
         <a
           href="https://www.linkedin.com/in/mudassar-memon-0a48b1125/"
           target="_blank"
