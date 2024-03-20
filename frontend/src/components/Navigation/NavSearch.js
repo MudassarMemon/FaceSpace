@@ -34,7 +34,7 @@ function NavSearch() {
 
   const dropDown = () => {
     if (searchText === "") {
-      return <p>Wow, such empty!</p>;
+      return <p>wow, such empty</p>;
     } else if (searchResults.length === 0) {
       return <p>No results found.</p>;
     } else {
