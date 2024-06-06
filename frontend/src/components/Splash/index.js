@@ -2,6 +2,8 @@ import React from "react";
 import LoginForm from "../LoginForm";
 import SignupFormModal from "../SignupForm/index";
 import "./Splash.css";
+import rubySvg from "../../assets/ruby_logo";
+import reactSvg from "../../assets/react_logo";
 
 function Splash() {
   return (
@@ -17,7 +19,7 @@ function Splash() {
               />
             </div>
             <h2>
-              Connect with friends and the world around you on Officebook.
+              Built this neat app in 2 weeks with Ruby <span>{rubySvg()}</span> and React <span>{reactSvg()}</span>.
             </h2>
           </div>
 
