@@ -1,9 +1,8 @@
 import React from "react";
 import LoginForm from "../LoginForm";
 import SignupFormModal from "../SignupForm/index";
-import {rubySvg, reactSvg} from "../../assets/splash_logos";
 import "./Splash.css";
-import "../../styles/utils.css";
+import { rubySvg ,reactSvg } from "../../assets/splash_logos.js";
 
 function Splash() {
   return (
