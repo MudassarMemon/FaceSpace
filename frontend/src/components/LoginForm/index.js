@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./LoginForm.css";
 
 function LoginForm() {
@@ -57,21 +55,18 @@ function LoginForm() {
   };
 
   return (
-    <div className="loginFormContainer">
-      <form id="login" onSubmit={handleSubmit}>
+   
+      <form className="login" onSubmit={handleSubmit}>
         {errorMessages()}
-        <div className="inputContainer">
-          <div className="emailContainer">
             <input
               type="text"
+              name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
               required
             />
-          </div>
 
-          <div className="passwordContainer">
             <input
               type="password"
               value={password}
@@ -79,20 +74,15 @@ function LoginForm() {
               placeholder="Password"
               required
             />
-          </div>
-        </div>
 
-        <div className="loginButtonContainer">
           <input type="submit" value="Log In"></input>
-        </div>
 
-        <div className="demoUserContainer">
-          <button onClick={demoLogin}>Demo User</button>
-        </div>
+
+          <button className="demo" onClick={demoLogin}>Demo User</button>
 
         <div className="line"></div>
       </form>
-    </div>
+
   );
 }
 

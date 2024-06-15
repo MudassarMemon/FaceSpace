@@ -1,131 +1,56 @@
-div.loginFormContainer {
-    display: flex;
-    align-content: flex-start;
-    height: 375px;
-}
-
-form#login{
+form.login {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    height: 100%;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
 }
 
 input {
     width: 100%;
-    line-height: 16px;
-    border-radius: 6px;
+    margin-top: 16px;
+    padding: 16px;
     border-width: 1px;
-    box-sizing: border-box;
-    font-size: 17px;
-}
-
-div.inputContainer{
-    height: 130px;
-    width: 100%;
-    display: relative;
-}
-
-form#login input:focus{
-    outline:  #1877f2 thin solid;
-    box-shadow: 0px 0px 0px 3px rgb(229, 242, 255);
-}
-form#login input:active{
-    background-color: white;
-}
-
-div.emailContainer{
-    height: 50px;
-    width: 360px;
-    padding: 6px 0;
-}
-
-div.emailContainer > input{
-    height: 100%;
-    width: 100%;
-    padding: 14px 16px;
-    border-color: rgba(221, 223, 226, 0.50);
+    border-radius: 6px;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 16px;
-    letter-spacing: normal;
     font-weight: normal;
 }
 
-div.passwordContainer{
-    height: 50px;
-    width: 360px;
-    padding: 6px 0;
-    position: relative;
-}
-
-#eye{
-    position:absolute;
-    top: 12px;
-    right: 5px;
-}
-
-div.passwordContainer > input{
-    height: 100%;
-    width: 100%;
-    padding: 14px 16px;
+input[name="email"], input[type="password"] {
     border-color: rgba(221, 223, 226, 0.50);
-    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    font-weight: normal;
 }
 
-div.loginButtonContainer{
-    width: 360px;
-    padding: 6px 0 0;
-}
-
-div.loginButtonContainer > input {
+input[type="submit"] {
     background-color: #1877f2;
-    width: 100%;
     border: none;
-    line-height: 48px;
-    font-size: 20px;
-    font-family: Helvetica, Arial, sans-serif;
     color: white;
-    padding: 0px 16px;
-    cursor: pointer;
+    font-size: 20px;
     font-weight: bold;
-    text-align: center;
-    height: 48px;
+    cursor: pointer;
 }
 
-div.demoUserContainer {
-    margin: 16px 0 0;
+form.login input:focus {
+    outline: #1877f2 thin solid;
+    box-shadow: 0px 0px 0px 3px rgb(229, 242, 255);
 }
 
-div.demoUserContainer > button {
+button.demo {
     color: #1877f2;
+    margin-top: 16px;
+    border: none;
     font-size: 14px;
     font-family: Helvetica, Arial, sans-serif;
-    border: none;
-    margin: 0;
-    padding: 0;
 }
 
-div.demoUserContainer > button:hover {
-    text-decoration: underline;
+button.demo:hover {
     cursor: pointer;
+    text-decoration: underline;
 }
 
 div.line {
-    margin: 20px 0;
-    border-top: thin solid rgba(89, 88, 88, 0.265);
-    width: 330px;
-}
-
-form#login > ul{
-    list-style: none;
     width: 100%;
-    color: red;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 11px;
-    padding-left:2px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 16px 0px;
+    border-top: thin solid rgba(89, 88, 88, 0.265);
 }

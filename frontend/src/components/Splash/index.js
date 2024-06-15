@@ -1,36 +1,37 @@
 import React from "react";
-import LoginForm from "../LoginForm";
+import LoginForm from "../LoginForm/index.js";
 import SignupFormModal from "../SignupForm/index";
-import {rubySvg, reactSvg} from "../../assets/splash_logos";
 import "./Splash.css";
-import "../../styles/utils.css";
+import { rubySvg ,reactSvg } from "../../assets/splash_logos.js";
 
 function Splash() {
   return (
     <>
-      <div className="splashContainer">
-        <div className="splashContentContainer">
+      <div className="splash-container">
+        <div className="splash-wrapper">
           <div className="left">
-            <div className="logoContainer">
+            <div className="logo-wrapper">
               <img
-                id="fb-logo"
+                id="officebook-logo"
                 src="https://facespace-fs-seeds.s3.amazonaws.com/TheOfficeBookLogo.png"
-                alt="fblogo"
+                alt="officebook-logo"
               />
+              <h2>
+                Built this neat app in 2 weeks with Ruby <span>{rubySvg()}</span> & React <span>{reactSvg()}</span>
+              </h2>
             </div>
-            <h2>
-              Built this neat app in 2 weeks with Ruby <span>{rubySvg()}</span> and React <span>{reactSvg()}</span>
-            </h2>
           </div>
 
           <div className="right">
-            <LoginForm />
-            <SignupFormModal />
+            <div className="login-form-wrapper">
+              <LoginForm />
+              <SignupFormModal />
+            </div>
           </div>
         </div>
       </div>
       <footer>
-        <h4><a href="https://mudassarmemon-3xhow.ondigitalocean.app/" target="_blank">Mudassar Memon</a></h4>
+        <a href="https://mudassarmemon-3xhow.ondigitalocean.app/" target="_blank">Mudassar Memon</a>
         <a
           href="https://www.linkedin.com/in/mudassar-memon-0a48b1125/"
           target="_blank"
