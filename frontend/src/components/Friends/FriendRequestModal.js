@@ -12,7 +12,7 @@ function FriendRequestModal({ user, users }) {
   return (
     <>
       <div
-        className="friends-req-button-container "
+        className="friends-req-button-container"
         onClick={() => {
           setShowModal(true);
         }}

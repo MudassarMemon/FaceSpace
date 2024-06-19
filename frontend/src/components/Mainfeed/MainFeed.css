@@ -11,6 +11,7 @@
     width: 22%;
 }
 
+
 .friends-section *{
     text-decoration: none;
 }
@@ -24,7 +25,14 @@
     background-color: #ffffff;
 }
 
-h2{
+@media (max-width: 1360px) {
+    .friends-section, .right-main-feed, .main-feed-left  {
+      width: 0%;
+      display: none;
+    }
+}
+
+.main-feed h2{
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 20px;
     margin-bottom: 0px;

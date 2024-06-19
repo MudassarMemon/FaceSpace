@@ -1,6 +1,5 @@
 .splash-container {
     padding: 50px 10px;
-    overflow: hidden;
     background: #f0f2f5;
 }
 
@@ -138,7 +137,7 @@ a > i {
         padding: 10px;
 
         a{
-            margin: 0 50px;
+            margin: 0px 50px;
         }
     }
 }

@@ -15,7 +15,7 @@ div.mainfeed-friends-component-container{
 }
 
 div.mainfeed-friend {    
-    width: calc(32.5% - 10px);  
+    width: calc(32.5%);  
     height: 150px;
     margin-bottom: 5px;
     padding: 5px;
@@ -26,7 +26,7 @@ ul.mainfeed-friend {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;  
+    justify-content: flex-start;
     margin: 0;
     padding: 0px 0px 0px 15px;
     &:after {
@@ -51,6 +51,20 @@ div.mainfeed-friend img{
     border-radius: 10px;
 }
 
+@media (max-width: 2000px) {
+    div.mainfeed-friend img{
+        width: 100px;
+        height: 100px;
+    }
+  }
+
+  @media (max-width: 1700px) {
+    div.mainfeed-friend img{
+        width: 100%;
+        height: 80px;
+    }
+  }
+
 div.mainfeed-friend a, 
 div.mainfeed-friend Link {
     text-decoration: none;
@@ -64,3 +78,4 @@ div.mainfeed-friend h5 {
     padding: 0;
     font-weight: bold;
 }
+

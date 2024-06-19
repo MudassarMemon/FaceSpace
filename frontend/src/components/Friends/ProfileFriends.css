@@ -10,6 +10,7 @@
     background-color: #ffffff;
 }
 
+
 div.friends-component-container {
      
     width: 100%;
@@ -20,7 +21,7 @@ div.friends-component-container {
 
 
 div.friend {
-    width: calc(32.5% - 10px);  
+    width: calc(32.5%);  
     height: 150px;
     margin-bottom: 5px;
     padding: 5px;
@@ -49,7 +50,7 @@ div.friend li {
 }
 
 div.friend img {
-    width: 110px;
+    width: 100%;
     height: 110px;
     object-fit: cover;
     border-radius: 10px;
@@ -67,9 +68,7 @@ div.friend h5 {
 div.friends-component-container-full-width div.friend {
     width: calc(19% - 10px);
     justify-content: flex-start;
-     
     margin: 5px;
-    
 }
 
 div.friends-component-container-full-width * {

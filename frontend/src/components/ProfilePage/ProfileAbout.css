@@ -7,3 +7,9 @@ div.profile-about-container {
 div.profile-about-container > div.intro-container{
     width: 60%;
 }
+
+@media (max-width: 960px) {
+    div.profile-about-container > div.intro-container{
+        width: 80%;
+    }
+}

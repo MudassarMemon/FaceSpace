@@ -1,6 +1,13 @@
 .mainfeed-posts-container {
     width: 40%;
 }
+
+@media (max-width: 1360px) {
+  .mainfeed-posts-container {
+    width: 90%;
+}
+}
+
 .mainfeed-posts-container > * {
     margin-bottom: 15px;
 }
@@ -95,7 +102,7 @@ div.post-body {
 }
 
 li > div.add-comment {
-    height: 30px;
+    height: 50px;
     margin: 10px 0 0 0;
     padding: 10px 0 0 0;
     display: flex;
@@ -115,7 +122,7 @@ div.add-comment img {
     border-radius: 8px;
     padding:10px;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
-    height: 40px;
+    height: 50px;
     background-color: #ffffff;
 }
 

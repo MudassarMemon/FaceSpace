@@ -24,14 +24,3 @@ body{
 html {
     scrollbar-gutter: stable;
   }
-
-/* Hide scrollbar for Webkit browsers */
-body::-webkit-scrollbar {
-  display: none;
-}
-
-/* For other browsers */
-body {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
-}

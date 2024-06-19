@@ -30,8 +30,8 @@ input.comment-input:focus {
 
 #submit-message{
     position: absolute;
-    right: 15px;
-    top: 6px;
+    right: 20px;
+    top: 12px;
     color: #bec3c9;
 }
 

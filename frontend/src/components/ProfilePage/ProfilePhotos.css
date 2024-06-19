@@ -3,14 +3,18 @@
     justify-content: flex-start;
     flex-flow: row wrap;
     padding:20px;
+})
+
+.profile-photos-container h2{
+   width: 100%;
 }
 
 .profile-photos{
-    width: 100px;
+    width: 28%;
     height: 100px;
     object-fit: cover;
     float: left;
-    margin: 14px;
+    margin: 8px;
     border-radius: 10px;
 
 }

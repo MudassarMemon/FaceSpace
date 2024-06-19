@@ -15,6 +15,20 @@
     border-radius: 10px;
 }
 
+@media (max-width: 960px) {
+    .friends-tab{
+        width: 80%;
+    }
+
+    .friends-tab ul.friend{
+        flex-wrap: wrap;
+    }
+
+    .friends-tab ul.friend > * {
+        min-width: 100px;
+    }
+}
+
 .photos-tab{
     width: 60%;
     padding: 10px;

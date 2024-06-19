@@ -10,7 +10,13 @@
     left: 50px;
   }
 
-    .developer-links h2 {
+@media (max-width: 1360px) {
+  .developer-links {
+    display:none;
+  }
+}
+
+.developer-links h2 {
     color: black;
     font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 20px;

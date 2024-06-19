@@ -14,7 +14,6 @@ function ProfileEditModal({ user, buttonName }) {
           setShowModal(true);
         }}
       >
-        <div className="edit-icon"></div>
         <button>{buttonName ? buttonName : "Edit Profile"}</button>
       </div>
 
