@@ -3,7 +3,7 @@
     justify-content: flex-start;
     flex-flow: row wrap;
     padding:20px;
-})
+}
 
 .profile-photos-container h2{
    width: 100%;
@@ -20,8 +20,8 @@
 }
 
 .profile-photos-tab{
-    width: 322px;
-    height: 320px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
     float: left;
     margin: 10px;

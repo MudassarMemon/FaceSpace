@@ -21,12 +21,11 @@ function ProfileFriends({ user }) {
       {sessionUser?.id === user?.id ? (
         <FriendRequestModal user={user} users={users} />
       ) : null}
-      <ul className="friend">
+      <ul className="friends">
         {user.friendRequests?.map((request) => {
           if (request.status) {
             return (
-              <div className="friend" key={request.id}>
-                <li>
+                <li className="friend" key={request.id}>
                   <Link to={`/users/${request.userId}`}>
                     <img alt="" src={users[request.userId - 1]?.avatarUrl} />
                     <h5>
@@ -35,7 +34,7 @@ function ProfileFriends({ user }) {
                     </h5>
                   </Link>
                 </li>
-              </div>
+
             );
           } else {
             return null;
@@ -44,8 +43,7 @@ function ProfileFriends({ user }) {
         {user.friends?.map((request) => {
           if (request.status) {
             return (
-              <div className="friend" key={request.id}>
-                <li>
+                <li className="friend" key={request.id}>
                   <Link to={`/users/${request.friendId}`}>
                     <img alt="" src={users[request.friendId - 1]?.avatarUrl} />
                     <h5>
@@ -54,7 +52,6 @@ function ProfileFriends({ user }) {
                     </h5>
                   </Link>
                 </li>
-              </div>
             );
           } else {
             return null;
