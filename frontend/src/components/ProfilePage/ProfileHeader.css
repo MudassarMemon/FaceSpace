@@ -259,3 +259,20 @@ background-color: #e5e5e5;
     border-bottom-left-radius: 0;
     border-bottom: 3px solid #1b74e4;
 }
+
+
+@media (max-width: 750px) {
+    .profile-name-container {
+        margin-bottom: 50px;
+    }
+    .edit-friendship {
+        max-width: 130px;
+    }
+    .right-profile-details {
+        margin-top: 70px;
+        margin-left: 30px;
+    }
+    .profile-header{
+        height: auto;
+    }
+  }
