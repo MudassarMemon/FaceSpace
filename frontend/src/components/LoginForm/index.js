@@ -64,7 +64,6 @@ function LoginForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
-              required
             />
 
             <input
@@ -72,7 +71,6 @@ function LoginForm() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
-              required
             />
 
           <input type="submit" value="Log In"></input>
