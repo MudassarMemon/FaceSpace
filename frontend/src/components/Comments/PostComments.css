@@ -65,7 +65,6 @@ div.comment-edit-options{
     justify-content: space-around;
     align-self: center;
     border-radius: 8px;
-    width: 75px;
     align-items: center;
     padding: 5px;
     margin-left: 10px;
@@ -78,8 +77,8 @@ div.comment-edit-options > div {
     flex-flow: row nowrap;
     align-items: center;
     cursor: pointer;
-    justify-content: flex-start;
-    justify-items: flex-start;
+    justify-content: center;
+    align-items: center;
     border-radius: 8px;
     width: 100%;
 }
@@ -103,12 +102,11 @@ div.comment-edit-options button{
     border-radius: 8px;
     background-color: inherit;
     display:flex;
+    align-items: center;
+    width: 100%;
 }
 
 .delete-comment-icon{
-    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yx/r/BS4qBw3i0wj.png);
-    background-position: 0px -1049px;
-    background-size: auto;
     width: 25px;
     height: 20px;
     background-repeat: no-repeat;

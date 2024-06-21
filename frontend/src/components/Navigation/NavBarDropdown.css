@@ -15,7 +15,6 @@ img#userLogo:hover {
   border-radius: 10px;
   padding: 20px 10px;
   width: 300px;
-  height: 100px;
   box-shadow: 8px 8px 40px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
   display:flex;
   flex-flow: column nowrap;
@@ -35,6 +34,9 @@ img#userLogo:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 8px;
+  padding: 20px 0;
+  border: 2px solid rgba(128, 128, 128, 0.261);
 }
 
 .profile-link:hover {
@@ -71,24 +73,20 @@ img#userLogo:hover {
   height: 50%;
   border-radius: 8px;
   padding: 10px 0;
+  border: 2px solid rgba(128, 128, 128, 0.261);
 }
 
-.logout-icon{
-  background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yZ/r/n2RR8_RffR8.png);
-  background-position: 0px -400px;
-  background-size: 26px 1026px;
-  width: 20px;
-  height: 20px;
-  background-repeat: no-repeat;
-  display: inline-block;
+.logout-icon img{
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
 }
 
 .logout-container button{
   font-family: "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   border: none;
-  padding-bottom: 6px;
   cursor: pointer;
 }
 

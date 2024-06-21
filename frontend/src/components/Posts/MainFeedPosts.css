@@ -208,7 +208,7 @@ img#userIcon  {
     background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yH/r/vaAkJ-lmnYp.png);
     background-position: 0px -357px;
     background-size: auto;
-    width: 25px;
+    width: 20px;
     height: 20px;
     background-repeat: no-repeat;
     display: inline-block;
@@ -218,7 +218,7 @@ img#userIcon  {
     background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yx/r/BS4qBw3i0wj.png);
     background-position: 0px -1049px;
     background-size: auto;
-    width: 25px;
+    width: 20px;
     height: 20px;
     background-repeat: no-repeat;
     display: inline-block;
@@ -246,3 +246,45 @@ img#userIcon  {
     display:flex;
   }
 
+@media (max-width: 1360px) {
+  div.post-settings {
+    position: relative;
+    right: -210%;
+  }
+}
+
+@media (max-width: 1250px) {
+  div.post-settings {
+    position: relative;
+    right: -180%;
+  }
+}
+
+
+@media (max-width: 1050px) {
+  div.post-settings {
+    position: relative;
+    right: -150%;
+  }
+}
+
+@media (max-width: 850px) {
+  div.post-settings {
+    position: relative;
+    right: -120%;
+  }
+}
+
+@media (max-width: 650px) {
+  div.post-settings {
+    position: relative;
+    right: -90%;
+  }
+}
+
+@media (max-width: 550px) {
+  div.post-settings {
+    position: relative;
+    right: -60%;
+  }
+}

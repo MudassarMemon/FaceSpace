@@ -8,7 +8,7 @@
 }
 
 .main-feed-left {
-    width: 22%;
+    width: 25%;
 }
 
 
@@ -17,7 +17,7 @@
 }
 
 .friends-section {
-    width: 22%;
+    width: 25%;
     border-radius: 8px;
     height: fit-content;
     padding:25px;
@@ -30,7 +30,18 @@
       width: 0%;
       display: none;
     }
+
+    .main-feed {
+        padding-top: 80px;
+    }
 }
+
+@media (max-width: 1700px) {
+    .friends-section {
+        padding: 20px 10px; 
+    }
+}
+
 
 .main-feed h2{
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
@@ -44,3 +55,4 @@
 .right-main-feed{
     width: 25%;
 }
+

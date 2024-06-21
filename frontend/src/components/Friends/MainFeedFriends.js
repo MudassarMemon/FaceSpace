@@ -19,7 +19,7 @@ function MainFeedFriends({ sessionUser }) {
   return (
     <div className="mainfeed-friends-component-container">
       <FriendRequestModal user={user} users={users} />
-      <ul className="mainfeed-friend">
+      <ul className="mainfeed-friends">
         {users[user.id - 1]?.friendRequests?.map((request) => {
           if (request.status) {
             return (

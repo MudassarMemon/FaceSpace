@@ -4,7 +4,7 @@ img#close-edit-comment {
     padding: 3px;
     position:absolute;
     top: 10px;
-    right: 10px;
+    right: 30px;
 }
 
 img#close-edit-comment:hover {
@@ -18,11 +18,15 @@ img#close-edit-comment:active {
 }
 
 div.edit-comment-form {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    border-radius: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow:column wrap;
     padding: 20px;
+    width: 90%;
 }
 
 textarea.comment-input {
@@ -33,6 +37,7 @@ textarea.comment-input {
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     padding: 5px;
     margin-right: 200px;
+    margin-bottom: 5px;
 }
 
 textarea.comment-input:focus {
@@ -42,7 +47,7 @@ textarea.comment-input:focus {
 div.edit-comment-form h1{
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 20px;
-    margin-top: 0;
+    margin-bottom: 10px;
     align-self: flex-start;
 }
 

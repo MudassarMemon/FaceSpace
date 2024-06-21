@@ -1,4 +1,3 @@
-import "./PostEditModal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { deletePost } from "../../store/posts";
@@ -64,7 +63,7 @@ function PostEditModal({
           onClose={() => setShowPostSettingsModal(false)}
         >
           {editPostAuthorId === sessionUser.id ? (
-            <div className="post-settings">
+            <div className="profile-post-settings">
               <div
                 className="edit-posts-container"
                 onClick={() => {

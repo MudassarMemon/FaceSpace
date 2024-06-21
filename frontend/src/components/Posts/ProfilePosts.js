@@ -9,7 +9,7 @@ import { getUsers } from "../../store/users";
 import PostForm from "./PostForm";
 import CommentForm from "../Comments/CommentForm";
 import PostComments from "../Comments/PostComments";
-import PostEditModal from "./PostEditModal";
+import ProfilePostEditModal from "./ProfilePostEditModal";
 import PostLikes from "../Likes/PostLikes";
 
 function ProfilePosts({ user }) {
@@ -64,7 +64,7 @@ function ProfilePosts({ user }) {
       <ul>
         {sortedPosts().map((post) => (
           <li key={post.id}>
-            <PostEditModal
+            <ProfilePostEditModal
               post={post}
               sessionUser={sessionUser}
               setShowEditModal={setShowEditModal}

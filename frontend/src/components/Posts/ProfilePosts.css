@@ -148,7 +148,7 @@ img#userIcon  {
   }
 
 
-  div.post-settings {
+  div.profile-post-settings {
     width: 150px;
     border-radius: 8px;
     padding: 10px 0px;
@@ -161,7 +161,7 @@ img#userIcon  {
   }
 
 
-  div.post-settings > div {
+  div.profile-post-settings > div {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
@@ -171,16 +171,16 @@ img#userIcon  {
     padding: 2px;
   }
 
-  div.post-settings > div:hover {
+  div.profile-post-settings > div:hover {
     background-color: #f2f2f2;
     cursor: pointer;
   }
   
-  div.post-settings > div:active {
+  div.profile-post-settings > div:active {
     background-color: #e5e5e5;
   }
 
-  div.post-settings button {
+  div.profile-post-settings button {
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 15px;
     font-weight: 500;
@@ -196,23 +196,13 @@ img#userIcon  {
   }
  
   .edit-posts-icon{
-    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yH/r/vaAkJ-lmnYp.png);
-    background-position: 0px -357px;
-    background-size: auto;
     width: 25px;
     height: 20px;
-    background-repeat: no-repeat;
-    display: inline-block;
   } 
 
   .delete-posts-icon{
-    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yx/r/BS4qBw3i0wj.png);
-    background-position: 0px -1049px;
-    background-size: auto;
     width: 25px;
     height: 20px;
-    background-repeat: no-repeat;
-    display: inline-block;
   } 
 
   p.last-updated {
@@ -239,8 +229,58 @@ img#userIcon  {
 
 .post-image{
   width:95%;
-  border-radius: 8px;
   padding: 10px;
   margin: 5px;
   outline: 1px solid rgba(0, 0, 0, 0.248);
+}
+
+
+@media (max-width: 1600px) {
+  div.profile-post-settings {
+    position: relative;
+    left: -30%;
+  }
+}
+
+@media (max-width: 1350px) {
+  div.profile-post-settings {
+    position: relative;
+    left: 0%;
+  }
+}
+
+@media (max-width: 1250px) {
+  div.profile-post-settings {
+    position: relative;
+    left: 20%;
+  }
+}
+
+
+@media (max-width: 1050px) {
+  div.profile-post-settings {
+    position: relative;
+    left: 50%;
+  }
+}
+
+@media (max-width: 850px) {
+  div.profile-post-settings {
+    position: relative;
+    left: 50%;
+  }
+}
+
+@media (max-width: 650px) {
+  div.profile-post-settings {
+    position: relative;
+    left: 40%;
+  }
+}
+
+@media (max-width: 550px) {
+  div.profile-post-settings {
+    position: relative;
+    left: 30%;
+  }
 }

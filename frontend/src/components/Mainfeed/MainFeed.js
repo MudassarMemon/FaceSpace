@@ -12,8 +12,7 @@ function MainFeed() {
 
   return (
     <div className="main-feed">
-      <DeveloperLinks />
-      <div className="main-feed-left"></div>
+      <div className="main-feed-left"> <DeveloperLinks /></div>
 
       <MainFeedPosts />
 
